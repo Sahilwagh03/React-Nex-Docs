@@ -1,87 +1,41 @@
 # Avatar
 
 <span style={{ color: 'grey', fontSize: 18, fontWeight: 400 }}>
-  Displays a button or a component that looks like a button.
+  An image element with a fallback for representing the user.
 </span>
 
-## Default Avatar
+<br></br>
 
-Here's the default Avatar component without any props specified:
+import Avatar from "../../components/Avatar/Avatar";
+import AvatarImage from "../../components/Avatar/AvatarImage";
+import AvatarInitialsFallback from "../../components/Avatar/AvatarInitialsFallback";
+
+import ComponentPreviewAndCode from '../../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
+
+import {AlertRawCode} from '../../utils/component-raw-code/component-raw-code';
+
+<ComponentPreviewAndCode PreviewComponent={<Avatar />} Code={AlertRawCode} />
+
+
+## Installation
+
+import CommandBlock from '../../components/CommandBlock/CommandBlock'
+
+<CommandBlock command="npx react-nex add Avatar" />
+
+
+## Components of Avatar
+
+### Avatar Image 
 
 <br></br>
 
-import Alert from "../../components/Alert/Alert";
+<ComponentPreviewAndCode PreviewComponent={<AvatarImage src='https://bit.ly/ryan-florence' size={'md'}/>}/>
 
-<div className="w-[300px]">
- <Alert
-    type="info"
-    title="Default"
-    message="This is an Default message."
-/>
-</div>
-
-
-## Props
-
-### Type
-
-* **type:** Defines the type of alert. It can be:
-    * `"info"`: Informational message (blue background)
-
-    <div className="w-[300px] mt-2 ml-0 md:ml-4">
-    <Alert
-            type="info"
-            title="Information"
-            message="This is an information message."
-    />
-    </div>
-
-    * `"success"`: Success message (green background)
-
-    <div className="w-[300px] mt-2 ml-0 md:ml-4">
-    <Alert
-        type="success"
-        title="Success!"
-        message="Your operation was successful."
-    />
-    </div>
-  
-    * `"error"`: Error message (red background)
-
-    <div className="w-[300px] mt-2 ml-0 md:ml-4">
-    <Alert
-            type="error"
-            title="Error!"
-            message="An error occurred while processing your request."
-    />
-    </div>
-    * `"warning"`: Warning message (yellow background)
-
-    <div className="w-[300px] mt-2 ml-0 md:ml-4">
-    <Alert
-            type="warning"
-            title="Warning!"
-            message="Please proceed with caution."
-    />
-    </div>
+### Avatar Fallback
 
 <br></br>
 
-### Title
-* **title:** The title text for the alert.
+<ComponentPreviewAndCode PreviewComponent={<AvatarInitialsFallback initials={'RN'}/>}/>
 
-### Message
-* **message:** The main content of the alert message.
-
-### Position
-* **position:** Controls where the alert appears on the screen. Defaults to "bottom-right". Options are:
-    * `"top-left"`: Display the alert at the top-left corner.
-    * `"top-right"`: Display the alert at the top-right corner.
-    * `"bottom-left"`: Display the alert at the bottom-left corner.
-    * `"bottom-right"`: Display the alert at the bottom-right corner.
-
-### Additional Props
-* **titleStyle (optional, string):** Allows you to apply custom CSS styles to the alert title.
-* **messageStyle (optional, string):** Enables you to define custom CSS styles for the alert message content.
-* **alertContainerStyle (optional, string):** Lets you customize the styles of the entire alert container.
-* **showIcon (optional, boolean, default: true):** Controls whether to display an icon within the alert. Defaults to `true`. Setting it to `false` will hide the icon.
+<br></br>

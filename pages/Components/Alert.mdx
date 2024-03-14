@@ -4,44 +4,70 @@
   Displays a alert or a component that looks like a alert.
 </span>
 
-## Default Alert
-
-Here's the default Alert component without any props specified:
 
 <br></br>
+
+import Alert from "../../components/Alert/Alert";
+
+import ComponentPreviewAndCode from '../../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
+
+import {AlertRawCode} from '../../utils/component-raw-code/component-raw-code';
+
+<ComponentPreviewAndCode PreviewComponent={<Alert type="info" title="Default" message="This is an Default message."/>} Code={AlertRawCode} />
+
+
+## Installation
 
 import CommandBlock from '../../components/CommandBlock/CommandBlock'
 
 <CommandBlock command="npx react-nex add Alert" />
 
-<code className=" ">
-```jsx
-import React from 'react';
-import Alert from './components-react-nex/Alert/Alert';
 
-const ExampleComponent = () => {
-  return (
-    <div>
-      <Alert />
-    </div>
-  );
-};
+## Examples
 
-export default ExampleComponent;
+### Info
 
-```
-</code>
+<br></br>
 
-import Alert from "../../components/Alert/Alert";
+<ComponentPreviewAndCode PreviewComponent={
+    <Alert
+            type="info"
+            title="Information"
+            message="This is an information message."
+    />
+} />
 
-<div className="w-[300px]">
- <Alert
-    type="info"
-    title="Default"
-    message="This is an Default message."
-/>
-</div>
+### Success 
 
+<ComponentPreviewAndCode PreviewComponent={
+    <Alert
+        type="success"
+        title="Success!"
+        message="Your operation was successful."
+    />
+} />
+
+
+### Error
+
+<ComponentPreviewAndCode PreviewComponent={
+    <Alert
+            type="error"
+            title="Error!"
+            message="An error occurred while processing your request."
+    />
+} />
+
+
+### Warning 
+
+<ComponentPreviewAndCode PreviewComponent={
+    <Alert
+            type="warning"
+            title="Warning!"
+            message="Please proceed with caution."
+    />
+} />
 
 ## Props
 
@@ -49,42 +75,12 @@ import Alert from "../../components/Alert/Alert";
 
 * **type:** Defines the type of alert. It can be:
     * `"info"`: Informational message (blue background)
-
-    <div className="w-[300px] mt-2 ml-0 md:ml-4">
-    <Alert
-            type="info"
-            title="Information"
-            message="This is an information message."
-    />
-    </div>
-
     * `"success"`: Success message (green background)
-
-    <div className="w-[300px] mt-2 ml-0 md:ml-4">
-    <Alert
-        type="success"
-        title="Success!"
-        message="Your operation was successful."
-    />
-    </div>
-  
     * `"error"`: Error message (red background)
-
-    <div className="w-[300px] mt-2 ml-0 md:ml-4">
-    <Alert
-            type="error"
-            title="Error!"
-            message="An error occurred while processing your request."
-    />
-    </div>
     * `"warning"`: Warning message (yellow background)
 
     <div className="w-[300px] mt-2 ml-0 md:ml-4">
-    <Alert
-            type="warning"
-            title="Warning!"
-            message="Please proceed with caution."
-    />
+
     </div>
 
 <br></br>
