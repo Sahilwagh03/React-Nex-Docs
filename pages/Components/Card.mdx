@@ -1,0 +1,29 @@
+# Card
+
+import {Card, CardHeader, CardTitle, CardDescription, CardBody, CardFooter } from "../../components/Card/CardComponets";
+import Avatar from "../../components/Avatar/Avatar";
+import Badge from "../../components/Badge/Badge";
+import CheckBox from "../../components/CheckBox/CheckBox";
+import Button from "../../components/Button/Button";
+import ComponentPreviewAndCode from '../../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
+
+<ComponentPreviewAndCode PreviewComponent={
+      <Card>
+        <CardHeader>
+          <CardTitle>Complex Card Title</CardTitle>
+        </CardHeader>
+        <CardBody>
+          <Avatar size={'sm'} src='https://bit.ly/code-beast' />
+          <Badge className="bg-yellow-500">Bestseller</Badge>
+          <CheckBox
+            label={'Accept terms and conditions'}
+            description="You agree to our Terms of Service and Privacy Policy."
+          />
+        </CardBody>
+        <CardFooter>
+          <Button title="Button" className={"bg-black-900"} />
+        </CardFooter>
+      </Card>
+} 
+
+/>

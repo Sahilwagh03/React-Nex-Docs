@@ -1,0 +1,69 @@
+# Badge
+
+<span style={{ color: 'grey', fontSize: 18, fontWeight: 400 }}>
+  Displays a badge or a component that looks like a badge.
+</span>
+
+<br></br>
+
+import Badge from "../../components/Badge/Badge";
+import ComponentPreviewAndCode from '../../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
+import CommandBlock from '../../components/CommandBlock/CommandBlock'
+
+
+<ComponentPreviewAndCode PreviewComponent={
+    <Badge/>
+}
+Code={`
+<Badge>
+    Badge
+</Badge>
+`}
+/>
+
+
+## Installation
+
+<CommandBlock command="npx react-nex add Badge" />
+
+
+
+# Example
+
+### Custom ClassName
+
+Style as you want using tailwind 
+
+<br></br>
+
+<ComponentPreviewAndCode 
+PreviewComponent={
+      <div className=' flex flex-row flex-wrap gap-4 justify-center md:justify-normal'>
+        <Badge className="bg-blue-500">New Arrival</Badge>
+        <Badge className="bg-green-500">On Sale</Badge>
+        <Badge className="bg-yellow-500">Bestseller</Badge>
+        <Badge className="bg-red-500">Limited Edition</Badge>
+        <Badge className="bg-purple-500">Featured</Badge>
+      </div>
+}
+Code={`
+<Badge className="bg-blue-500">New Arrival</Badge>
+<Badge className="bg-green-500">On Sale</Badge>
+<Badge className="bg-yellow-500">Bestseller</Badge>
+<Badge className="bg-red-500">Limited Edition</Badge>
+<Badge className="bg-purple-500">Featured</Badge>
+`}
+/>
+
+# Prop
+
+### `className`
+
+- Type: `string`
+- Description: Additional tailwind classes to apply to the avatar container.
+
+### `varient`
+
+- Type: `string`
+- Description: Background is transparent with a outline
+

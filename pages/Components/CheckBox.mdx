@@ -1,0 +1,31 @@
+# CheckBox
+
+<span style={{ color: 'grey', fontSize: 18, fontWeight: 400 }}>
+  Displays a check box or a component that looks like a check box.
+</span>
+
+<br></br>
+
+import CheckBox from "../../components/CheckBox/CheckBox";
+import ComponentPreviewAndCode from '../../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
+import CommandBlock from '../../components/CommandBlock/CommandBlock'
+
+<ComponentPreviewAndCode PreviewComponent={
+    <div className=" mx-4">
+        <CheckBox
+            label='Accept terms and conditions'
+            description="You agree to our Terms of Service and Privacy Policy."
+        />
+    </div>
+}
+Code={`
+<CheckBox
+    label='Accept terms and conditions'
+    description="You agree to our Terms of Service and Privacy Policy."
+/>
+`}
+/>
+
+## Installation
+
+<CommandBlock command="npx react-nex add CheckBox" />

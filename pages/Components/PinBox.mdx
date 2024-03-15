@@ -1,0 +1,34 @@
+# PinBox
+
+<span style={{ color: 'grey', fontSize: 18, fontWeight: 400 }}>
+  Displays a box or a component that looks like a otp box.
+</span>
+
+<br></br>
+
+import PinBox from "../../components/PinBox/PinBox";
+import PinContainer from "../../components/PinBox/PinContainer";
+import ComponentPreviewAndCode from '../../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
+import CommandBlock from '../../components/CommandBlock/CommandBlock'
+
+<ComponentPreviewAndCode PreviewComponent={
+    <PinContainer>
+        <PinBox
+            label='Accept terms and conditions'
+            description="You agree to our Terms of Service and Privacy Policy."
+        />
+    </PinContainer>
+}
+Code={`
+<PinContainer>
+    <PinBox
+        label='Accept terms and conditions'
+        description="You agree to our Terms of Service and Privacy Policy."
+    />
+</PinContainer>
+`}
+/>
+
+## Installation
+
+<CommandBlock command="npx react-nex add PinBox" />

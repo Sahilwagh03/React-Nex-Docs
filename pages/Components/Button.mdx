@@ -1,0 +1,58 @@
+# Button
+
+<span style={{ color: 'grey', fontSize: 18, fontWeight: 400 }}>
+  Displays a button or a component that looks like a button.
+</span>
+
+<br></br>
+
+import Button from "../../components/Button/Button";
+import ComponentPreviewAndCode from '../../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
+import CommandBlock from '../../components/CommandBlock/CommandBlock'
+
+<ComponentPreviewAndCode PreviewComponent={
+    <div className="w-fit">
+     <Button />
+    </div>
+}
+Code={`
+<Button />
+`}
+/>
+
+## Installation
+
+<CommandBlock command="npx react-nex add Button" />
+
+# Example
+
+### Title and ClassName
+
+- title is used to give the name 
+- Style as you want using tailwind 
+
+<br></br>
+
+<ComponentPreviewAndCode 
+PreviewComponent={
+<Button title="Say Hi!" className={"bg-blue-500 w-fit"} ></Button>
+}
+Code={`
+<Button title="Say Hi!" className={"bg-blue-500 w-fit"}></Button>
+`}
+/>
+
+
+
+# Prop
+
+### `className`
+
+- Type: `string`
+- Description: Additional tailwind classes to apply to the avatar container.
+
+### `onClick`
+
+- Type: `function`
+- Description: Callback function to be executed when the component is clicked.
+
