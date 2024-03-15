@@ -9,12 +9,10 @@
 import Avatar from "../../components/Avatar/Avatar";
 import AvatarImage from "../../components/Avatar/AvatarImage";
 import AvatarInitialsFallback from "../../components/Avatar/AvatarInitialsFallback";
-
+import {AvatarSizeCode,AvatarRawCode} from '../../utils/component-raw-code/component-raw-code';
 import ComponentPreviewAndCode from '../../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
 
-import {AlertRawCode} from '../../utils/component-raw-code/component-raw-code';
-
-<ComponentPreviewAndCode PreviewComponent={<Avatar />} Code={AlertRawCode} />
+<ComponentPreviewAndCode PreviewComponent={<Avatar />} Code={AvatarRawCode} />
 
 
 ## Installation
@@ -39,3 +37,74 @@ import CommandBlock from '../../components/CommandBlock/CommandBlock'
 <ComponentPreviewAndCode PreviewComponent={<AvatarInitialsFallback initials={'RN'}/>}/>
 
 <br></br>
+
+## Examples
+
+### Size
+
+There are total 6 sizes in Avatar component as shown below 
+
+<br></br>
+
+<ComponentPreviewAndCode 
+PreviewComponent={
+      <div className='flex flex-col  gap-4 md:flex-row'>
+        <Avatar size={'2xl'} />
+        <Avatar size={'xl'} />
+        <Avatar size={'lg'} />
+        <Avatar size={'md'} />
+        <Avatar size={'sm'} />
+        <Avatar size={'xs'} />
+      </div>
+}
+Code={AvatarSizeCode}
+/>
+
+
+### Custom ClassName
+
+Style as you want using tailwind 
+
+<br></br>
+
+<ComponentPreviewAndCode 
+PreviewComponent={
+      <div className='flex flex-col  gap-4 md:flex-row'>
+        <Avatar className="animate-bounce animate-duration-2000 animate-ease-out" />
+      </div>
+}
+Code={`
+<div className='flex flex-col  gap-4 md:flex-row'>
+  <Avatar className="animate-bounce animate-duration-2000 animate-ease-out" />
+</div>`}
+/>
+
+
+## Props
+
+### `alt`
+
+- Type: `string`
+- Description: The alternate text for the avatar image.
+
+### `className`
+
+- Type: `string`
+- Description: Additional CSS classes to apply to the avatar container.
+
+### `size`
+
+- Type: `string`
+- Description: The size of the avatar.
+  - Values:
+    - `xs`: Extra small
+    - `sm`: Small
+    - `md`: Medium (default)
+    - `lg`: Large
+    - `xl`: Extra large
+    - `2xl`: Double extra large
+
+### `src`
+
+- Type: `string`
+- Description: The URL of the avatar image.
