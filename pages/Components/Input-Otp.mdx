@@ -1,4 +1,4 @@
-# PinBox
+# Input OTP
 
 <span style={{ color: 'grey', fontSize: 18, fontWeight: 400 }}>
   Displays a box or a component that looks like a otp box.
@@ -6,29 +6,29 @@
 
 <br></br>
 
-import PinBox from "../../components/PinBox/PinBox";
-import PinContainer from "../../components/PinBox/PinContainer";
+import InputOtpContainer from '../../components/Input OTP/InputOtpContainer';
+import InputOtpBox from '../../components/Input OTP/InputOtpBox';
 import ComponentPreviewAndCode from '../../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
 import CommandBlock from '../../components/CommandBlock/CommandBlock'
 
 <ComponentPreviewAndCode PreviewComponent={
-    <PinContainer>
-        <PinBox
+    <InputOtpContainer>
+        <InputOtpBox
             label='Accept terms and conditions'
             description="You agree to our Terms of Service and Privacy Policy."
         />
-    </PinContainer>
+    </InputOtpContainer>
 }
 Code={`
-<PinContainer>
-    <PinBox
+<InputOtpContainer>
+    <InputOtpBox
         label='Accept terms and conditions'
         description="You agree to our Terms of Service and Privacy Policy."
     />
-</PinContainer>
+</InputOtpContainer>
 `}
 />
 
 ## Installation
 
-<CommandBlock command="npx react-nex add PinBox" />
+<CommandBlock command="npx react-nex add Input-Otp" />

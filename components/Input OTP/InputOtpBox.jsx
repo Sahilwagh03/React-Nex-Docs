@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getSizeClasses } from './utils';
 import classNames from 'classnames';
 
-const PinBox = ({ length = 6, className = '', size = 'md', outline = '', placeholder = 'o', otpValue, onOtpChange }) => {
+const InputOtpBox = ({ length = 6, className = '', size = 'md', outline = '', placeholder = 'o', otpValue, onOtpChange }) => {
   const [pins, setPins] = useState(Array(length).fill(''));
 
   useEffect(() => {
@@ -73,4 +73,4 @@ const PinBox = ({ length = 6, className = '', size = 'md', outline = '', placeho
   );
 };
 
-export default PinBox;
+export default InputOtpBox;

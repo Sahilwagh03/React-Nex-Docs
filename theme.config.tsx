@@ -9,15 +9,26 @@ const config: DocsThemeConfig = {
     React <span style={{color:'#61DAFB'}}>Nex</span>
   </span>,
   project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
+    link: 'https://github.com/Sahilwagh03/React-Nex-Docs',
   },
-  chat: {
-    link: 'https://discord.com',
-  },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  docsRepositoryBase: 'https://react-nex-docs.vercel.app/',
   footer: {
-    text: 'Nextra Docs Template',
+    text: (
+      <span>
+        MIT {new Date().getFullYear()} ©{' '}
+        <a href="https://www.npmjs.com/package/react-nex" target="_blank">
+          React Nex
+        </a>
+        .
+      </span>
+    )
   },
+  head: (
+    <>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="icon" href="https://i.ibb.co/KF7Vvs5/React-Nexus-Logo-removebg-preview.png"></link>
+    </>
+  )
 }
 
 export default config

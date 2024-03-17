@@ -1,6 +1,6 @@
 import React from 'react'
 
-const PinContainer = ({children,className}) => {
+const InputOtpContainer = ({children,className}) => {
   return (
     <div className={`flex flex-row gap-1 cursor-pointer ${className}`}>
         {children}
@@ -8,4 +8,4 @@ const PinContainer = ({children,className}) => {
   )
 }
 
-export default PinContainer
+export default InputOtpContainer
