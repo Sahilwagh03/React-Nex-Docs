@@ -1,0 +1,47 @@
+# Pagination
+
+<span style={{ color: 'grey', fontSize: 18, fontWeight: 400 }}>
+  Provides a customizable pagination component for navigating through large datasets.
+</span>
+
+<br></br>
+
+import ComponentPreviewAndCode from '../../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
+import CommandBlock from '../../components/CommandBlock/CommandBlock'
+
+import Pagination from "../../components/Pagination/Pagination";
+import PaginationItem from "../../components/Pagination/PaginationItem";
+
+<ComponentPreviewAndCode 
+    PreviewComponent={<Pagination totalItems={5} />}
+Code={`
+<Pagination totalItems={5} />
+`}
+/>
+
+
+Installation
+
+<CommandBlock command="npx react-nex add Pagination" />
+
+
+## Examples
+
+### TotalItems
+
+<ComponentPreviewAndCode 
+    PreviewComponent={<Pagination totalItems={8} />}
+Code={`
+<Pagination totalItems={8} />
+`}
+/>
+
+### Custom Tailwind Css
+
+<ComponentPreviewAndCode 
+    PreviewComponent={<Pagination totalItems={4} className="bg-gray-200 hover:bg-gray-300"/>}
+Code={`
+<Pagination totalItems={4}  className="border-red-500"/>
+`}
+/>
+

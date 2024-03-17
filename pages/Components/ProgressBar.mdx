@@ -1,0 +1,85 @@
+# ProgressBar
+
+<span style={{ color: 'grey', fontSize: 18, fontWeight: 400 }}>
+Displays an animated progress bar to visualize progress for tasks or processes.
+</span>
+
+<br></br>
+
+import CommandBlock from '../../components/CommandBlock/CommandBlock'
+import ComponentPreviewAndCode from '../../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
+import ProgressBar from '../../components/ProgressBar/ProgressBar';
+
+<br></br>
+
+<ComponentPreviewAndCode PreviewComponent={
+    <div className="w-[300px]">
+        <ProgressBar value={40} activeColor="#000" inActiveColor="#E5E7EB" />
+    </div>
+
+} Code={`
+<div className="w-[300px]">
+    <ProgressBar value={40} activeColor="#000" inActiveColor="#E5E7EB" />
+</div>
+`} />
+
+## Installation
+
+<br></br>
+
+<CommandBlock command="npx react-nex add ProgressBar" />
+
+## Examples
+
+
+### Default Progress Bar
+
+<br></br>
+
+<ComponentPreviewAndCode PreviewComponent={
+<div className="w-[300px]">
+<ProgressBar value={40} />
+</div>
+} 
+
+Code={`
+<div className="w-[300px]">
+    <ProgressBar value={40} />
+</div>
+`}
+/>
+
+### Duration Animation
+
+<br></br>
+
+<ComponentPreviewAndCode PreviewComponent={
+<div className="w-[300px]">
+    <ProgressBar value={65} activeColor="#F5A623" animationDuration={10} />
+</div>
+} 
+Code={`
+<div className="w-[300px]">
+    <ProgressBar value={65} activeColor="#F5A623" animationDuration={10} />
+</div>
+`}
+/>
+
+
+## Props
+
+### Value
+
+value: The current progress value (0-100).
+### Active Color
+
+activeColor: The color of the filled progress bar (default: "blue").
+### Inactive Color
+
+inActiveColor: The color of the unfilled progress bar (default: "#E5E7EB").
+### Class Name
+
+className: Optional class names to apply for custom styling.
+### Animation Duration
+
+animationDuration: The duration of the progress animation in seconds (default: 1).
