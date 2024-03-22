@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { getSizeClasses } from './utils';
 import classNames from 'classnames';
+import { useTheme } from 'next-themes';
+import { getColorTheme } from '../../utils/ColorTheme/getColorTheme';
 
 const InputOtpBox = ({ length = 6, className = '', size = 'md', outline = '', placeholder = 'o', otpValue, onOtpChange }) => {
   const [pins, setPins] = useState(Array(length).fill(''));
-
+  const {theme,resolvedTheme}=useTheme()
+  const getInputBoxClasses = ()=>{
+    if ((theme === 'dark' || resolvedTheme === 'dark') && className === "") {
+      return 'border-[#2E2E2E] bg-[#1C1C1B]';
+    } else {
+      return 'bg-white text-black border-2 border-gray-300';
+    }
+  }
   useEffect(() => {
     // Update the parent component with the OTP value whenever it changes
     if (onOtpChange) {
@@ -60,7 +69,7 @@ const InputOtpBox = ({ length = 6, className = '', size = 'md', outline = '', pl
           key={index}
           type="text"
           id={`pin-${index}`}
-          className={classNames('text-center border border-gray-300 rounded cursor-pointer focus:outline-none focus:ring-2', className, sizeClass)}
+          className={classNames('text-center border-2 rounded cursor-pointer focus:outline-none focus:ring-2',getInputBoxClasses(), className, sizeClass)}
           maxLength="1"
           value={pin}
           onChange={(event) => handleChange(event, index)}

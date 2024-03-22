@@ -19,7 +19,7 @@ const CommandBlock = ({ command }) => {
 
   return (
     <div className='relative'>
-      <pre className="mb-4 mt-6  max-h-[650px] w-full overflow-x-auto rounded-lg border bg-zinc-950 py-4 dark:bg-zinc-900" data-language="bash" data-theme="default">
+      <pre className="mb-4 mt-6  max-h-[650px] w-full overflow-x-auto rounded-lg border bg-zinc-950 py-4 dark:bg-zinc-900 dark:nx-border-neutral-800"  data-language="bash" data-theme="default">
         <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-md" data-language="bash" data-theme="default">
           <span className="line">
             <span style={{ color: 'rgb(255, 255, 255)' }} className=' cursor-pointer' onClick={handleCopyClick}>{command}</span>

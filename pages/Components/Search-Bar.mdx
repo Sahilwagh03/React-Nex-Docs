@@ -1,0 +1,33 @@
+# Search Bar
+
+<span style={{ color: 'grey', fontSize: 18, fontWeight: 400 }}>
+  Displays a search bar with an optional animation.
+</span>
+
+<br></br>
+
+import SearchBar from '../../components/SearchBar/SearchBar';
+import ComponentPreviewAndCode from '../../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
+import CommandBlock from '../../components/CommandBlock/CommandBlock'
+
+<ComponentPreviewAndCode PreviewComponent={
+    <SearchBar
+        onChange={(value) => console.log(value)} // You can provide your onChange function here
+        animated={true} // Set to true if you want animation, false otherwise
+        IconColor="grey" // Change the icon color here
+        className='rounded-full'
+    />
+}
+Code={`
+<SearchBar
+    onChange={(value) => console.log(value)} // You can provide your onChange function here
+    animated={true} // Set to true if you want animation, false otherwise
+    IconColor="grey" // Change the icon color here
+    className='rounded-full'
+/>
+`}
+/>
+
+## Installation
+
+<CommandBlock command="npx react-nex add Search-Bar" />
