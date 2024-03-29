@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getSizeClasses } from './utils';
 import classNames from 'classnames';
 import { useTheme } from 'next-themes';
-import { getColorTheme } from '../../utils/ColorTheme/getColorTheme';
+
 
 const InputOtpBox = ({ length = 6, className = '', size = 'md', outline = '', placeholder = 'o', otpValue, onOtpChange }) => {
   const [pins, setPins] = useState(Array(length).fill(''));
