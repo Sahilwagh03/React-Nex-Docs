@@ -1,0 +1,105 @@
+# Skeleton Component
+
+<br>
+</br>
+
+<span style={{ color: 'grey', fontSize: 18, fontWeight: 400 }}>
+  The `Skeleton` component provides a placeholder UI element often used to indicate loading or waiting states.
+</span>
+
+<br>
+</br>
+
+import { Card, CardHeader, CardBody, CardFooter } from "../../components/Card/CardComponets";
+import Skeleton from '../../components/Skeleton/Skeleton';
+import ComponentPreviewAndCode from '../../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
+
+<ComponentPreviewAndCode PreviewComponent={
+<div className='flex flex-row gap-1 px-[10px] min-w-[300px] items-center'>
+<div>
+  <Skeleton className="h-12 w-12 rounded-full" />
+  </div>
+    <div className='flex flex-col gap-1 w-full'>
+      <Skeleton className="h-3 w-full rounded-full" />
+      <Skeleton className="h-3 w-1/2  rounded-full" />
+    </div>
+</div>
+} 
+Code={
+`
+<div className='flex flex-row gap-1 px-[10px] min-w-[300px] items-center'>
+<div>
+  <Skeleton className="h-12 w-12 rounded-full" />
+  </div>
+    <div className='flex flex-col gap-1 w-full'>
+      <Skeleton className="h-3 w-full rounded-full" />
+      <Skeleton className="h-3 w-1/2  rounded-full" />
+    </div>
+</div>
+`}
+/>
+
+<br></br>
+
+## Example
+
+### Customizing Skeleton
+
+You can customize the appearance of the `Skeleton` component by passing different classNames.
+
+<ComponentPreviewAndCode PreviewComponent={
+  <Skeleton className="w-40 h-6 bg-gray-300 rounded-md" />
+} 
+Code={
+`<Skeleton className="w-40 h-6 bg-gray-300 rounded-lg" />`
+}
+/>
+
+
+### Skeleton Card Component
+
+The `SkeletonCard` component provides a skeleton loading state for a card UI.
+
+<ComponentPreviewAndCode PreviewComponent={
+  <Card className={'min-w-[300px] shadow-lg'}>
+    <CardHeader>
+        <Skeleton className="h-12 w-12 rounded-full" />
+    </CardHeader>
+    <CardBody>
+      <Skeleton className="h-4 w-1/4 rounded-full" />
+      <div className='flex flex-col gap-1'>
+      <Skeleton className="h-3 w-full rounded-full" />
+      <Skeleton className="h-3 w-1/2  rounded-full" />
+      </div>
+    </CardBody>
+    <CardFooter>
+      <Skeleton className="h-8 w-full rounded-md" />
+    </CardFooter>
+  </Card>
+} 
+Code={
+`import React from 'react';
+
+const SkeletonCard = () => {
+  return (
+  <Card className={'min-w-[300px]'}>
+    <CardHeader>
+        <Skeleton className="h-12 w-12 rounded-full" />
+    </CardHeader>
+    <CardBody>
+      <Skeleton className="h-4 w-1/4 rounded-full" />
+      <div className='flex flex-col gap-1'>
+      <Skeleton className="h-3 w-full rounded-full" />
+      <Skeleton className="h-3 w-1/2  rounded-full" />
+      </div>
+    </CardBody>
+    <CardFooter>
+      <Skeleton className="h-8 w-full rounded-md" />
+    </CardFooter>
+  </Card>
+  );
+};
+
+export default SkeletonCard;
+`}
+/>

@@ -31,3 +31,53 @@ Code={`
 ## Installation
 
 <CommandBlock command="npx react-nex add Search-Bar" />
+
+## Example
+
+### Search Bar Varients
+
+<ComponentPreviewAndCode PreviewComponent={
+    <div className='flex flex-col gap-6'>
+        <SearchBar
+            onChange={(value) => console.log(value)} // You can provide your onChange function here
+            animated={true} // Set to true if you want animation, false otherwise
+            IconColor="grey" // Change the icon color here
+            className='rounded-sm'
+        />
+        <SearchBar
+            onChange={(value) => console.log(value)} // You can provide your onChange function here
+            animated={true} // Set to true if you want animation, false otherwise
+            IconColor="grey" // Change the icon color here
+            className='rounded-md'
+        />
+        <SearchBar
+            onChange={(value) => console.log(value)} // You can provide your onChange function here
+            animated={true} // Set to true if you want animation, false otherwise
+            IconColor="grey" // Change the icon color here
+            className='rounded-full'
+        />
+    </div>
+}
+Code={`
+    <div className='flex flex-col gap-6'>
+    <SearchBar
+        onChange={(value) => console.log(value)} // You can provide your onChange function here
+        animated={true} // Set to true if you want animation, false otherwise
+        IconColor="grey" // Change the icon color here
+        className='rounded-sm'
+    />
+    <SearchBar
+        onChange={(value) => console.log(value)} // You can provide your onChange function here
+        animated={true} // Set to true if you want animation, false otherwise
+        IconColor="grey" // Change the icon color here
+        className='rounded-md'
+    />
+    <SearchBar
+        onChange={(value) => console.log(value)} // You can provide your onChange function here
+        animated={true} // Set to true if you want animation, false otherwise
+        IconColor="grey" // Change the icon color here
+        className='rounded-full'
+    />
+</div>
+`}
+/>
