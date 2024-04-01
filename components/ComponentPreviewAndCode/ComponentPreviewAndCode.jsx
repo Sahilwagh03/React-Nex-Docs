@@ -27,7 +27,7 @@ const ComponentPreviewAndCode = ({ PreviewComponent, Code }) => {
         <div>
             <div className="flex mb-4 border-b-2 border-gray-200 dark:nx-border-neutral-800">
                 <button
-                    className={`text-sm font-semibold py-2 px-4 ${displayComponent === 'Preview' ? 'border-b-2 border-gray-800' : ''}`}
+                    className={`text-sm font-semibold py-2 px-4 ${displayComponent === 'Preview' ? 'border-b-2 border-gray-800' : ''} `}
                     onClick={() => handleButtonClick('Preview')}
                 >
                     Preview

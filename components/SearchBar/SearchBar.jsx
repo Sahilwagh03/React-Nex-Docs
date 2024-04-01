@@ -1,17 +1,28 @@
+import { useTheme } from 'nextra-theme-docs';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { RiSearchLine } from 'react-icons/ri';
 import classNames from 'classnames';
 import getPadding from './utils';
 
+
 const SearchBar = ({ onChange, className, animated ,IconColor }) => {
     const [searchQuery, setSearchQuery] = useState('');
     const [isExpanded, setIsExpanded] = useState(false);
+    const {theme,resolvedTheme}=useTheme()
 
     const handleChange = (event) => {
         setSearchQuery(event.target.value);
         onChange(event.target.value); // Pass the current value directly
     };
+
+    const getSearchClasses = ()=>{
+        if ((theme === 'dark' || resolvedTheme === 'dark') && className !== "") {
+          return 'border-[#383838] border-2 bg-[#1C1C1B]';
+        } else {
+          return 'text-black border-2 border-gray-300';
+        }
+      }
 
     return (
         <>
@@ -50,7 +61,7 @@ const SearchBar = ({ onChange, className, animated ,IconColor }) => {
                         value={searchQuery}
                         onChange={handleChange}
                         placeholder="Search..."
-                        className={`border border-gray-300 py-2 px-4 w-64 focus:outline-none focus:ring-2 ${className}`}
+                        className={` py-2 px-4 w-64 focus:outline-none focus:ring-1 ${getSearchClasses(theme,resolvedTheme)} ${className}`}
                     />
                     <div
                         className="cursor-pointer absolute top-[25%] right-[4%]"
