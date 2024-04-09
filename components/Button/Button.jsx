@@ -11,7 +11,7 @@ const Button = ({
   const color_scheme = getColorTheme(theme,resolvedTheme,className)
   return (
     <button
-      className={`h-auto  rounded-md px-[1rem] py-[0.5rem] shadow-md ${color_scheme} ${className}`}
+      className={`h-auto rounded-md px-[1rem] py-[0.5rem] shadow-md ${color_scheme} ${className}`}
       onClick={onClick}
     >
       {title}

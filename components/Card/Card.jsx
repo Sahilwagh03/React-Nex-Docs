@@ -5,7 +5,7 @@ const Card = ({ children, className = "" }) => {
   const { theme, resolvedTheme } = useTheme()
   const getCardClasses = (theme,resolvedTheme) => {
     if ((theme === 'dark' || resolvedTheme === 'dark') ) {
-      return 'border-2 border-[#2E2E2E] bg-[#1C1C1B]';
+      return 'border-2 border-[#2E2E2E] ';
     } else {
       return 'bg-white border-2 border-gray-200 text-black';
     }

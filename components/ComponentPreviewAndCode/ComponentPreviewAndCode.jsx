@@ -10,10 +10,10 @@ const ComponentPreviewAndCode = ({ PreviewComponent, Code }) => {
 
     const [copied, setCopied] = useState(false);
 
+
     const handleCopyClick = () => {
         navigator.clipboard.writeText(Code)
             .then(() => {
-                console.log('Command copied to clipboard:', Code);
                 setCopied(true);
                 setTimeout(() => setCopied(false), 2000); // Revert back after 2 seconds
             })
@@ -22,7 +22,7 @@ const ComponentPreviewAndCode = ({ PreviewComponent, Code }) => {
                 // You can handle errors here, like showing an error message
             });
     };
-
+    
     return (
         <div>
             <div className="flex mb-4 border-b-2 border-gray-200 dark:nx-border-neutral-800">
@@ -43,12 +43,12 @@ const ComponentPreviewAndCode = ({ PreviewComponent, Code }) => {
                 }
             </div>
             {displayComponent === 'Preview' ? (
-                <div className="flex justify-center min-h-[300px] overflow-auto items-center border-2 border-gray-200 dark:nx-border-neutral-800 rounded-md">
+                <div className="flex justify-center min-h-[300px] overflow-auto items-center border-2 border-gray-200 dark:nx-border-neutral-800 rounded-md ">
                     {PreviewComponent}
                 </div>
             ) : (
                 <div className=" bg-black min-h-[300px] block p-4 text-white  border-2 border-gray-200 rounded-md relative dark:nx-border-neutral-800  dark:bg-zinc-900">
-                    <pre>
+                    <pre className=' overflow-x-scroll min-h-[260px]'>
                         <code className="language-js">
                             {Code}
                         </code>
