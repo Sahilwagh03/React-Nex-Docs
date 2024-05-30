@@ -1,0 +1,39 @@
+# Tooltip
+
+<span style={{ color: 'grey', fontSize: 18, fontWeight: 400 }}>
+  Displays a Tooltip or a component that looks like a Tooltip.
+</span>
+
+<br></br>
+
+import { Tooltip, TooltipContent, TooltipTrigger } from "../../components/Tooltip/Tooltip";
+import ComponentPreviewAndCode from '../../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
+import CommandBlock from '../../components/CommandBlock/CommandBlock'
+import Button from "../../components/Button/Button";
+
+<ComponentPreviewAndCode PreviewComponent={
+    <Tooltip>
+        <TooltipTrigger>
+          <Button title='Hover'></Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p class="nx-mt-0 nx-leading-0 first:nx-mt-0">Add to library</p>
+        </TooltipContent>
+    </Tooltip>
+}
+Code={`
+<Tooltip>
+    <TooltipTrigger>
+        <Button title='Hover'></Button>
+    </TooltipTrigger>
+    <TooltipContent>
+        <p>Add to library</p>
+    </TooltipContent>
+</Tooltip>
+`}
+/>
+
+
+## Installation
+
+<CommandBlock command="npx react-nex add Tooltip" />
