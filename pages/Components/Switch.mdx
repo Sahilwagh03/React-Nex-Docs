@@ -1,0 +1,97 @@
+import React from 'react';
+
+# Switch
+
+<span style={{ color: 'grey', fontSize: 18, fontWeight: 400 }}>
+  A switch component that allows users to toggle between two states.
+</span>
+
+<br></br>
+
+import SwitchWrapper from "../../components/global/SwitchWrapper";
+import ComponentPreviewAndCode from '../../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
+import CommandBlock from '../../components/CommandBlock/CommandBlock'
+
+<ComponentPreviewAndCode PreviewComponent={
+    <div className='flex flex-col items-center my-4'>
+        <SwitchWrapper/>
+    </div>
+}
+Code={`
+import React from 'react';
+import Switch from "./Switch";
+
+const App = () => {
+    const [enabled, setEnabled] = useState(false);
+
+    return (
+        <div className="h-[100vh] flex items-center justify-center">
+            <Switch enabled={enabled} onChange={setEnabled} />
+            <div className="ml-4">
+                <p className="font-semibold">
+                    Switch is {enabled ? 'Enabled' : 'Disabled'}
+                </p>
+            </div>
+        </div>
+    );
+};
+
+export default App;
+`}
+/>
+
+## Installation
+
+<CommandBlock command="npx react-nex add Switch" />
+
+
+## Example
+
+### Disabled Switch
+
+<ComponentPreviewAndCode PreviewComponent={
+    <div className='flex flex-col items-center my-4'>
+        <SwitchWrapper disabled/>
+    </div>
+}
+Code={`
+import React from 'react';
+import Switch from "./Switch";
+
+const App = () => {
+    const [enabled, setEnabled] = useState(false);
+
+    return (
+        <div className="h-[100vh] flex items-center justify-center">
+            <Switch enabled={enabled} onChange={setEnabled} />
+            <div className="ml-4">
+                <p className="font-semibold">
+                    Switch is {enabled ? 'Enabled' : 'Disabled'}
+                </p>
+            </div>
+        </div>
+    );
+};
+
+export default App;
+`}
+/>
+
+<br></br>
+
+## Props
+
+### `enabled`
+
+- Type: `boolean`
+- Description: Controls whether the switch is enabled or disabled.
+
+### `onChange`
+
+- Type: `(state: boolean) => void`
+- Description: Callback function that is called when the switch is toggled. The new state is passed as a boolean.
+
+### `disabled`
+
+- Type: `boolean`
+- Description: If true, the switch is not clickable and appears in a disabled state.

@@ -1,1 +1,92 @@
-# COMING SOON 
+# Date Picker
+
+<span style={{ color: 'grey', fontSize: 18, fontWeight: 400 }}>
+  A Date Picker component that allows users to select dates.
+</span>
+
+<br></br>
+
+import DatePickerWrapper from '../../components/global/DatePickerWrapper';
+import ComponentPreviewAndCode from '../../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
+import CommandBlock from '../../components/CommandBlock/CommandBlock'
+
+<ComponentPreviewAndCode PreviewComponent={
+    <div className='flex flex-col items-center my-4'>
+        <DatePickerWrapper/>
+    </div>
+}
+Code={`
+import React, { useState } from 'react';
+import DatePicker from "./DatePicker";
+
+const App = () => {
+    const [date, setDate] = useState('');
+
+    return (
+        <div className="h-[100vh]">
+            <DatePicker onSelect={setDate} selected={date} />
+        </div>
+    );
+};
+
+export default App;
+`}
+/>
+
+## Installation
+
+<CommandBlock command="npx react-nex add DatePicker" />
+
+
+## Example
+
+### Range Date Picker
+
+Select the range of the date 
+
+<br></br>
+
+<ComponentPreviewAndCode PreviewComponent={
+    <div className='flex flex-col items-center my-4'>
+        <DatePickerWrapper mode='range'/>
+    </div>
+}
+Code={`
+import React, { useState } from 'react';
+import DatePicker from "./DatePicker";
+
+const App = () => {
+    const [date, setDate] = useState('');
+
+    return (
+        <div className="h-[100vh]">
+            <DatePicker onSelect={setDate} mode='range' selected={date} />
+        </div>
+    );
+};
+
+export default App;
+`}
+/>
+
+
+
+## Props
+
+### `onSelect`
+
+- Type: `(date: string) => void`
+- Description: Callback function that is called when a date is selected. The selected date is passed as a string in the format `Fri May 31 2024`.
+
+### `selected`
+
+- Type: `string`
+- Description: The initially selected date. This should be a `string`.
+
+
+### `mode`
+
+- Type: `string`
+- Description: The default mode is `single`. Can be set to `range` for selecting the range of date.
+
+
