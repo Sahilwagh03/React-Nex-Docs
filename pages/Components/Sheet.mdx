@@ -1,0 +1,145 @@
+import React from 'react';
+import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter } from '../../components/Sheet/Sheet';
+import Button from "../../components/Button/Button"; 
+import ComponentPreviewAndCode from '../../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
+import CommandBlock from '../../components/CommandBlock/CommandBlock';
+
+# Sheet
+
+<span style={{ color: 'grey', fontSize: 18, fontWeight: 400 }}>
+  A sheet component that slides in from any side of the screen.
+</span>
+
+<br></br>
+
+<ComponentPreviewAndCode PreviewComponent={
+        <Sheet>
+            <SheetTrigger>
+                <Button title='Open'></Button>
+            </SheetTrigger>
+            <SheetContent>
+            <SheetHeader>
+              <SheetTitle>Are you absolutely sure?</SheetTitle>
+              <SheetDescription>
+                This action cannot be undone. This will permanently delete your account
+                and remove your data from our servers.
+              </SheetDescription>
+            </SheetHeader>
+                <p>Your content goes here...</p>
+                <SheetFooter>
+                    <Button onClick={() => alert('Action')} title='Action'></Button>
+                    <Button onClick={() => alert('Cancel')} title='Cancel'></Button>
+                </SheetFooter>
+            </SheetContent>
+        </Sheet>
+}
+Code={`
+import React from 'react';
+import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter } from './Sheet';
+import { Button } from 'your-button-component'; // Replace with the actual path to your button component
+
+const App = () => {
+    return (
+        <Sheet>
+            <SheetTrigger>
+                <Button title='Open'></Button>
+            </SheetTrigger>
+            <SheetContent>
+            <SheetHeader>
+              <SheetTitle>Are you absolutely sure?</SheetTitle>
+              <SheetDescription>
+                This action cannot be undone. This will permanently delete your account
+                and remove your data from our servers.
+              </SheetDescription>
+            </SheetHeader>
+                <p>Your content goes here...</p>
+                <SheetFooter>
+                    <Button onClick={() => alert('Action')} title='Action'></Button>
+                    <Button onClick={() => alert('Cancel')} title='Cancel'></Button>
+                </SheetFooter>
+            </SheetContent>
+        </Sheet>
+    );
+};
+
+export default App;
+`}
+/>
+
+## Installation
+
+<CommandBlock command="npx react-nex add Sheet" />
+
+## Example
+
+### Sheet from the Left
+
+<br></br>
+
+<ComponentPreviewAndCode PreviewComponent={
+    <div className='flex flex-col items-center my-4'>
+        <Sheet>
+            <SheetTrigger>
+                <Button title='Open'></Button>
+            </SheetTrigger>
+            <SheetContent side="left">
+                <SheetHeader>
+                    <SheetTitle>Sheet Title</SheetTitle>
+                    <SheetDescription>
+                        This is a description inside the sheet.
+                    </SheetDescription>
+                </SheetHeader>
+                <p>Your content goes here...</p>
+                <SheetFooter>
+                    <Button onClick={() => alert('Action')} title='Action'></Button>
+                    <Button onClick={() => alert('Cancel')} title='Cancel'></Button>
+                </SheetFooter>
+            </SheetContent>
+        </Sheet>
+    </div>
+}
+Code={`
+import React from 'react';
+import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter } from './Sheet';
+import Button from "../../components/Button/Button"; 
+
+const App = () => {
+    return (
+        <Sheet>
+            <SheetTrigger>
+                <Button title='Open'></Button>
+            </SheetTrigger>
+            <SheetContent side="left">
+                <SheetHeader>
+                    <SheetTitle>Sheet Title</SheetTitle>
+                    <SheetDescription>
+                        This is a description inside the sheet.
+                    </SheetDescription>
+                </SheetHeader>
+                <p>Your content goes here...</p>
+                <SheetFooter>
+                    <Button onClick={() => alert('Action')} title='Action'></Button>
+                    <Button onClick={() => alert('Cancel')} title='Cancel'></Button>
+                </SheetFooter>
+            </SheetContent>
+        </Sheet>
+    );
+};
+
+export default App;
+`}
+/>
+
+<br></br>
+
+## Props
+
+### `side`
+
+- Type: `'top' | 'bottom' | 'left' | 'right'`
+- Description: Specifies from which side the sheet slides in. Defaults to `'right'`.
+
+### `children`
+
+- Type: `React.ReactNode`
+- Description: The content to be displayed inside the sheet.
