@@ -1,0 +1,178 @@
+import React from 'react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../../components/Accordion/Accordion';
+import ComponentPreviewAndCode from '../../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
+import CommandBlock from '../../components/CommandBlock/CommandBlock';
+
+# Accordion
+
+<span style={{ color: 'grey', fontSize: 18, fontWeight: 400 }}>
+  A collapsible accordion component to organize and display content effectively.
+</span>
+
+<br></br>
+
+
+<ComponentPreviewAndCode PreviewComponent={
+    <div className='max-w-[250px] md:max-w-[400px]'>
+  <Accordion>
+    <AccordionItem value="getting-started">
+      <AccordionTrigger value="getting-started">Getting Started</AccordionTrigger>
+      <AccordionContent value="getting-started">
+        <p>Welcome to our documentation! Here you'll find all the information you need to get started with our product.</p>
+        <p>Make sure to read through the setup instructions and familiarize yourself with our API.</p>
+      </AccordionContent>
+    </AccordionItem>
+    <AccordionItem value="usage">
+      <AccordionTrigger value="usage">Usage Guide</AccordionTrigger>
+      <AccordionContent value="usage">
+        <p>Learn how to use our product effectively with our comprehensive usage guide.</p>
+        <p>We cover everything from basic functionality to advanced features, so you'll be up and running in no time!</p>
+      </AccordionContent>
+    </AccordionItem>
+    <AccordionItem value="examples">
+      <AccordionTrigger value="examples">Examples</AccordionTrigger>
+      <AccordionContent value="examples">
+        <p>Explore our collection of examples to see our product in action.</p>
+        <p>We provide code snippets and demos to help you understand how to integrate our product into your projects.</p>
+      </AccordionContent>
+    </AccordionItem>
+  </Accordion>
+  </div>
+}
+Code={`
+import React from 'react';
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from './Accordion';
+
+const App = () => {
+  return (
+    <Accordion>
+      <AccordionItem value="getting-started">
+        <AccordionTrigger value="getting-started">Getting Started</AccordionTrigger>
+        <AccordionContent value="getting-started">
+          <p>Welcome to our documentation! Here you'll find all the information you need to get started with our product.</p>
+          <p>Make sure to read through the setup instructions and familiarize yourself with our API.</p>
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="usage">
+        <AccordionTrigger value="usage">Usage Guide</AccordionTrigger>
+        <AccordionContent value="usage">
+          <p>Learn how to use our product effectively with our comprehensive usage guide.</p>
+          <p>We cover everything from basic functionality to advanced features, so you'll be up and running in no time!</p>
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="examples">
+        <AccordionTrigger value="examples">Examples</AccordionTrigger>
+        <AccordionContent value="examples">
+          <p>Explore our collection of examples to see our product in action.</p>
+          <p>We provide code snippets and demos to help you understand how to integrate our product into your projects.</p>
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  );
+};
+
+export default App;
+`}
+/>
+
+## Installation
+
+<CommandBlock command="npx react-nex add Sheet" />
+
+## Example
+
+### Nested Accordion
+
+<ComponentPreviewAndCode PreviewComponent={
+    <div className='max-w-[250px] md:max-w-[400px]'>
+        <Accordion>
+          <AccordionItem value="features">
+            <AccordionTrigger value="features">Key Features</AccordionTrigger>
+            <AccordionContent value="features">
+              <ul>
+                <li><strong>Responsive Design:</strong> Ensures a seamless experience across all devices.</li>
+                <li><strong>Customizable Themes:</strong> Tailor the look and feel to match your brand.</li>
+                <li><strong>Advanced Search:</strong> Quickly find what you need with our powerful search functionality.</li>
+              </ul>
+              <Accordion type='nested'>
+                <AccordionItem value="security">
+                  <AccordionTrigger value="security">Security</AccordionTrigger>
+                  <AccordionContent value="security">
+                    <p>Our platform employs state-of-the-art security measures to safeguard your data.</p>
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="integration">
+                  <AccordionTrigger value="integration">Integration</AccordionTrigger>
+                  <AccordionContent value="integration">
+                    <p>Seamlessly integrate with popular third-party tools to enhance productivity.</p>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="pricing">
+            <AccordionTrigger value="pricing">Pricing Plans</AccordionTrigger>
+            <AccordionContent value="pricing">
+              <p>Choose from our flexible pricing plans to suit your budget and needs.</p>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+  </div>
+}
+Code={`
+import React from 'react';
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from './Accordion';
+
+const App = () => {
+  return (
+        <Accordion>
+          <AccordionItem value="features">
+            <AccordionTrigger value="features">Key Features</AccordionTrigger>
+            <AccordionContent value="features">
+              <ul>
+                <li><strong>Responsive Design:</strong> Ensures a seamless experience across all devices.</li>
+                <li><strong>Customizable Themes:</strong> Tailor the look and feel to match your brand.</li>
+                <li><strong>Advanced Search:</strong> Quickly find what you need with our powerful search functionality.</li>
+              </ul>
+              <Accordion type='nested'>
+                <AccordionItem value="security">
+                  <AccordionTrigger value="security">Security</AccordionTrigger>
+                  <AccordionContent value="security">
+                    <p>Our platform employs state-of-the-art security measures to safeguard your data.</p>
+                  </AccordionContent>
+                </AccordionItem>
+                <AccordionItem value="integration">
+                  <AccordionTrigger value="integration">Integration</AccordionTrigger>
+                  <AccordionContent value="integration">
+                    <p>Seamlessly integrate with popular third-party tools to enhance productivity.</p>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="pricing">
+            <AccordionTrigger value="pricing">Pricing Plans</AccordionTrigger>
+            <AccordionContent value="pricing">
+              <p>Choose from our flexible pricing plans to suit your budget and needs.</p>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+  );
+};
+
+export default App;
+`}
+/>
+
+
+## Props
+
+### `value`
+
+- Type: `string`
+- Description: Unique identifier for each accordion item.
+
+### `type`
+
+- Type: `'nested' | 'single'`
+- Description: Specifies the type of accordion layout. If set to `'nested'`, it allows nesting of accordion items. Defaults to `'single'`.
