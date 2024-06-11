@@ -1,0 +1,89 @@
+# Calendar
+
+<span style={{ color: 'grey', fontSize: 18, fontWeight: 400 }}>
+  A calendar component that allows users to select dates.
+</span>
+
+<br></br>
+
+import Calendar from "../../components/Calendar/Calendar";
+import ComponentPreviewAndCode from '../../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
+import CommandBlock from '../../components/CommandBlock/CommandBlock'
+
+<ComponentPreviewAndCode PreviewComponent={
+    <Calendar onSelect={date => alert(`Selected date: ${date}`)} />
+}
+Code={`
+import React, { useState } from 'react';
+import Calendar from "./Calendar";
+const App = () => {
+    const [date, setDate] = useState('');
+    return (
+        <div className="h-[100vh]">
+            <Calendar onSelect={setDate} selected={date} />
+            <div className="h-96 md:w-96 w-[300px] sm:px-5">
+                <h1 className="font-semibold">
+                    Schedule for {date}
+                </h1>
+            </div>
+        </div>
+    );
+};
+export default App;
+`}
+/>
+
+## Installation
+
+<CommandBlock command="npx react-nex add Calendar" />
+
+# Example
+
+### Custom ClassName
+
+Style as you want using Tailwind CSS
+
+<br></br>
+
+<ComponentPreviewAndCode 
+PreviewComponent={
+    <div className='flex flex-col items-center'>
+        <Calendar onSelect={date => alert(`Selected date: ${date}`)} />
+    </div>
+}
+Code={`
+import React, { useState } from 'react';
+import Calendar from "./Calendar";
+const App = () => {
+    const [date, setDate] = useState(new Date());
+    return (
+        <div className="h-[100vh]">
+            <Calendar onSelect={setDate} selected={date} />
+            <div className="h-96 md:w-96 w-[300px] sm:px-5">
+                <h1 className="font-semibold">
+                    Schedule for {date.toDateString()}
+                </h1>
+            </div>
+        </div>
+    );
+};
+export default App;
+`}
+/>
+
+# Props
+
+### `onSelect`
+
+- Type: `(date: string) => void`
+- Description: Callback function that is called when a date is selected. The selected date is passed as a string in the format `Fri May 31 2024`.
+
+### `selected`
+
+- Type: `Date`
+- Description: The initially selected date. This should be a `Date` object.
+
+### `className`
+
+- Type: `string`
+- Description: Additional Tailwind CSS classes to apply to the calendar container.
