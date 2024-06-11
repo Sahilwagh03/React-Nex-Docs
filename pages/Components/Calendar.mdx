@@ -11,18 +11,23 @@ import ComponentPreviewAndCode from '../../components/ComponentPreviewAndCode/Co
 import CommandBlock from '../../components/CommandBlock/CommandBlock'
 
 <ComponentPreviewAndCode PreviewComponent={
-    <Calendar onSelect={date => alert(`Selected date: ${date}`)} />
+    <div className='flex flex-col items-center my-4'>
+        <Calendar onSelect={date => console.log(`Selected date: ${date}`)} />
+    </div>
 }
+
 Code={`
 import React, { useState } from 'react';
 import Calendar from "./Calendar";
 const App = () => {
+    const [date, setDate] = useState(new Date());
     const [date, setDate] = useState('');
     return (
         <div className="h-[100vh]">
             <Calendar onSelect={setDate} selected={date} />
             <div className="h-96 md:w-96 w-[300px] sm:px-5">
                 <h1 className="font-semibold">
+                    Schedule for {date.toDateString()}
                     Schedule for {date}
                 </h1>
             </div>
@@ -33,35 +38,33 @@ export default App;
 `}
 />
 
-## Installation
+<br></br>
 
-<CommandBlock command="npx react-nex add Calendar" />
+### Range Calendar
 
-# Example
-
-### Custom ClassName
-
-Style as you want using Tailwind CSS
+Select the range of the date 
 
 <br></br>
 
 <ComponentPreviewAndCode 
 PreviewComponent={
-    <div className='flex flex-col items-center'>
-        <Calendar onSelect={date => alert(`Selected date: ${date}`)} />
+    <div className='flex flex-col items-center my-4'>
+        <Calendar onSelect={date => console.log(`Selected date: ${date}`)} mode='range'/>
     </div>
 }
+
 Code={`
 import React, { useState } from 'react';
 import Calendar from "./Calendar";
 const App = () => {
     const [date, setDate] = useState(new Date());
+    const [date, setDate] = useState('');
     return (
         <div className="h-[100vh]">
-            <Calendar onSelect={setDate} selected={date} />
+            <Calendar onSelect={setDate} mode='range'/>
             <div className="h-96 md:w-96 w-[300px] sm:px-5">
                 <h1 className="font-semibold">
-                    Schedule for {date.toDateString()}
+                    Schedule for {date.startDate}-{date.endDate}
                 </h1>
             </div>
         </div>
@@ -70,6 +73,7 @@ const App = () => {
 export default App;
 `}
 />
+
 
 # Props
 
