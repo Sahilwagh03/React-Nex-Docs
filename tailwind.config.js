@@ -8,7 +8,17 @@ module.exports = {
     './src/**/*.{js,jsx,ts,tsx,md,mdx}'
   ],
   theme: {
-    extend: {}
+    extend: {
+      keyframes: {
+        upDown: {
+          '0%, 100%': { transform: 'translateY(-10px)' },
+          '50%': { transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        upDown: 'upDown 2s ease-in-out infinite',
+      },
+    }
   },
   plugins: []
 }

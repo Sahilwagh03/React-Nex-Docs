@@ -1,15 +1,27 @@
 {
-  "index": "Introduction",
+  "index": {
+    "title": "Home",
+    "type": "page",
+    "theme": {
+      "layout": "full"
+    }
+  },
+  "Introduction":"Introduction",
   "Installation": "Installation",
   "Components": "Components",
   "about": {
     "title": "About",
     "type": "page"
   },
+  "Docs":{
+    "title":"Docs",
+    "href": "/Introduction",
+    "type":"page"
+  },
   "contact": {
     "title": "Contact ↗",
     "type": "page",
-    "href": "https://twitter.com/shuding_",
+    "href": "https://portfolio-in-react-dun.vercel.app/",
     "newWindow": true
   }
 }

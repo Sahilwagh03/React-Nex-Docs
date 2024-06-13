@@ -28,7 +28,15 @@ const config: DocsThemeConfig = {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="icon" href="https://i.ibb.co/KF7Vvs5/React-Nexus-Logo-removebg-preview.png"></link>
     </>
-  )
+  ),
+  // banner: {
+  //   key: '2.0-release',
+  //   text: (
+  //     <a href="https://react-nex-docs.vercel.app/" target="_blank">
+  //       🎉 React Nex Beta is here. Read more →
+  //     </a>
+  //   )
+  // }
 }
 
 export default config
