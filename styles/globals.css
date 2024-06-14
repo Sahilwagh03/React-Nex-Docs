@@ -3,11 +3,25 @@
 @tailwind utilities;
 
 
-.bg-dots{
-    background-image: radial-gradient(rgba(0, 0, 0 , 0.3) 1px, transparent 0);
+.bg-dots {
+    background-image: radial-gradient(rgba(0, 0, 0, 0.3) 1px, transparent 0);
     background-size: 20px 20px;
 }
-.bg-dots-dark-mode{
-    background-image: radial-gradient(rgba(255, 255, 255 , 0.2) 1px, transparent 0);
+
+.bg-dots-dark-mode {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 0);
     background-size: 20px 20px;
 }
+
+.gradient-text {
+    background: linear-gradient(90deg, hsla(177, 87%, 79%, 1) 0%, hsla(235, 89%, 70%, 1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.gradient-bg{
+    background: linear-gradient(90deg, hsla(177, 87%, 79%, 1) 0%, hsla(235, 89%, 70%, 1) 100%);
+}
+

@@ -20,5 +20,30 @@ module.exports = {
       },
     }
   },
-  plugins: []
+  plugins: [
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.animation-delay-0': {
+          'animation-delay': '0s',
+        },
+        '.animation-delay-200': {
+          'animation-delay': '0.2s',
+        },
+        '.animation-delay-400': {
+          'animation-delay': '0.4s',
+        },
+        '.animation-delay-600': {
+          'animation-delay': '0.6s',
+        },
+        '.animation-delay-800': {
+          'animation-delay': '0.8s',
+        },
+        '.animation-delay-1000': {
+          'animation-delay': '1s',
+        },
+      }
+
+      addUtilities(newUtilities, ['responsive', 'hover'])
+    },
+  ]
 }

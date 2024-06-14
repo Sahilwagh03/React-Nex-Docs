@@ -2,6 +2,7 @@ import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 import Image from 'next/image'
 import ReactNexLogo from './assets/ReactNexusLogo.png'
+import { useRouter } from 'next/router'
 const config: DocsThemeConfig = {
   logo: 
   <span style={{display:'flex',flexDirection:'row',alignItems:'center' ,fontWeight:700,fontSize:'20px',gap:4}}>
@@ -29,6 +30,19 @@ const config: DocsThemeConfig = {
       <link rel="icon" href="https://i.ibb.co/KF7Vvs5/React-Nexus-Logo-removebg-preview.png"></link>
     </>
   ),
+  useNextSeoProps() {
+    const { asPath } = useRouter()
+    if (asPath !== '/') {
+      return {
+        titleTemplate: '%s | React Nex'
+      }
+    }
+    else{
+      return {
+        titleTemplate: 'Home | React Nex'
+      }
+    }
+  },
   // banner: {
   //   key: '2.0-release',
   //   text: (
