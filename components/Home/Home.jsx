@@ -4,6 +4,8 @@ import { useTheme } from 'nextra-theme-docs'
 import Features from './Features/Features'
 import TechStack from './TechStack/TechStack'
 import TemplateSection from './Template_Section/TemplateSection'
+import CallToAction from './CTA/CallToAction'
+import Commuity from './Community/Commuity'
 const Home = () => {
     const { theme, resolvedTheme } = useTheme()
     const [darkStyle, setDarkStyle] = useState('')
@@ -20,6 +22,8 @@ const Home = () => {
             <Features />
             <TechStack/>
             <TemplateSection/>
+            <CallToAction/>
+            <Commuity/>
         </main>
     )
 }
