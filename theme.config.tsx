@@ -2,6 +2,7 @@ import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 import Image from 'next/image'
 import ReactNexLogo from './assets/ReactNexusLogo.png'
+import DarkModeToogle from './components/DarkModeToogle/DarkModeToogle'
 import { useRouter } from 'next/router'
 const config: DocsThemeConfig = {
   logo: 
@@ -11,6 +12,9 @@ const config: DocsThemeConfig = {
   </span>,
   project: {
     link: 'https://github.com/Sahilwagh03/React-Nex-Docs',
+  },
+  navbar:{
+    extraContent:<DarkModeToogle/>
   },
   docsRepositoryBase: 'https://react-nex-docs.vercel.app/',
   footer: {

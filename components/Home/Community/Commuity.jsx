@@ -36,7 +36,7 @@ const Commuity = () => {
                     </div>
                     <p className="w-full my-2 text-lg lg:text-xl font-normal text-default-500 max-w-full md:w-full text-center flex justify-center items-center">Get involved in our community. Everyone is welcome!</p>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3 mt-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3 mt-16">
                         {communityData.map((community, index) => (
                             <button key={index} className="flex flex-col rounded-md relative overflow-hidden h-auto text-foreground box-border outline-none focus:outline-none shadow-medium rounded-large cursor-pointer transition-transform-background motion-reduce:transition-none scale-97 hover:scale-100 tap-highlight-transparent border-transparent bg-white/5 dark:bg-default-400/10 backdrop-blur-lg backdrop-saturate-1.8" type="button">
                                 <div className="flex p-3 w-full justify-start items-center">
