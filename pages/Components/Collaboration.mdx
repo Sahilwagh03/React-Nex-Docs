@@ -1,0 +1,40 @@
+import CollaborationCircleWrapper from '../../components/global/CollaborationCircleWrapper';
+import ComponentPreviewAndCode from '../../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
+import CommandBlock from '../../components/CommandBlock/CommandBlock'
+
+<ComponentPreviewAndCode 
+PreviewComponent={
+<>
+<CollaborationCircleWrapper/>
+</>
+}
+Code={`
+import React from 'react'
+import { CentralIcon, CollabIcon, CollabIconContainer, Collaboration } from '../CollaborationCircle/Collaboration'
+import { CentralIcon, CollabIcon, CollabIconContainer, Collaboration } from '../CollaborationCircle/Collaboration'
+import {discord ,figma , framer , notion , photoshop , protopie , raindrop ,slack} from  '../icons'
+import brainwaveSymbol from '../../assets/brainwave-symbol-white.svg'
+import collabApps from './collabApps'
+const CollaborationCircle = () => {
+
+    return (
+        <Collaboration>
+            <CentralIcon icon={} width={48} height={48} />
+            <CollabIconContainer>
+                {
+                    collabApps.map(({ icon, width, height, title }, index) => (
+                        <CollabIcon index={index} icon={icon} width={width} height={height} alt={title} />
+                    ))
+                }
+            </CollabIconContainer>
+        </Collaboration>
+    )
+}
+
+export default CollaborationCircle
+`}
+/>
+
+## Installation
+
+<CommandBlock command="npx react-nex add Collaboration" />
