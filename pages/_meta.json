@@ -18,6 +18,13 @@
     "href": "/Introduction",
     "type":"page"
   },
+  "Template":{
+    "title":"Template",
+    "type":"page",
+    "theme": {
+      "layout": "full"
+    }
+  },
   "contact": {
     "title": "Contact ↗",
     "type": "page",

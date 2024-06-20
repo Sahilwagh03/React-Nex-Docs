@@ -24,12 +24,10 @@ const TemplateCategory = () => {
                     <div className="relative h-48 md:h-64 lg:h-72 overflow-hidden rounded-md">
                         <img alt="Product Image" className="object-cover object-center w-full h-full border border-neutral-200 dark:border-neutral-800 shadow-sm transform transition-transform duration-600 hover:scale-110 rounded-md" src="https://cdn.dribbble.com/userupload/10138231/file/original-e823d0baa477ae0e0ad92465bb7116f8.png" />
                     </div>
-
                     <div className="relative h-48 md:h-64 lg:h-72 overflow-hidden rounded-md">
                         <img alt="Product Image" className="object-cover object-center w-full h-full border border-neutral-200 dark:border-neutral-800 shadow-sm transform transition-transform duration-600 hover:scale-110 rounded-md" src="https://cdn.dribbble.com/userupload/11559272/file/original-7d7b9a19a159e3dce5803c7476d52a49.png" />
                     </div>
                 </div>
-
             </div>
 
         </div>
