@@ -1,17 +1,14 @@
 {
+  "-":{
+    "type":"separator",
+    "title":"Getting started"
+  },
   "index": {
     "title": "Home",
     "type": "page",
     "theme": {
       "layout": "full"
     }
-  },
-  "Introduction":"Introduction",
-  "Installation": "Installation",
-  "Components": "Components",
-  "about": {
-    "title": "About",
-    "type": "page"
   },
   "Docs":{
     "title":"Docs",
@@ -25,6 +22,43 @@
       "layout": "full"
     }
   },
+  "Introduction":"Introduction",
+  "Installation": "Installation",
+  "-_":{
+    "type":"separator",
+    "title":"Components"
+  },
+  "Accordion":"Accordion",
+  "Alert":"Alert",
+  "Avatar":"Avatar",
+  "Badge":"Badge",
+  "Button":"Button",
+  "Calendar":"Calendar",
+  "Card":"Card",
+  "CheckBox":"CheckBox",
+  "Collaboration":"Collaboration",
+  "Date-Picker":"Date Picker",
+  "Input-Otp":"Input Otp",
+  "Input":"Input",
+  "Modal":"Modal",
+  "Pagination":"Pagination",
+  "ProgressBar":"ProgressBar",
+  "Search-Bar":"Search Bar",
+  "Sheet":"Sheet",
+  "Skeleton":"Skeleton",
+  "Switch":"Switch",
+  "Table":"Table",
+  "Tabs":"Tabs",
+  "Tooltip":"Tooltip",
+  "about": {
+    "title": "About",
+    "type": "page"
+  },
+  "-__":{
+    "type":"separator",
+    "title":"Animation Components"
+  },
+  "TypewriterEffect":"Typewriter Effect",
   "contact": {
     "title": "Contact ↗",
     "type": "page",

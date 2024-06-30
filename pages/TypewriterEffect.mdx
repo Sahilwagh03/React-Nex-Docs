@@ -1,0 +1,90 @@
+import { TypewriterEffectSmoothWrapper , TypewriterEffectWrapper } from '../components/global/TypewriterEffectWrapper';
+import ComponentPreviewAndCode from '../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
+import CommandBlock from '../components/CommandBlock/CommandBlock'
+
+# Type Writer Effect
+
+<span style={{ color: 'grey', fontSize: 18, fontWeight: 400 }}>
+  This component animates text as if it's being typed on a typewriter. Each character appears individually with a slight delay, creating a realistic typing effect.
+</span>
+
+<br></br>
+
+
+
+<ComponentPreviewAndCode PreviewComponent={
+    <TypewriterEffectSmoothWrapper />
+}
+Code={`
+import { TypewriterEffectSmooth } from '../components-react-nex/TypewriterEffect/TypewriterEffect';
+export function Example() {
+    const words = [
+        { text: "Create", className: "text-green-500 dark:text-green-400" }, 
+        { text: "Stunning" },
+        { text: "UIs" },
+        { text: "Fast." },
+    ];
+  return (
+    <div>
+      <TypewriterEffectSmooth words={words}  cursorClassName={'bg-green-400'}/>
+    </div>
+  );
+}
+`}
+/>
+
+
+## Installation
+
+<CommandBlock command="npx react-nex add TypewriterEffect" />
+
+
+<br></br>
+
+## Example
+
+### Typewriter Effect without smoothness
+
+<br></br>
+<ComponentPreviewAndCode 
+    PreviewComponent={
+        <TypewriterEffectWrapper />
+    }
+    Code={`
+import { TypewriterEffect } from '../components-react-nex/TypewriterEffect/TypewriterEffect';
+export function Example() {
+    const words = [
+        { text: "Create", className: "text-green-500 dark:text-green-400" }, 
+        { text: "Stunning" },
+        { text: "UIs" },
+        { text: "Fast." },
+    ];
+    return (
+        <div>
+            <TypewriterEffect words={words} cursorClassName={'bg-green-400'} />
+        </div>
+    );
+}
+`}
+/>
+
+
+## Props
+
+### `words`
+
+- Type: `{ text: string; className?: string; }[]`
+- Description: An array of objects representing the words to be typed. Each object can have a `text` property and an optional `className` property for styling.
+
+### `className`
+
+- Type: `string`
+- Description: The class name to be applied to the typewriter text container.
+
+### `cursorClassName`
+
+- Type: `string`
+- Description: The class name to be applied to the cursor.
+
+
+

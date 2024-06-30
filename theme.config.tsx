@@ -34,6 +34,16 @@ const config: DocsThemeConfig = {
       <link rel="icon" href="https://i.ibb.co/KF7Vvs5/React-Nexus-Logo-removebg-preview.png"></link>
     </>
   ),
+  sidebar: {
+    titleComponent({ title, type }) {
+      if (type === 'separator') {
+        return (
+          <div style={{ textAlign: 'left' }}>{title}</div>
+        )
+      }
+      return <>{title}</>
+    }
+  },
   useNextSeoProps() {
     const { asPath } = useRouter()
     if (asPath !== '/') {

@@ -100,7 +100,7 @@ const SheetDescription = ({ children }) => {
 };
 
 const SheetFooter = ({ children }) => {
-  return <div className="mt-4 flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2">{children}</div>;
+  return <div className="mt-4 flex flex-col-reverse gap-2 sm:gap-0 sm:flex-row sm:justify-end sm:space-x-2">{children}</div>;
 };
 
 export { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter };
