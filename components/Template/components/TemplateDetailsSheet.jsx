@@ -2,9 +2,9 @@
 import React from 'react';
 import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter } from '../../Sheet/Sheet';
 import { IoLogoGithub } from "react-icons/io5";
-import { FiDownload } from "react-icons/fi";
+import { FiArrowUpRight } from "react-icons/fi";
 
-const TemplateDetailsSheet = ({ children ,src}) => {
+const TemplateDetailsSheet = ({ children, templateImageSrc, githubRepoLink, demoLink }) => {
   return (
     <Sheet>
       <SheetTrigger>
@@ -15,9 +15,9 @@ const TemplateDetailsSheet = ({ children ,src}) => {
           <SheetTitle>Template Details</SheetTitle>
         </SheetHeader>
         <div className="mb-4">
-          <img 
-            src={src}
-            alt="Template Preview" 
+          <img
+            src={templateImageSrc}
+            alt="Template Preview"
             className="w-full h-auto rounded-md shadow-md mb-4"
           />
           <SheetDescription>
@@ -25,20 +25,23 @@ const TemplateDetailsSheet = ({ children ,src}) => {
           </SheetDescription>
         </div>
         <SheetFooter>
-          <a 
-            target="_blank" 
-            rel="noreferrer" 
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={githubRepoLink}
             className="flex items-center cursor-pointer bg-gray-800 text-white px-4 py-2 rounded-md mb-2 sm:mb-0 sm:ml-2"
           >
             <IoLogoGithub className="mr-2" size={20} />
             GitHub
           </a>
-          <a 
-            className="flex items-center cursor-pointer bg-white text-black px-4 py-2 rounded-md"
-            download
+          <a
+            className="flex items-center cursor-pointer justify-between gap-1 bg-white text-black px-4 py-2 rounded-md"
+            href={demoLink}
+            target="_blank"
+            rel="noreferrer"
           >
-            <FiDownload className="mr-2" size={18} />
-            Download
+            Demo Link
+            <FiArrowUpRight className="" size={20} />
           </a>
         </SheetFooter>
       </SheetContent>
