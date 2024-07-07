@@ -3,7 +3,7 @@ import { FiCalendar } from 'react-icons/fi';
 import Calendar from '../Calendar/Calendar';
 import dayjs from 'dayjs';
 
-const DatePicker = ({ onSelect, selected, mode = 'single' }) => {
+const DatePicker = ({ onSelect, selected, mode = 'single', timer = false, time, setTime }) => {
     const [calendarOpen, setCalendarOpen] = useState(false);
 
     const toggleCalendar = () => {
@@ -13,6 +13,9 @@ const DatePicker = ({ onSelect, selected, mode = 'single' }) => {
 
     const getDisplayDate = () => {
         if (mode === 'single') {
+            if(timer){
+                return selected ? `${selected} - ${time}` : "Pick a date"
+            }
             return selected ? selected : "Pick a date";
         } else if (mode === 'range') {
             if (selected && selected.startDate && !selected.endDate) {
@@ -56,15 +59,19 @@ const DatePicker = ({ onSelect, selected, mode = 'single' }) => {
             </button>
             {calendarOpen && (
                 <div className="absolute z-10 top-[45px]">
-                    <Calendar onSelect={onSelect}
+                    <Calendar
+                        onSelect={onSelect}
                         selected={
                             mode == 'range' ?
                                 rangeDefault
                                 :
-                                selected == '' ? selected :dayjs(selected)
+                                selected == '' ? selected : dayjs(selected)
                         }
                         mode={mode}
                         datePicker
+                        timer={timer}
+                        dateTime={time}
+                        handleSetTime={setTime}
                     />
                 </div>
             )}

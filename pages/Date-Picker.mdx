@@ -7,6 +7,7 @@
 <br></br>
 
 import DatePickerWrapper from '../components/global/DatePickerWrapper';
+import DateTimePickerWrapper from '../components/global/DateTimePickerWrapper';
 import ComponentPreviewAndCode from '../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
 import CommandBlock from '../components/CommandBlock/CommandBlock'
 
@@ -61,6 +62,36 @@ const App = () => {
     return (
         <div className="h-[100vh]">
             <DatePicker onSelect={setDate} mode='range' selected={date} />
+        </div>
+    );
+};
+
+export default App;
+`}
+/>
+
+
+### Date And Time Picker
+
+Select the date and time both. 
+
+<br></br>
+
+<ComponentPreviewAndCode PreviewComponent={
+    <div className='flex flex-col items-center my-4'>
+        <DateTimePickerWrapper />
+    </div>
+}
+Code={`
+import React, { useState } from 'react';
+import DatePicker from "./DatePicker";
+
+const App = () => {
+    const [date, setDate] = useState('')
+    const [time, setTime] = useState('');
+    return (
+        <div className="h-[100vh]">
+            <DatePicker onSelect={setDate} selected={date} time={time} setTime={setTime} timer />
         </div>
     );
 };
