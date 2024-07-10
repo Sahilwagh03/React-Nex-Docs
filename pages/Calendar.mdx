@@ -7,6 +7,7 @@
 <br></br>
 
 import Calendar from "../components/Calendar/Calendar";
+import {CalendarColorWrapper} from '../components/global/CalendarWrapper';
 import ComponentPreviewAndCode from '../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
 import CommandBlock from '../components/CommandBlock/CommandBlock'
 
@@ -74,6 +75,34 @@ export default App;
 `}
 />
 
+<br></br>
+
+### Active date Color and style
+
+Customized color for the selected Date
+
+<br></br>
+
+<ComponentPreviewAndCode 
+PreviewComponent={
+    <div className='flex flex-col items-center my-4'>
+        <CalendarColorWrapper />
+    </div>
+}
+
+Code={`
+import React, { useState } from 'react';
+import Calendar from "./Calendar";
+const App = () => {
+    const [date,setDate]=useState('')
+    return (
+        <Calendar onSelect={setDate} selected={date} mode='range' activeClassName='bg-green-400 text-white dark:bg-green-600' />
+    )
+    };
+    export default App;
+`}
+/>
+
 
 # Props
 
@@ -87,7 +116,7 @@ export default App;
 - Type: `Date`
 - Description: The initially selected date. This should be a `Date` object.
 
-### `className`
+### `activeClassName`
 
 - Type: `string`
-- Description: Additional Tailwind CSS classes to apply to the calendar container.
+- Description: Additional Tailwind CSS classes to apply to the calendar selected date.

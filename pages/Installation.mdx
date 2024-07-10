@@ -1,42 +1,42 @@
+import CommandBlock from '../components/CommandBlock/CommandBlock'
+import { Steps } from 'nextra/components'
+import { Callout } from 'nextra/components'
+
 # Installation
 
 Unlike other bloated libraries, React-nex empowers you to pick and choose the exact components you require. Simply leverage npx to install specific components directly into your project:
 
-You can install React-nex components via npm using `npx`:
+<Steps>
+### Install  
 
-```bash
-npx react-nex add component_name
-```
+<CommandBlock command="npm i react-nex@latest" />
 
-## Usage
+### Configure your Tailwind
 
-Once you've installed the desired component, you can import and use it in your React application as follows:
+<Callout type="info">
+  Ensure that you add the component path to the Tailwind CSS configuration. Add the following line to the Tailwind config file to enable Tailwind to purge unused styles:
+</Callout>
 
 ```javascript
-import { ComponentName } from './src/component-rect-nex/ComponentName';
-
-function App() {
-  return (
-    <div>
-      <ComponentName />
-    </div>
-  );
-}
-
-export default App;
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components-react-nex/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  plugins: [],
+};
 ```
 
-## Available Components
+</Steps>
 
-Here is a list of available components along with brief descriptions:
+## Component Installation
 
-- **Button**: A customizable button component for use in your React application.
-- **Alert**: A component for displaying alerts and notifications to users.
-- **Avatar**: A component for displaying user avatars or profile images.
-- **AvatarGroup**: A component for displaying a group of avatars in a single container.
-- **Badge**: A simple badge component for labeling content.
-- **Checkbox**: A checkbox component for selecting options.
-- **PinBox**: A PinBox component for getting otp values.
+You can install React-nex components via npm using `npx`:
+
+<CommandBlock command="npx react-nex add component_name" />
 
 ## Contributing
 
