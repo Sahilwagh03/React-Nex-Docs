@@ -1,0 +1,131 @@
+# Avatar Group
+
+<span style={{ color: 'grey', fontSize: 18, fontWeight: 400 }}>
+  A component to display a group of avatars with overlapping images.
+</span>
+
+<br></br>
+
+import AvatarGroup from "../components/AvatarGroup/AvatarGroup";
+import Avatar from "../components/Avatar/Avatar";
+
+import ComponentPreviewAndCode from '../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
+
+<ComponentPreviewAndCode PreviewComponent={
+        <AvatarGroup containerStyle='justify-center'>
+            <Avatar size={'sm'} src='https://bit.ly/ryan-florence' />
+            <Avatar size={'sm'} src='https://bit.ly/kent-c-dodds' />
+            <Avatar size={'sm'} src='https://bit.ly/prosper-baba' />
+            <Avatar size={'sm'} src='https://bit.ly/code-beast' />
+        </AvatarGroup>
+}/>
+
+## Installation
+
+import CommandBlock from '../components/CommandBlock/CommandBlock'
+
+<CommandBlock command="npx react-nex add AvatarGroup" />
+
+## Components of Avatar Group
+
+### Avatar Group Component 
+
+<br></br>
+
+<ComponentPreviewAndCode 
+PreviewComponent={
+    <AvatarGroup>
+        <Avatar src='https://bit.ly/ryan-florence' size='md' />
+        <Avatar src='https://bit.ly/dan-abramov' size='md' />
+        <Avatar src='https://bit.ly/kent-c-dodds' size='md' />
+    </AvatarGroup>
+} 
+Code={
+`
+import React from 'react';
+
+const AvatarGroupExample = () => {
+    return (
+        <AvatarGroup>
+            <Avatar src='https://bit.ly/ryan-florence' size='md' />
+            <Avatar src='https://bit.ly/dan-abramov' size='md' />
+            <Avatar src='https://bit.ly/kent-c-dodds' size='md' />
+        </AvatarGroup>
+    );
+}
+
+export default AvatarGroupExample;
+`
+}/>
+
+<br></br>
+
+## Examples
+
+### Custom Container Style
+
+Style the container using Tailwind CSS classes
+
+<br></br>
+
+<ComponentPreviewAndCode 
+PreviewComponent={
+      <div className='flex flex-col gap-4 md:flex-row'>
+        <AvatarGroup containerStyle="space-x-4">
+            <Avatar src='https://bit.ly/ryan-florence' size='md' />
+            <Avatar src='https://bit.ly/dan-abramov' size='md' />
+            <Avatar src='https://bit.ly/kent-c-dodds' size='md' />
+        </AvatarGroup>
+      </div>
+}
+Code={`
+<div className='flex flex-col gap-4 md:flex-row'>
+  <AvatarGroup containerStyle="space-x-4">
+    <Avatar src='https://bit.ly/ryan-florence' size='md' />
+    <Avatar src='https://bit.ly/dan-abramov' size='md' />
+    <Avatar src='https://bit.ly/kent-c-dodds' size='md' />
+  </AvatarGroup>
+</div>`}
+/>
+
+### Custom Image Container Style
+
+Style the image container using Tailwind CSS classes
+
+<br></br>
+
+<ComponentPreviewAndCode PreviewComponent={
+      <div className='flex flex-col gap-4 md:flex-row'>
+        <AvatarGroup imageContainerStyle="border-4 border-white dark:border-[#2E2E2E] dark:border-4 !p-0 dark:p-0 shadow-xl">
+            <Avatar src='https://bit.ly/ryan-florence' size='md' />
+            <Avatar src='https://bit.ly/dan-abramov' size='md' />
+            <Avatar src='https://bit.ly/kent-c-dodds' size='md' />
+        </AvatarGroup>
+      </div>
+} Code={`
+<div className='flex flex-col gap-4 md:flex-row'>
+    <AvatarGroup imageContainerStyle="border-4 border-white dark:border-[#2E2E2E] dark:border-4 !p-0 dark:p-0 shadow-xl">
+        <Avatar src='https://bit.ly/ryan-florence' size='md' />
+        <Avatar src='https://bit.ly/dan-abramov' size='md' />
+        <Avatar src='https://bit.ly/kent-c-dodds' size='md' />
+    </AvatarGroup>
+</div>`}
+/>
+
+
+## Props
+
+### `children`
+
+- Type: `ReactNode`
+- Description: The avatars to be displayed in the group.
+
+### `containerStyle`
+
+- Type: `string`
+- Description: Additional Tailwind CSS classes to apply to the avatar group container.
+
+### `imageContainerStyle`
+
+- Type: `string`
+- Description: Additional Tailwind CSS classes to apply to each avatar container.

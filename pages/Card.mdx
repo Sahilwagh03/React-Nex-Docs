@@ -1,5 +1,11 @@
 # Card
 
+<span style={{ color: 'grey', fontSize: 18, fontWeight: 400 }}>
+  Displays a Card or a component that looks like a Card.
+</span>
+
+<br></br>
+
 import {Card, CardHeader, CardTitle, CardDescription, CardBody, CardFooter } from "../components/Card/CardComponets";
 import Avatar from "../components/Avatar/Avatar";
 import Badge from "../components/Badge/Badge";
@@ -7,45 +13,80 @@ import Input from "../components/Input/Input";
 import CheckBox from "../components/CheckBox/CheckBox";
 import Button from "../components/Button/Button";
 import ComponentPreviewAndCode from '../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
+import CommandBlock from '../components/CommandBlock/CommandBlock'
+
 
 <ComponentPreviewAndCode PreviewComponent={
-      <Card>
-        <CardHeader>
-          <CardTitle>Card Title</CardTitle>
-        </CardHeader>
-        <CardBody>
-          <Avatar size={'sm'} src='https://bit.ly/code-beast' />
-          <Badge className="bg-yellow-500">Bestseller</Badge>
-          <CheckBox
-            label={'Accept terms and conditions'}
-            description="You agree to our Terms of Service and Privacy Policy."
-          />
-        </CardBody>
-        <CardFooter>
-          <Button title="Button" />
-        </CardFooter>
-      </Card>
+                <Card className='max-w-[300px] '>
+                    <CardHeader>
+                        <div className="flex justify-between items-center">
+                            <div className="flex items-center">
+                                <Avatar size={'sm'} src='https://bit.ly/code-beast' />
+                                <div className="ml-2">
+                                    <CardTitle className='!mb-0'>Zoey Lang</CardTitle>
+                                    <span>@zoeylang</span>
+                                </div>
+                            </div>
+                            <Button title="Follow" />
+                        </div>
+                    </CardHeader>
+                    <CardBody>
+                        <span>Full-stack developer, @reactjs enthusiast he/him 🎉</span>
+                    </CardBody>
+                    <CardFooter>
+                        <div className="flex space-x-4 mt-2">
+                            <div className='flex flex-row gap-1'>
+                                <span className="font-bold">4</span>
+                                <span>Following</span>
+                            </div>
+                            <div className='flex flex-row gap-1'>
+                                <span className="font-bold">97.1K</span>
+                                <span>Followers</span>
+                            </div>
+                        </div>
+                    </CardFooter>
+                </Card>
 } 
 Code={
-`<Card>
-  <CardHeader>
-    <CardTitle>Card Title</CardTitle>
-  </CardHeader>
-  <CardBody>
-    <Avatar size={'sm'} src='https://bit.ly/code-beast' />
-    <Badge className="bg-yellow-500">Bestseller</Badge>
-    <CheckBox
-      label={'Accept terms and conditions'}
-      description="You agree to our Terms of Service and Privacy Policy."
-    />
+`              
+<Card className='max-w-[300px] '>
+    <CardHeader>
+      <div className="flex justify-between items-center">
+          <div className="flex items-center">
+              <Avatar size={'sm'} src='https://bit.ly/code-beast' />
+              <div className="ml-2">
+                  <CardTitle className='!mb-0'>Zoey Lang</CardTitle>
+                   <span>@zoeylang</span>
+              </div>
+          </div>
+          <Button title="Follow" />
+      </div>
+    </CardHeader>
+    <CardBody>
+      <span>Full-stack developer, @reactjs enthusiast he/him 🎉</span>
     </CardBody>
     <CardFooter>
-      <Button title="Button" />
+      <div className="flex space-x-4 mt-2">
+          <div className='flex flex-row gap-1'>
+              <span className="font-bold">4</span>
+              <span>Following</p>
+          </div>
+          <div className='flex flex-row gap-1'>
+              <span className="font-bold">97.1K</p>
+              <span>Followers</p>
+          </div>
+      </div>
     </CardFooter>
-</Card>`
+</Card>
+`
 }
 
 />
+
+
+## Installation
+
+<CommandBlock command="npx react-nex add Card" />
 
 <br>
 </br>
@@ -53,6 +94,9 @@ Code={
 ## Example 
 
 ### Sign-in Form
+
+<br>
+</br>
 
 <ComponentPreviewAndCode PreviewComponent={
 <Card className={'min-w-[300px] my-5'}>

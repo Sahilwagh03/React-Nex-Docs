@@ -1,17 +1,14 @@
 import React from 'react'
-import { useTheme } from 'next-themes'
-import { getColorTheme } from '../../utils/ColorTheme/getColorTheme'
 
 const Button = ({
   title = "Button",
   onClick,
-  className=""
+  className="bg-black shadow-md text-white dark:text-black dark:bg-white"
 }) => {
-  const {theme,resolvedTheme}=useTheme()
-  const color_scheme = getColorTheme(theme,resolvedTheme,className)
+
   return (
     <button
-      className={`h-auto rounded-md px-[1rem] py-[0.5rem] shadow-md ${color_scheme} ${className}`}
+      className={`h-auto rounded-md px-4 py-2 ${className}`}
       onClick={onClick}
     >
       {title}

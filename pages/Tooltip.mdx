@@ -12,7 +12,7 @@ import CommandBlock from '../components/CommandBlock/CommandBlock'
 import Button from "../components/Button/Button";
 
 <ComponentPreviewAndCode PreviewComponent={
-    <Tooltip>
+    <Tooltip position="top">
         <TooltipTrigger>
           <Button title='Hover'></Button>
         </TooltipTrigger>
@@ -22,7 +22,7 @@ import Button from "../components/Button/Button";
     </Tooltip>
 }
 Code={`
-<Tooltip>
+<Tooltip position="top">
     <TooltipTrigger>
         <Button title='Hover'></Button>
     </TooltipTrigger>
@@ -33,7 +33,100 @@ Code={`
 `}
 />
 
-
 ## Installation
 
 <CommandBlock command="npx react-nex add Tooltip" />
+
+## Example
+
+
+### Tooltip Position Right
+
+The tooltip is positioned at the right
+
+<br></br>
+
+<ComponentPreviewAndCode PreviewComponent={
+    <Tooltip position="right">
+        <TooltipTrigger>
+          <Button title='Right'></Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p class="nx-mt-0 nx-leading-0 first:nx-mt-0">Right Tooltip</p>
+        </TooltipContent>
+    </Tooltip>
+}
+/>
+
+### Tooltip Position Left
+
+The tooltip is positioned at the left
+
+<br></br>
+
+<ComponentPreviewAndCode PreviewComponent={
+    <Tooltip position="left">
+        <TooltipTrigger>
+          <Button title='Left'></Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p class="nx-mt-0 nx-leading-0 first:nx-mt-0">Left Tooltip</p>
+        </TooltipContent>
+    </Tooltip>
+}
+/>
+
+
+### Tooltip Position Top
+
+The tooltip is positioned at the top
+
+<br></br>
+
+<ComponentPreviewAndCode PreviewComponent={
+    <Tooltip position="top">
+        <TooltipTrigger>
+          <Button title='Top'></Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p class="nx-mt-0 nx-leading-0 first:nx-mt-0">Top Tooltip</p>
+        </TooltipContent>
+    </Tooltip>
+}
+/>
+
+### Tooltip Position Bottom
+
+The tooltip is positioned at the bottom
+
+<br></br>
+
+<ComponentPreviewAndCode PreviewComponent={
+    <Tooltip position="bottom">
+        <TooltipTrigger>
+          <Button title='Bottom'></Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p class="nx-mt-0 nx-leading-0 first:nx-mt-0">Bottom Tooltip</p>
+        </TooltipContent>
+    </Tooltip>
+}
+/>
+
+
+## Props
+
+### `position`
+
+- Type: `string`
+- Description: Determines the position of the tooltip relative to the trigger element. Accepted values are `top`, `bottom`, `left`, and `right`. Default is `top`.
+
+### `className`
+
+- Type: `string`
+- Description: Additional Tailwind CSS classes to apply to the tooltip container.
+
+### `onClick`
+
+- Type: `function`
+- Description: Callback function to be executed when the component is clicked.
