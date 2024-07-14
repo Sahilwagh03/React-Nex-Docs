@@ -1,41 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { getSizeClasses } from './utils';
 import classNames from 'classnames';
-import { useTheme } from 'next-themes';
 
-
-const InputOtpBox = ({ length = 6, className = '', size = 'md', outline = '', placeholder = 'o', otpValue, onOtpChange }) => {
+const InputOtpBox = ({ length = 6, className = '', size = 'md', outline = '', placeholder = 'o', onOtpChange }) => {
   const [pins, setPins] = useState(Array(length).fill(''));
-  const {theme,resolvedTheme}=useTheme()
-  const getInputBoxClasses = ()=>{
-    if ((theme === 'dark' || resolvedTheme === 'dark') && className === "") {
-      return 'border-[#2E2E2E] bg-[#1C1C1B]';
-    } else {
-      return 'bg-white text-black border-2 border-gray-300';
-    }
-  }
+
   useEffect(() => {
-    // Update the parent component with the OTP value whenever it changes
     if (onOtpChange) {
       onOtpChange(pins.join(''));
     }
   }, [pins, onOtpChange]);
 
   const handleChange = (event, index) => {
+    const { value } = event.target;
+    
+    if (!/^[0-9]*$/.test(value)) {
+      return; 
+    }
+
     const newPins = [...pins];
-    newPins[index] = event.target.value;
+    newPins[index] = value;
     setPins(newPins);
 
-    // Optional: Focus on the next input field if a number is entered
-    if (event.target.value.length === 1 && index < length - 1) {
+    if (value.length === 1 && index < length - 1) {
       const nextInput = document.getElementById(`pin-${index + 1}`);
       if (nextInput) {
         nextInput.focus();
       }
     }
 
-    // Optional: Handle backspace to focus on the previous field
-    if (event.target.value.length === 0 && index > 0) {
+    if (value.length === 0 && index > 0) {
       const prevInput = document.getElementById(`pin-${index - 1}`);
       if (prevInput) {
         prevInput.focus();
@@ -69,7 +63,7 @@ const InputOtpBox = ({ length = 6, className = '', size = 'md', outline = '', pl
           key={index}
           type="text"
           id={`pin-${index}`}
-          className={classNames('text-center border-2 rounded cursor-pointer focus:outline-none focus:ring-2',getInputBoxClasses(), className, sizeClass)}
+          className={classNames('text-center border border-gray-300 rounded cursor-pointer focus:outline-none focus:ring-2 dark:border-[#2E2E2E] dark:bg-[#1C1C1B] dark:text-white', className, sizeClass)}
           maxLength="1"
           value={pin}
           onChange={(event) => handleChange(event, index)}

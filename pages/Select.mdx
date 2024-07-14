@@ -1,0 +1,101 @@
+# Select Component
+
+<span style={{ color: 'grey', fontSize: 18, fontWeight: 400 }}>
+  A Select component that allows users to choose from a list of options.
+</span>
+
+<br></br>
+
+import SelectWrapper from '../components/global/SelectWrapper';
+import ComponentPreviewAndCode from '../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
+import CommandBlock from '../components/CommandBlock/CommandBlock'
+
+<ComponentPreviewAndCode PreviewComponent={
+    <div className='flex flex-col items-center my-4'>
+        <SelectWrapper/>
+    </div>
+}
+Code={`
+import React, { useState } from 'react';
+import Select from "./Select";
+
+const App = () => {
+    const [selectedTechnology, setSelectedTechnology] = useState('');
+
+    return (
+        <div className="h-[100vh]">
+            <Select onSelect={setSelectedTechnology} value={selectedTechnology}>
+                <SelectList>
+                    <SelectItem value="React" />
+                    <SelectItem value="Vue" />
+                    <SelectItem value="Angular" />
+                    <SelectItem value="Svelte" />
+                </SelectList>
+            </Select>
+        </div>
+    );
+};
+
+export default App;
+`}
+/>
+
+## Installation
+
+<CommandBlock command="npx react-nex add Select" />
+
+## Example
+
+### Basic Select
+
+Choose a technology
+
+<br></br>
+
+<ComponentPreviewAndCode PreviewComponent={
+    <div className='flex flex-col items-center my-4'>
+        <SelectWrapper />
+    </div>
+}
+Code={`
+import React, { useState } from 'react';
+import Select from "./Select";
+
+const App = () => {
+    const [selectedTechnology, setSelectedTechnology] = useState('');
+
+    return (
+        <div className="h-[100vh]">
+            <Select onSelect={setSelectedTechnology} value={selectedTechnology}>
+                <SelectList>
+                    <SelectItem value="React" />
+                    <SelectItem value="Vue" />
+                    <SelectItem value="Angular" />
+                    <SelectItem value="Svelte" />
+                </SelectList>
+            </Select>
+        </div>
+    );
+};
+
+export default App;
+`}
+/>
+
+## Props
+
+### `onSelect`
+
+- Type: `(value: string) => void`
+- Description: Callback function that is called when an option is selected. The selected value is passed as a string.
+
+### `value`
+
+- Type: `string`
+- Description: The currently selected value. This should be a string matching one of the option values.
+
+### `children`
+
+- Type: `node`
+- Description: The list of options to choose from, wrapped in a `SelectList` component.
+
