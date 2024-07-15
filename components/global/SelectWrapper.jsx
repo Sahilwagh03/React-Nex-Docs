@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Select, Popover, SelectHeader, SelectContent, SelectList, SelectItem } from '../Select/Select'
 
-const SelectWrapper = () => {
+const SelectWrapper = ({enableSearch}) => {
     const [selectedValue, setSelectedValue] = useState('');
 
     const handleSelect = (value) => {
@@ -31,7 +31,7 @@ const SelectWrapper = () => {
     ];
 
     return (
-        <Select value={selectedValue} onSelect={handleSelect} placeholder='Select Tech'>
+        <Select value={selectedValue} onSelect={handleSelect} placeholder='Select Tech' enableSearch>
             <Popover>
                 <SelectHeader>
                     <h1>Technology</h1>

@@ -3,30 +3,63 @@ import { IoCheckmarkOutline } from "react-icons/io5";
 
 const SelectContext = createContext();
 
-const Select = ({ children, value = "", onSelect, placeholder="Select" }) => {
+const Select = ({ children, value = "", onSelect, placeholder = "Select", enableSearch = false }) => {
     const [popoverOpen, setPopoverOpen] = useState(false);
     const [placeAbove, setPlaceAbove] = useState(false);
+    const [searchQuery, setSearchQuery] = useState("");
     const popOverRef = useRef(null);
 
     const handlePopover = () => {
         setPopoverOpen(!popoverOpen);
-    }
+    };
+
+    const handleInputChange = (e) => {
+        setSearchQuery(e.target.value);
+    };
+
+    const handleInputFocus = () => {
+        if (!popoverOpen) {
+            setPopoverOpen(true);
+        }
+    };
+
+    useEffect(()=>{
+        if(searchQuery==""){
+            onSelect("")
+        }
+    },[searchQuery])
 
     return (
-        <SelectContext.Provider value={{ placeAbove, setPlaceAbove, popOverRef, value, onSelect, setPopoverOpen, placeholder }}>
+        <SelectContext.Provider value={{ placeAbove, setPlaceAbove, popOverRef, value, onSelect, setPopoverOpen, placeholder, searchQuery, setSearchQuery }}>
             <div className='relative' ref={popOverRef}>
-                <button
-                    className="inline-flex items-center whitespace-nowrap rounded-md text-sm min-w-[200px] max-w-[300px]
+
+                {
+                    !enableSearch ?
+                        <button
+                            className="inline-flex items-center whitespace-nowrap rounded-md text-sm min-w-[200px] max-w-[300px]
                     ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 
                     focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border dark:border-[#27272a] 
                     hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 justify-start text-left font-normal dark:hover:bg-[#27272a] dark:hover:text-white dark:text-[#a1a1aa]
                     flex flex-row justify-between"
-                    type="button"
-                    onClick={handlePopover}
-                >
-                    <span>{value || placeholder}</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-chevrons-up-down ml-2 h-4 w-4 shrink-0 opacity-50"><path d="m7 15 5 5 5-5"></path><path d="m7 9 5-5 5 5"></path></svg>
-                </button>
+                            type="button"
+                            onClick={handlePopover}
+                        >
+                            <span>{value || placeholder}</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-chevrons-up-down ml-2 h-4 w-4 shrink-0 opacity-50"><path d="m7 15 5 5 5-5"></path><path d="m7 9 5-5 5 5"></path></svg>
+                        </button>
+                        :
+                        <input
+                            type="text"
+                            className="inline-flex items-center whitespace-nowrap rounded-md text-sm min-w-[200px] max-w-[300px]
+                                disabled:pointer-events-none disabled:opacity-50 border dark:border-[#27272a] 
+                                h-10 px-4 py-2 justify-start text-left font-normal dark:hover:bg-[#27272a] dark:hover:text-white dark:text-[#a1a1aa]"
+                            value={searchQuery=="" ? value : searchQuery}
+                            onFocus={handleInputFocus}
+                            onChange={handleInputChange}
+                            placeholder={placeholder}
+                        />
+                }
+
                 {popoverOpen && children}
             </div>
         </SelectContext.Provider>
@@ -88,16 +121,34 @@ const SelectList = ({ children }) => {
 }
 
 const SelectItem = ({ value }) => {
-    const { onSelect, setPopoverOpen, value: selectedValue,placeholder } = usePopOver();
+    const { onSelect, setPopoverOpen, value: selectedValue, placeholder, searchQuery ,setSearchQuery} = usePopOver();
 
     const handleSelect = () => {
-        if (selectedValue === value) {
-            onSelect(placeholder); // Deselect if already selected
-        } else {
-            onSelect(value); // Select the new value
+        if (searchQuery) {
+            if (selectedValue === value) {
+                onSelect("")
+                setSearchQuery("")
+            } else {
+                onSelect(value)
+                setSearchQuery(value)
+
+            }
         }
-        setPopoverOpen(false); // Close the popover on select
+        else {
+            if (selectedValue === value) {
+                onSelect(placeholder); // Deselect if already selected
+            } else {
+                onSelect(value); // Select the new value
+
+            }
+        }
+        setPopoverOpen(false);// Close the popover on select
     };
+
+    // Filter items based on search query
+    if (searchQuery && !value.toLowerCase().includes(searchQuery.toLowerCase())) {
+        return null;
+    }
 
 
     return (
