@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
-
-const ComponentPreviewAndCode = ({ PreviewComponent, Code }) => {
+import cn from '../../utils/classmerger/cn'
+const ComponentPreviewAndCode = ({ PreviewComponent, Code ,previewStyles=""}) => {
     const [displayComponent, setDisplayComponent] = useState('Preview');
 
     const handleButtonClick = (component) => {
@@ -43,7 +43,7 @@ const ComponentPreviewAndCode = ({ PreviewComponent, Code }) => {
                 }
             </div>
             {displayComponent === 'Preview' ? (
-                <div className=" relative flex justify-center min-h-[300px] overflow-auto items-center border-2 border-gray-200 dark:nx-border-neutral-800 rounded-md ">
+                    <div className={cn(" relative flex justify-center min-h-[300px] overflow-auto items-center border-2 border-gray-200 dark:nx-border-neutral-800 rounded-md" , previewStyles)}>
                     {PreviewComponent}
                     <button
                         onClick={handleCopyClick}

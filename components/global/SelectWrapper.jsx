@@ -31,7 +31,7 @@ const SelectWrapper = ({enableSearch}) => {
     ];
 
     return (
-        <Select value={selectedValue} onSelect={handleSelect} placeholder='Select Tech' enableSearch>
+        <Select value={selectedValue} onSelect={handleSelect} placeholder='Select Tech' enableSearch={enableSearch}>
             <Popover>
                 <SelectHeader>
                     <h1>Technology</h1>

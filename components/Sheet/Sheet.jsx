@@ -1,10 +1,10 @@
 // src/Sheet.js
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { IoCloseOutline } from "react-icons/io5";
-
+import cn from '../../utils/classmerger/cn'
 const SheetContext = createContext();
 
-const Sheet = ({ children }) => {
+const Sheet = ({ children, side = 'right' }) => {
   const [isSheetOpen, setSheetOpen] = useState(false);
 
   const openSheet = () => setSheetOpen(true);
@@ -19,7 +19,7 @@ const Sheet = ({ children }) => {
   }, [isSheetOpen]);
 
   return (
-    <SheetContext.Provider value={{ isSheetOpen, openSheet, closeSheet }}>
+    <SheetContext.Provider value={{ isSheetOpen, openSheet, closeSheet, side }}>
       {children}
     </SheetContext.Provider>
   );
@@ -36,9 +36,9 @@ const SheetTrigger = ({ children }) => {
   );
 };
 
-const SheetContent = ({ side = 'right', children }) => {
-  const { isSheetOpen, closeSheet } = useSheet();
-  
+const SheetContent = ({ children }) => {
+  const { isSheetOpen, closeSheet, side } = useSheet();
+
   const sideClasses = {
     top: {
       initial: "-translate-y-full",
@@ -58,14 +58,14 @@ const SheetContent = ({ side = 'right', children }) => {
       initial: "-translate-x-full",
       open: "translate-x-0",
       position: "inset-y-0 left-0",
-      dimension: "h-full max-w-sm",
+      dimension: "h-full w-full md:max-w-sm",
       border: "border-r border-[#27272a]"
     },
     right: {
       initial: "translate-x-full",
       open: "translate-x-0",
       position: "inset-y-0 right-0",
-      dimension: "h-full max-w-sm",
+      dimension: "h-full w-full md:max-w-sm",
       border: "border-l border-[#27272a]"
     }
   };
@@ -100,7 +100,8 @@ const SheetDescription = ({ children }) => {
 };
 
 const SheetFooter = ({ children }) => {
-  return <div className="mt-4 flex flex-col-reverse gap-2 sm:gap-0 sm:flex-row sm:justify-end sm:space-x-2">{children}</div>;
+  const { side } = useSheet();
+  return <div className={cn("mt-4 flex flex-col-reverse gap-2 sm:gap-0 sm:flex-row sm:justify-end sm:space-x-2", side === 'left' && '!justify-start')} >{children}</div>;
 };
 
 export { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter };

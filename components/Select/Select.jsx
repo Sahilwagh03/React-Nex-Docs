@@ -23,6 +23,23 @@ const Select = ({ children, value = "", onSelect, placeholder = "Select", enable
         }
     };
 
+    const handleClickOutside = (event) => {
+        if (popOverRef.current && !popOverRef.current.contains(event.target)) {
+            setPopoverOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        if (popoverOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [popoverOpen]);
+
     useEffect(()=>{
         if(searchQuery==""){
             onSelect("")

@@ -1,0 +1,68 @@
+import StepperWrapper from '../components/global/StepperWrapper';
+import ComponentPreviewAndCode from '../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
+import CommandBlock from '../components/CommandBlock/CommandBlock'
+
+<ComponentPreviewAndCode 
+PreviewComponent={
+<>
+<StepperWrapper/>
+</>
+}
+Code={`
+import React from 'react'
+import { Step, StepDescription, Stepper, StepSeparator, StepTitle, useSteps } from '../Stepper/Stepper'
+
+const ExampleStepper = () => {
+
+    const steps = [
+        { title: 'First', description: 'Contact Info' },
+        { title: 'Second', description: 'Date & Time' },
+        { title: 'Third', description: 'Select Rooms' },
+    ]
+
+    const { activeStep, goToNext, goToPrevious } = useSteps({
+        index: 1,
+        count: steps.length,
+    });
+    return (
+        <>
+            <div className="flex flex-col">
+                <Stepper index={activeStep} >
+                    {steps.map((step, index) => (
+                        <>
+                            <Step key={index}>
+                                <div>
+                                    <StepTitle>{step.title}</StepTitle>
+                                    <StepDescription>{step.description}</StepDescription>
+                                </div>
+                            </Step>
+                            <StepSeparator />
+                        </>
+                    ))}
+                </Stepper>
+
+                <div className='h-20'>
+                    {activeStep === 1 && <h1>first</h1>}
+                    {activeStep === 2 && <h1>second</h1>}
+                    {activeStep === 3 && <h1>third</h1>}
+                </div>
+                {/* Example of navigation buttons */}
+                <div className="flex justify-between mt-4">
+                    <button className="bg-blue-500 text-white px-4 py-2 rounded-md" onClick={goToPrevious}>Previous</button>
+                    <button className="bg-blue-500 text-white px-4 py-2 rounded-md" onClick={goToNext} >{activeStep == 3 ? 'Submit' : 'Next'}</button>
+                </div>
+
+            </div>
+        </>
+    )
+}
+
+export default ExampleStepper
+`}
+
+previewStyles='!block py-10 px-5 '
+/>
+
+## Installation
+
+<CommandBlock command="npx react-nex add Stepper" />

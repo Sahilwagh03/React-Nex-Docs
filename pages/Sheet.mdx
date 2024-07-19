@@ -28,7 +28,7 @@ import CommandBlock from '../components/CommandBlock/CommandBlock';
                 <p>Your content goes here...</p>
                 <SheetFooter>
                     <Button onClick={() => alert('Action')} title='Action'></Button>
-                    <Button onClick={() => alert('Cancel')} title='Cancel'></Button>
+                    <Button onClick={() => alert('Cancel')} title='Cancel' className='bg-transparent border-2 dark:border-[#09090b]' ></Button>
                 </SheetFooter>
             </SheetContent>
         </Sheet>
@@ -55,7 +55,7 @@ const App = () => {
                 <p>Your content goes here...</p>
                 <SheetFooter>
                     <Button onClick={() => alert('Action')} title='Action'></Button>
-                    <Button onClick={() => alert('Cancel')} title='Cancel'></Button>
+                    <Button onClick={() => alert('Cancel')} title='Cancel' className='bg-transparent border-2 dark:border-[#09090b]' ></Button>
                 </SheetFooter>
             </SheetContent>
         </Sheet>
@@ -78,11 +78,11 @@ export default App;
 
 <ComponentPreviewAndCode PreviewComponent={
     <div className='flex flex-col items-center my-4'>
-        <Sheet>
+        <Sheet side="left">
             <SheetTrigger>
                 <Button title='Open'></Button>
             </SheetTrigger>
-            <SheetContent side="left">
+            <SheetContent >
                 <SheetHeader>
                     <SheetTitle>Sheet Title</SheetTitle>
                     <SheetDescription>
@@ -92,7 +92,7 @@ export default App;
                 <p>Your content goes here...</p>
                 <SheetFooter>
                     <Button onClick={() => alert('Action')} title='Action'></Button>
-                    <Button onClick={() => alert('Cancel')} title='Cancel'></Button>
+                    <Button onClick={() => alert('Cancel')} title='Cancel' className='bg-transparent border-2 dark:border-[#09090b]' ></Button>
                 </SheetFooter>
             </SheetContent>
         </Sheet>
@@ -119,7 +119,7 @@ const App = () => {
                 <p>Your content goes here...</p>
                 <SheetFooter>
                     <Button onClick={() => alert('Action')} title='Action'></Button>
-                    <Button onClick={() => alert('Cancel')} title='Cancel'></Button>
+                    <Button onClick={() => alert('Cancel')} title='Cancel' className='bg-transparent border-2 dark:border-[#09090b]' ></Button>
                 </SheetFooter>
             </SheetContent>
         </Sheet>
