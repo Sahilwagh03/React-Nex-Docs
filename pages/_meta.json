@@ -15,6 +15,13 @@
     "href": "/Introduction",
     "type":"page"
   },
+  "Elements":{
+    "title":"Elements",
+    "type":"page",
+    "theme":{
+      "layout":"full"
+    }
+  },
   "Template":{
     "title":"Template",
     "type":"page",

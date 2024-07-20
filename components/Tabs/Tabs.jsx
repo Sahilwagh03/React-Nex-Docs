@@ -47,7 +47,8 @@ const TabsContent = ({ children, className = "w-full rounded-md text-black dark:
 const TabsTrigger = ({
     children,
     className = "w-full",
-    value
+    value,
+    activeStyle=""
 }) => {
     const context = useContext(TabsContext);
     const isActive = context.activeTab === value;
@@ -56,8 +57,17 @@ const TabsTrigger = ({
       context.handleTabClick(value);
     };
 
+    const activeTabClass = () =>{
+        if(activeStyle.length!=0){
+            return `${isActive && activeStyle}`
+        }
+        else{
+            return `${isActive ? 'text-black dark:text-white dark:bg-black' : 'text-[#a1a1aa] dark:text-slate-400'}`
+        }
+    }
+
     return (
-        <button onClick={()=>handleClick(value)} className={`text-sm font-light py-1.5 px-3 md:text-md font-semibold rounded-sm focus:outline-none ${isActive ? 'text-black dark:text-white dark:bg-black' : 'text-[#a1a1aa] dark:text-slate-400'} ${className}`}>
+        <button onClick={()=>handleClick(value)} className={`text-sm font-light py-1.5 px-3 md:text-md font-semibold rounded-sm focus:outline-none ${activeTabClass()} ${className}`}>
             {children}
         </button>
     )
