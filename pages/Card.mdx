@@ -14,7 +14,8 @@ import CheckBox from "../components/CheckBox/CheckBox";
 import Button from "../components/Button/Button";
 import ComponentPreviewAndCode from '../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
 import CommandBlock from '../components/CommandBlock/CommandBlock'
-
+import { FaGithub, FaGoogle } from 'react-icons/fa';
+import CardWrapper from '../components/global/CardWrapper';
 
 <ComponentPreviewAndCode PreviewComponent={
                 <Card className='max-w-[300px] '>
@@ -99,25 +100,7 @@ Code={
 </br>
 
 <ComponentPreviewAndCode PreviewComponent={
-<Card className={'min-w-[300px] my-5'}>
-  <CardHeader>
-    <CardTitle className="text-center">Sign in</CardTitle>
-  </CardHeader>
-  <CardBody className={'gap-6'}>
-    <div className="flex flex-col gap-2">
-      <span className="text-md font-medium text-left">Email</span>
-      <Input type="email" placeholder="Email" />
-    </div>
-    <div className="flex flex-col gap-2">
-      <span className="text-md font-medium text-left">Password</span>
-      <Input type="password" placeholder="Password" />
-    </div>
-    <span className="text-sm font-normal text-center">Don't have and account?<span className=" cursor-pointer text-md font-bold text-blue-500">Sign Up</span></span>
-  </CardBody>
-  <CardFooter className='mt-[20px]'>
-     <Button title="Sign In" className="bg-blue-500 w-full" />
-  </CardFooter>
-</Card>
+<CardWrapper />
 } 
 Code={
 ` 

@@ -79,7 +79,7 @@ const FloatingComponents = () => {
                 />
             </div>
             <div className='absolute left-44 top-10 animate-upDown min-w-[250px] animation-delay-800'>
-                <Input type="text" placeholder="Input" value={input} onChange={(data)=>setInput(data)} />
+                <Input type="text" placeholder="Input" value={input} onChange={(e) => setInput(e.target.value)} />
             </div>
             <div className='absolute left-32 top-64 animate-upDown min-w-[250px] animation-delay-600'>
                 <AvatarGroup imageContainerStyle={'gradient-bg'}>

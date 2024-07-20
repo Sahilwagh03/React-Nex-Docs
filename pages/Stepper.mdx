@@ -1,6 +1,14 @@
-import StepperWrapper from '../components/global/StepperWrapper';
+import StepperWrapper , {StepperVertical} from '../components/global/StepperWrapper';
 import ComponentPreviewAndCode from '../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
 import CommandBlock from '../components/CommandBlock/CommandBlock'
+
+# Stepper
+
+<span style={{ color: 'grey', fontSize: 18, fontWeight: 400 }}>
+  Displays a Stepper or a component that looks like a Stepper.
+</span>
+
+<br></br>
 
 <ComponentPreviewAndCode 
 PreviewComponent={
@@ -66,3 +74,125 @@ previewStyles='!block py-10 px-5 '
 ## Installation
 
 <CommandBlock command="npx react-nex add Stepper" />
+
+## Example
+
+### Vertical Stepper
+
+<ComponentPreviewAndCode 
+PreviewComponent={
+<>
+<StepperVertical orientation="vertical" />
+</>
+}
+Code={`
+import React from 'react'
+import { Step, StepDescription, Stepper, StepSeparator, StepTitle, useSteps } from '../Stepper/Stepper'
+
+const ExampleVerticalStepper = () => {
+
+    const steps = [
+        { title: 'First', description: 'Contact Info' },
+        { title: 'Second', description: 'Date & Time' },
+        { title: 'Third', description: 'Select Rooms' },
+    ]
+
+    const { activeStep, goToNext, goToPrevious } = useSteps({
+        index: 1,
+        count: steps.length,
+    });
+   const steps = [
+        { title: 'First', description: 'Contact Info' },
+        { title: 'Second', description: 'Date & Time' },
+        { title: 'Third', description: 'Select Rooms' },
+    ]
+
+    const { activeStep } = useSteps({
+        index: 2,
+        count: steps.length,
+    });
+    return (
+        <>
+            <div className="flex flex-col items-center">
+                <Stepper index={activeStep} orientation={orientation}>
+                    {steps.map((step, index) => (
+                        <>
+                            <Step key={index}>
+                                <div>
+                                    <StepTitle>{step.title}</StepTitle>
+                                    <StepDescription>{step.description}</StepDescription>
+                                </div>
+                            </Step>
+                            <StepSeparator />
+                        </>
+                    ))}
+                </Stepper>
+            </div>
+        </>
+    )
+}
+
+export default ExampleVerticalStepper
+`}
+
+previewStyles='!block py-10 px-5 '
+/>
+
+<br></br>
+
+## Props
+
+### `index`
+
+- Type: `number`
+- Description: The current active step index.
+
+### `orientation`
+
+- Type: `string`
+- Description: Determines the orientation of the stepper, can be `horizontal` or `vertical`.
+
+### `useSteps`
+
+- Type: `function`
+- Description: A hook to manage the state and logic for the stepper.
+
+### Step
+
+#### `Step`
+
+- Description: Represents an individual step in the Stepper.
+
+#### `StepTitle`
+
+- Type: `ReactNode`
+- Description: The title of the step.
+
+#### `StepDescription`
+
+- Type: `ReactNode`
+- Description: The description of the step.
+
+#### `StepSeparator`
+
+- Description: A visual separator between steps.
+
+### `goToNext`
+
+- Type: `function`
+- Description: Function to navigate to the next step.
+
+### `goToPrevious`
+
+- Type: `function`
+- Description: Function to navigate to the previous step.
+
+### `StepIcon`
+
+- Description: Component to display a check icon for completed steps.
+
+### `StepStatus`
+
+- Type: `function`
+- Description: Function to display the status of the step.
+

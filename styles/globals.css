@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+input:focus-visible {
+  --tw-ring-offset-shadow: none;
+  --tw-ring-shadow: none;
+  box-shadow: none;
+  --tw-ring-opacity: 0;
+  --tw-ring-color: transparent;
+  --tw-ring-offset-width: 0;
+  --tw-ring-offset-color: transparent;
+}
 
 .bg-dots {
     background-image: radial-gradient(rgba(0, 0, 0, 0.3) 1px, transparent 0);

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Button = ({
-  title = "Button",
+  title ,
   onClick,
   className="bg-black shadow-md text-white dark:text-black dark:bg-white",
   children
