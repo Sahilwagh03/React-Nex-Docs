@@ -34,6 +34,10 @@ input:focus-visible {
     background: linear-gradient(90deg, hsla(177, 87%, 79%, 1) 0%, hsla(235, 89%, 70%, 1) 100%);
 }
 
+.dark .gradient-bg{
+    background: linear-gradient(90deg, hsla(177, 87%, 79%, 1) 0%, hsla(235, 89%, 70%, 1) 100%);
+}
+
 
 .shadow-medium, .shadow-none {
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -128,3 +132,5 @@ input:focus-visible {
   border-radius: 24px; 
   height: 10px;
 }
+
+

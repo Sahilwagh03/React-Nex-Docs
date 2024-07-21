@@ -6,18 +6,17 @@ import AuthenticationSection from '../../../../Elements/Authentication/Authentic
 const ElementsTabs = () => {
     return (
         <Tabs defaultValue="authentication">
-            <TabsList className="flex flex-row flex-wrap gap-2 p-1 !justify-start rounded-md bg-white text-black dark:bg-transparent dark:text-white">
-                <TabsTrigger value="authentication" className='text-sm !rounded-full text-[#a1a1aa] dark:text-slate-400' activeStyle='text-black dark:text-white dark:bg-[#383838]'>Authentication</TabsTrigger>
-                <TabsTrigger value="dashboards" className='text-sm !rounded-full text-[#a1a1aa] dark:text-slate-400' activeStyle='text-black dark:text-white dark:bg-[#383838]'>Dashboards</TabsTrigger>
-                <TabsTrigger value="hero-sections" className='text-sm !rounded-full text-[#a1a1aa] dark:text-slate-400' activeStyle='text-black dark:text-white dark:bg-[#383838]' >Hero Sections</TabsTrigger>
-                <TabsTrigger value="faqs" className='text-sm !rounded-full text-[#a1a1aa] dark:text-slate-400' activeStyle='text-black dark:text-white dark:bg-[#383838]'>FAQs</TabsTrigger>
-                <TabsTrigger value="testimonials" className='text-sm !rounded-full text-[#a1a1aa] dark:text-slate-400' activeStyle='text-black dark:text-white dark:bg-[#383838]'>Testimonials</TabsTrigger>
-                <TabsTrigger value="call-to-actions" className='text-sm !rounded-full text-[#a1a1aa] dark:text-slate-400' activeStyle='text-black dark:text-white dark:bg-[#383838]'>Call to Actions</TabsTrigger>
+            <TabsList className="flex flex-row flex-wrap gap-2 mb-4 p-1 !justify-start rounded-md bg-white text-black dark:bg-transparent dark:text-white">
+                <TabsTrigger value="authentication" className='text-sm !rounded-full text-[#a1a1aa]' activeStyle='text-black gradient-bg  dark:gradient-bg'>Authentication</TabsTrigger>
+                <TabsTrigger value="dashboards" className='text-sm !rounded-full text-[#a1a1aa]' activeStyle='text-black gradient-bg  dark:gradient-bg'>Dashboards</TabsTrigger>
+                <TabsTrigger value="hero-sections" className='text-sm !rounded-full text-[#a1a1aa]' activeStyle='text-black gradient-bg  dark:gradient-bg' >Hero Sections</TabsTrigger>
+                <TabsTrigger value="faqs" className='text-sm !rounded-full text-[#a1a1aa]' activeStyle='text-black gradient-bg  dark:gradient-bg'>FAQs</TabsTrigger>
+                <TabsTrigger value="testimonials" className='text-sm !rounded-full text-[#a1a1aa]' activeStyle='text-black gradient-bg  dark:gradient-bg'>Testimonials</TabsTrigger>
+                <TabsTrigger value="call-to-actions" className='text-sm !rounded-full text-[#a1a1aa]' activeStyle='text-black gradient-bg  dark:gradient-bg'>Call to Actions</TabsTrigger>
             </TabsList>
 
             <TabsContent value="authentication" className='border-0 dark:border-0'>
                 <div>
-                    <h2 className="text-md font-bold pb-4 pl-2">Authentication-01</h2>
                     <AuthenticationSection/>
                 </div>
             </TabsContent>

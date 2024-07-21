@@ -19,7 +19,6 @@ const App = () => (
     <Avatar />
   </div>
 );
-
 export default App;
 `;
 
