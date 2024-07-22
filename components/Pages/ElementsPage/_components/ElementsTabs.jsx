@@ -1,8 +1,8 @@
 import React from 'react';
 import { Tabs, TabsList, TabsContent, TabsTrigger } from '../../../Tabs/Tabs';
-import Authentication_1 from '../../../../Elements/Authentication/_components/Authentication_1';
-import AuthenticationSection from '../../../../Elements/Authentication/AuthenticationSection';
 
+import { AuthenticationElementsData } from '../../../../constant/Elements';
+import ElementsWrapper from '../../../../Elements/ElementsWrapper';
 const ElementsTabs = () => {
     return (
         <Tabs defaultValue="authentication">
@@ -16,8 +16,12 @@ const ElementsTabs = () => {
             </TabsList>
 
             <TabsContent value="authentication" className='border-0 dark:border-0'>
-                <div>
-                    <AuthenticationSection/>
+                <div className='flex flex-col gap-5 md:gap-10'>
+                    {
+                        AuthenticationElementsData.map(({ code, component, name }, index) => (
+                            <ElementsWrapper code={code} component={component} name={name} key={index}/>
+                        ))
+                    }
                 </div>
             </TabsContent>
             <TabsContent value="dashboards" className='border-0 dark:border-0'>

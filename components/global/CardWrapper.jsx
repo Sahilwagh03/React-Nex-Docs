@@ -47,7 +47,7 @@ const CardWrapper = () => {
                         <span className="text-md font-medium text-left">Email</span>
                         <Input 
                             type="email" 
-                            placeholder="Email" 
+                            placeholder="j@example.com" 
                             className='!bg-transparent !dark:bg-transparent rounded-md h-9' 
                             name="email"
                             value={formState.email} 

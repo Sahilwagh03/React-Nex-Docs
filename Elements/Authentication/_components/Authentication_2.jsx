@@ -43,7 +43,7 @@ const Authentication_2 = () => {
     return (
         <div className="flex items-center justify-center">
             <Card className="max-w-sm w-full">
-                <CardHeader>
+                <CardHeader className='!mb-2'>
                     <h1 className="text-2xl font-bold text-black dark:text-white">Create an account</h1>
                     <CardDescription className="text-gray-600 dark:text-gray-400">
                         Enter your details below to create your account
@@ -66,7 +66,7 @@ const Authentication_2 = () => {
                         <span className="text-md font-medium text-left">Email</span>
                         <Input
                             type="email"
-                            placeholder="Email"
+                            placeholder="j@example.com"
                             className='!bg-transparent !dark:bg-transparent rounded-md h-9'
                             name="email"
                             value={formState.email}
@@ -90,7 +90,7 @@ const Authentication_2 = () => {
                         <span className="text-md font-medium text-left">Confirm Password</span>
                         <Input
                             type="password"
-                            placeholder="Confirm Password"
+                            placeholder="Confirm password"
                             className='!bg-transparent !dark:bg-transparent rounded-md h-9'
                             name="confirmPassword"
                             value={formState.confirmPassword}
