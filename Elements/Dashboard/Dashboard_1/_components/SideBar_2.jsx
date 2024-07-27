@@ -7,17 +7,24 @@ export const useSidebar = () => useContext(SidebarContext);
 
 const SideBar = ({ children, title = 'Company Name', logo = 'https://seeklogo.com/images/M/microsoft-365-copilot-logo-44BA459F18-seeklogo.com.png' }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-
+  const toggleSidebar = () => {
+    setIsExpanded((prev) => !prev);
+  };
   return (
     <SidebarContext.Provider value={{ isExpanded, setIsExpanded }}>
-      <div className={`flex flex-col items-center rounded-lg h-screen bg-white dark:bg-black/50 transition-all duration-300 ${isExpanded ? 'w-56' : 'w-16'}`}>
+      <div className={`flex flex-col items-center rounded-lg h-screen bg-white dark:bg-[#09090b] transition-all duration-300 ${isExpanded ? 'w-56' : 'w-16'}`}>
         <div className={`border-b-2 border-gray-200 dark:border-[#2E2E2E] p-4 w-full flex gap-2 items-center ${isExpanded ? 'justify-start' : 'justify-center'}`}>
           <img src={logo} alt='logo' className='w-8' />
           {
             <h1 className={`flex-shrink-0 text-xl font-medium transition-all duration-300 ${isExpanded ? 'block' : 'hidden'}`}>{title}</h1>
           }
         </div>
-        <div className='flex flex-col justify-between h-screen w-full'>
+        <div className=' pt-4 px-2 '>
+          <button onClick={toggleSidebar} className='w-10 h-10 px-1 py-1 flex justify-center items-center'>
+            {isExpanded ? <LuArrowLeft className='w-6 h-6' /> : <LuArrowRight className='w-6 h-6' />}
+          </button>
+        </div>
+        <div className='flex flex-col justify-between h-full w-full overflow-hidden'>
           {children}
         </div>
       </div>
@@ -27,38 +34,30 @@ const SideBar = ({ children, title = 'Company Name', logo = 'https://seeklogo.co
 
 const SideBarBody = ({ children }) => {
 
-  const { isExpanded, setIsExpanded } = useSidebar();
-  const toggleSidebar = () => {
-    setIsExpanded((prev) => !prev);
-  };
-
   return (
-    <div className='px-2 py-6 flex flex-col items-center gap-6 w-full'>
-      <button onClick={toggleSidebar} className='w-10 h-10 px-1 py-1 flex justify-center items-center'>
-        {isExpanded ? <LuArrowLeft className='w-6 h-6' /> : <LuArrowRight className='w-6 h-6' />}
-      </button>
+    <div className='flex flex-col items-center gap-6 w-full py-4 px-2 overflow-auto flex-1 no-scrollbar'>
       {children}
     </div>
   )
 }
 
-const SideBarItem = ({ icon, title,className }) => {
+const SideBarItem = ({ icon, title }) => {
   const { isExpanded } = useSidebar();
 
   return (
     <>
       {!isExpanded ?
         <Tooltip title={title} position='right'>
-          <div className={`flex items-center w-full px-1 py-1 hover:bg-gray-200 dark:hover:bg-[#2E2E2E] rounded-lg cursor-pointer ${isExpanded ? 'justify-start' : 'justify-center'} ${className}`}>
-            <div className='flex items-center justify-center min-w-10 min-h-10 text-gray-800 dark:text-gray-200'>
+          <div className={`flex items-center w-full px-1 py-1 hover:bg-gray-200 dark:hover:bg-[#2E2E2E] rounded-lg cursor-pointer ${isExpanded ? 'justify-start' : 'justify-center'}`}>
+            <div className='flex items-center justify-center w-10 h-10 text-gray-800 dark:text-gray-200'>
               {icon}
             </div>
             {isExpanded && <span className='text-lg text-gray-800 dark:text-gray-200'>{title}</span>}
           </div>
         </Tooltip>
         :
-        <div className={`flex items-center w-full px-1 py-1 hover:bg-gray-200 dark:hover:bg-[#2E2E2E] rounded-lg cursor-pointer ${isExpanded ? 'justify-start' : 'justify-center'} ${className}`}>
-          <div className='flex items-center justify-center min-w-10 min-h-10 text-gray-800 dark:text-gray-200'>
+        <div className={`flex items-center w-full px-1 py-1 hover:bg-gray-200 dark:hover:bg-[#2E2E2E] rounded-lg cursor-pointer ${isExpanded ? 'justify-start' : 'justify-center'}`}>
+          <div className='flex items-center justify-center w-10 h-10 text-gray-800 dark:text-gray-200'>
             {icon}
           </div>
           {isExpanded && <span className='text-lg text-gray-800 dark:text-gray-200'>{title}</span>}
@@ -103,7 +102,7 @@ const Tooltip = ({ children, title, position = 'top' }) => {
     <div className='relative flex items-center group'>
       {children}
       <div className={`absolute ${tooltipPosition} flex-col items-center hidden group-hover:flex`}>
-        <div className='relative z-10 px-3 py-2 text-xs text-black bg-white dark:text-white dark:bg-black rounded-md shadow-xl'>
+        <div className='relative z-50 px-3 py-2 text-xs text-black bg-white dark:text-white dark:bg-black rounded-md shadow-xl'>
           <span className={arrowClasses}></span>
           {title}
         </div>
@@ -113,3 +112,4 @@ const Tooltip = ({ children, title, position = 'top' }) => {
 };
 
 export { SideBar, SideBarBody, SideBarItem, SideBarFooter };
+

@@ -55,7 +55,7 @@ const SearchBar = ({ onChange, className, animated ,IconColor }) => {
                 </motion.div>
             ) : */}
             {/* ( */}
-                <div className='relative'>
+                <div className='relative w-fit'>
                     <input
                         type="text"
                         value={searchQuery}

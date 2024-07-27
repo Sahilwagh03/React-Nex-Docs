@@ -60,4 +60,40 @@ const TooltipContent = ({ children }) => {
     );
 };
 
+// const Tooltip = ({ children, title, position = 'top' }) => {
+//     let tooltipPosition, arrowClasses;
+  
+//     switch (position) {
+//       case 'top':
+//         tooltipPosition = 'bottom-full mb-2';
+//         arrowClasses = 'absolute left-1/2 transform -translate-x-1/2 -bottom-1 w-0 h-0 border-t-5 border-t-black border-r-5 border-r-transparent border-b-5 border-b-transparent';
+//         break;
+//       case 'bottom':
+//         tooltipPosition = 'top-full mt-2';
+//         arrowClasses = 'absolute left-1/2 transform -translate-x-1/2 top-[-5px] w-0 h-0 border-t-5 border-t-transparent border-r-5 border-r-transparent border-b-5 border-b-black';
+//         break;
+//       case 'left':
+//         tooltipPosition = 'right-full mr-2';
+//         arrowClasses = 'absolute right-[-10px] top-1/2 transform -translate-y-1/2 w-0 h-0 border-t-5 border-t-transparent border-r-5 border-r-black border-b-5 border-b-transparent';
+//         break;
+//       case 'right':
+//       default:
+//         tooltipPosition = 'left-full ml-3';
+//         arrowClasses = 'absolute left-[-10px] top-1/2 transform -translate-y-1/2 w-0 h-0 border-t-5 border-t-transparent border-r-5 border-r-black border-b-5 border-b-transparent';
+//         break;
+//     }
+  
+//     return (
+//       <div className='relative flex items-center group'>
+//         {children}
+//         <div className={`absolute ${tooltipPosition} flex-col items-center hidden group-hover:flex`}>
+//           <div className='relative z-10 px-3 py-2 text-xs text-black bg-white dark:text-white dark:bg-black rounded-md shadow-xl'>
+//             <span className={arrowClasses}></span>
+//             {title}
+//           </div>
+//         </div>
+//       </div>
+//     );
+//   };
+
 export { Tooltip, TooltipTrigger, TooltipContent };
