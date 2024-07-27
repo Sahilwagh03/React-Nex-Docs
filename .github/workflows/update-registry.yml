@@ -42,8 +42,8 @@ jobs:
         GH_PAT: ${{ secrets.GH_PAT }}
       run: |
         cd package
-        git config --local user.email "rish.tiwari745@gmail.com"
-        git config --local user.name "Invader745"
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
         git add component-registry.json
         git commit -m "Update component registry with new components"
         git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/sahilwagh03/React-Nex.git HEAD:main
