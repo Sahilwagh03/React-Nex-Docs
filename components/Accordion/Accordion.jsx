@@ -1,6 +1,6 @@
 // Accordion.js
 import React, { createContext, useContext, useState } from 'react';
-import { FiChevronDown } from 'react-icons/fi'; // Importing a chevron down icon
+import { FiChevronDown } from 'react-icons/fi'; // Importing a chevron down ic
 
 // Context to share data between Accordion components
 const AccordionContext = createContext();
