@@ -11,12 +11,12 @@ jobs:
 
     steps:
     - name: Checkout docs repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         path: docs  # Checkout the docs repository to the 'docs' directory
 
     - name: Setup Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
         node-version: '18.17'  # or any version you're using
 
@@ -26,7 +26,7 @@ jobs:
         npm install
 
     - name: Checkout package repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         repository: sahilwagh03/React-Nex
         path: package  # Checkout the package repository to the 'package' directory
@@ -39,11 +39,11 @@ jobs:
 
     - name: Commit and push changes
       env:
-        GH_PAT: ${{ secrets.GH_PAT }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         cd package
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git add component-registry.json
         git commit -m "Update component registry with new components"
-        git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/Sahilwagh03/React-Nex.git HEAD:dev
+        git push 
