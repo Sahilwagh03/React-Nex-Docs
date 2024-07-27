@@ -47,6 +47,7 @@ jobs:
     - name: Debugging - Print GH_PAT
       run: |
         echo "GH_PAT is set"
+        echo ${{secrets.GH_PAT}}
       env:
         GH_PAT: ${{ secrets.GH_PAT }}
 
