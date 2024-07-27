@@ -44,6 +44,12 @@ jobs:
       run: |
         whoami
 
+    - name: Debugging - Print GH_PAT
+      run: |
+        echo "GH_PAT is set"
+      env:
+        GH_PAT: ${{ secrets.GH_PAT }}
+
     - name: Commit and push changes
       env:
          GH_PAT: ${{ secrets.GH_PAT }}
