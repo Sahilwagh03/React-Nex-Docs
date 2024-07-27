@@ -41,8 +41,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         cd package
-        git config --local user.email "rish.tiwari745@gmail.com"
-        git config --local user.name "Invader745"
+        git config --local user.email "sahilwagh142@gmail.com"
+        git config --local user.name "Sahilwagh03"
         git add component-registry.json
         git commit -m "Update component registry with new components"
         git push

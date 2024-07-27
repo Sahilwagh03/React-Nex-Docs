@@ -6,7 +6,7 @@ const SidebarContext = createContext();
 export const useSidebar = () => useContext(SidebarContext);
 
 const SideBar = ({ children }) => {
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleSidebar = () => {
     setIsExpanded((prev) => !prev);
