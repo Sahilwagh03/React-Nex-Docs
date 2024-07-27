@@ -1,8 +1,9 @@
 import React from 'react';
 import { Tabs, TabsList, TabsContent, TabsTrigger } from '../../../Tabs/Tabs';
 
-import { AuthenticationElementsData } from '../../../../constant/Elements';
+import { AuthenticationElementsData, FaqElementsData } from '../../../../constant/Elements';
 import ElementsWrapper from '../../../../Elements/ElementsWrapper';
+import Dashboard_1 from '../../../../Elements/Dashboard/Dashboard_1/Dashboard_1';
 const ElementsTabs = () => {
     return (
         <Tabs defaultValue="authentication">
@@ -19,7 +20,7 @@ const ElementsTabs = () => {
                 <div className='flex flex-col gap-5 md:gap-10'>
                     {
                         AuthenticationElementsData.map(({ code, component, name }, index) => (
-                            <ElementsWrapper code={code} component={component} name={name} key={index}/>
+                            <ElementsWrapper code={code} component={component} name={name} key={index} />
                         ))
                     }
                 </div>
@@ -27,7 +28,7 @@ const ElementsTabs = () => {
             <TabsContent value="dashboards" className='border-0 dark:border-0'>
                 <div>
                     <h2 className="text-xl font-bold pb-4">Dashboards</h2>
-                    <p> Comming Soon...</p>
+                    <Dashboard_1/>
                 </div>
             </TabsContent>
             <TabsContent value="hero-sections" className='border-0 dark:border-0'>
@@ -37,9 +38,12 @@ const ElementsTabs = () => {
                 </div>
             </TabsContent>
             <TabsContent value="faqs" className='border-0 dark:border-0'>
-                <div>
-                    <h2 className="text-xl font-bold pb-4">FAQs</h2>
-                    <p> Comming Soon...</p>
+                <div className='flex flex-col gap-5 md:gap-10'>
+                    {
+                        FaqElementsData.map(({ code, component, name }, index) => (
+                            <ElementsWrapper code={code} component={component} name={name} key={index} />
+                        ))
+                    }
                 </div>
             </TabsContent>
             <TabsContent value="testimonials" className='border-0 dark:border-0'>

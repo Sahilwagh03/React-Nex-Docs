@@ -29,7 +29,7 @@ const ElementsWrapper = ({ code, component, name }) => {
     <Tabs defaultValue="preview">
       <div className='flex flex-row items-center justify-between mb-2 '>
         <div className='flex flex-row items-center gap-2'>
-          <TabsList className="flex flex-row flex-wrap w-fit  p-1 !justify-start rounded-md bg-white text-black dark:bg-[#383838] dark:text-white">
+          <TabsList className="flex flex-row flex-wrap w-fit p-1 !justify-start rounded-md bg-white text-black dark:bg-[#383838] dark:text-white">
             <TabsTrigger value="preview" className='text-xs !rounded-md'>Preview</TabsTrigger>
             <TabsTrigger value="code" className='text-xs !rounded-md'>Code</TabsTrigger>
           </TabsList>

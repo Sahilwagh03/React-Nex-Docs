@@ -29,7 +29,7 @@ const FloatingComponents = () => {
                 />
             </div>
             <div className='absolute right-[8rem] top-[21rem] animate-upDown animation-delay-600'>
-                <Card className='max-w-[300px] '>
+                <Card className='max-w-[300px] bg-white dark:bg-[#1C1C1B]'>
                     <CardHeader>
                         <div className="flex justify-between items-center">
                             <div className="flex items-center">

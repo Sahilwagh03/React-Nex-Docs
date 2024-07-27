@@ -3,7 +3,7 @@ import Button from '../../../Button/Button'
 import Link from 'next/link'
 const ElementsHero = () => {
     return (
-        <div className='pt-14 pb-7 flex flex-col gap-2'>
+        <div className='py-5 text-center md:text-left items-center md:items-start md:pt-14 md:pb-7 flex flex-col gap-2'>
             <Link className="flex flex-row items-end rounded-lg bg-muted px-3 py-1 text-sm font-medium" href="/Introduction">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-blocks h-4 w-4">
                     <rect width="7" height="7" x="14" y="3" rx="1"></rect>
@@ -17,9 +17,9 @@ const ElementsHero = () => {
             </Link>
             <div className='flex flex-col gap-3'>
                 <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:leading-[1.1] z-10">Building <span className='gradient-text'>Elements </span>for the Web</h1>
-                <p className="max-w-[550px]  text-lg font-light z-10">Elegantly designed. Easily integrate into your applications. Open Source.</p>
+                <p className="max-w-[550px] text-lg font-light z-10">Elegantly designed. Easily integrate into your applications. Open Source.</p>
             </div>
-            <div className="flex w-full items-center space-x-4 py-4 md:pb-4 z-10">
+            <div className="flex w-full justify-center md:justify-start items-center space-x-4 py-4 md:pb-4 z-10">
                 <Link className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9" href="/">
                     <Button>Explore Components</Button>
                 </Link>

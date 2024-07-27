@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { Card, CardHeader, CardDescription, CardBody, CardFooter } from '../../../components/Card/CardComponets';
 import Input from "../../../components/Input/Input";
 import Button from "../../../components/Button/Button";
+import {FiEye , FiEyeOff } from 'react-icons/fi'
 
 const Authentication_2 = () => {
     const [formState, setFormState] = useState({ username: '', email: '', password: '', confirmPassword: '' });
     const [errors, setErrors] = useState({});
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -74,28 +77,44 @@ const Authentication_2 = () => {
                         />
                         {errors.email && <span className="text-red-500 text-sm">{errors.email}</span>}
                     </div>
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-2 relative">
                         <span className="text-md font-medium text-left">Password</span>
-                        <Input
-                            type="password"
-                            placeholder="Password"
-                            className='!bg-transparent !dark:bg-transparent rounded-md h-9'
-                            name="password"
-                            value={formState.password}
-                            onChange={handleInputChange}
-                        />
+                        <div className="relative">
+                            <Input
+                                type={showPassword ? "text" : "password"}
+                                placeholder="Password"
+                                className='!bg-transparent !dark:bg-transparent rounded-md h-9 w-full'
+                                name="password"
+                                value={formState.password}
+                                onChange={handleInputChange}
+                            />
+                            <span
+                                className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+                                onClick={() => setShowPassword(!showPassword)}
+                            >
+                                {showPassword ? <FiEyeOff size={20}  /> : <FiEye size={20} />}
+                            </span>
+                        </div>
                         {errors.password && <span className="text-red-500 text-sm">{errors.password}</span>}
                     </div>
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-2 relative">
                         <span className="text-md font-medium text-left">Confirm Password</span>
-                        <Input
-                            type="password"
-                            placeholder="Confirm password"
-                            className='!bg-transparent !dark:bg-transparent rounded-md h-9'
-                            name="confirmPassword"
-                            value={formState.confirmPassword}
-                            onChange={handleInputChange}
-                        />
+                        <div className="relative">
+                            <Input
+                                type={showConfirmPassword ? "text" : "password"}
+                                placeholder="Confirm password"
+                                className='!bg-transparent !dark:bg-transparent rounded-md h-9 w-full'
+                                name="confirmPassword"
+                                value={formState.confirmPassword}
+                                onChange={handleInputChange}
+                            />
+                            <span
+                                className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+                                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                            >
+                                {showConfirmPassword ? <FiEyeOff size={20}  /> : <FiEye size={20} />}
+                            </span>
+                        </div>
                         {errors.confirmPassword && <span className="text-red-500 text-sm">{errors.confirmPassword}</span>}
                     </div>
                 </CardBody>
