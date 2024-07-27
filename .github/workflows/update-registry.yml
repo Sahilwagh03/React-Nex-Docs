@@ -35,7 +35,14 @@ jobs:
       run: |
         cd docs
         npm run update-registry  # This will run the updateRegistry.js scrip
-        
+    
+    - name: Debugging - Print Environment Variables
+      run: |
+        env
+  
+    - name: Debugging - Print Current User
+      run: |
+        whoami
 
     - name: Commit and push changes
       env:
