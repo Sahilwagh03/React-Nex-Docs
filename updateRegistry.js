@@ -3,7 +3,7 @@ const path = require('path');
 
 // Paths
 const docsDir = path.resolve(__dirname, 'components');  // Directory of the components in docs repository
-const packageDir = path.resolve('https://github.com/Sahilwagh03/React-Nex');  // package repository
+const packageDir = path.resolve(__dirname, '..', 'package');  // package repository
 const registryPath = path.join(packageDir, 'component-registry.json');  // Path to the component-registry.json file in the package repository
 
 // Read current registry
