@@ -5,7 +5,7 @@ import FloatingComponents from './components/FloatingComponents'
 
 const Hero = () => {
     return (
-        <section className="mx-auto flex md:h-[80vh] max-w-[980px] flex-col justify-center items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20">
+        <section className="mx-auto flex lg:h-[80vh] max-w-[980px] flex-col justify-center items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20">
             <a className="inline-flex items-center rounded-lg bg-muted px-3 py-1 text-sm font-medium" href="/Introduction">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-blocks h-4 w-4">
                     <rect width="7" height="7" x="14" y="3" rx="1"></rect>

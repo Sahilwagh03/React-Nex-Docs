@@ -19,7 +19,7 @@ const FloatingComponents = () => {
         console.log(input)
     },[input])
     return (
-        <div className='hidden md:absolute md:flex w-full h-full md:mt-20'>
+        <div className='hidden md:absolute lg:flex w-full h-full md:mt-20'>
             <div className='absolute right-12 top-10 animate-upDown animation-delay-200'>
                 <Alert
                     type="success"
@@ -79,7 +79,7 @@ const FloatingComponents = () => {
                 />
             </div>
             <div className='absolute left-44 top-10 animate-upDown min-w-[250px] animation-delay-800'>
-                <Input type="text" placeholder="Input" value={input} onChange={(e) => setInput(e.target.value)} />
+                <Input type="text" placeholder="Input" className='bg-white dark:bg-black/50 rounded-lg h-9 w-full' value={input} onChange={(e) => setInput(e.target.value)} />
             </div>
             <div className='absolute left-32 top-64 animate-upDown min-w-[250px] animation-delay-600'>
                 <AvatarGroup imageContainerStyle={'gradient-bg'}>

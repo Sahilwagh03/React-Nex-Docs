@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tabs, TabsList, TabsContent, TabsTrigger } from '../../../Tabs/Tabs';
 
-import { AuthenticationElementsData, FaqElementsData } from '../../../../constant/Elements';
+import { AuthenticationElementsData, DashboardElementsData, FaqElementsData } from '../../../../constant/Elements';
 import ElementsWrapper from '../../../../Elements/ElementsWrapper';
 import Dashboard_1 from '../../../../Elements/Dashboard/Dashboard_1/Dashboard_1';
 const ElementsTabs = () => {
@@ -26,9 +26,12 @@ const ElementsTabs = () => {
                 </div>
             </TabsContent>
             <TabsContent value="dashboards" className='border-0 dark:border-0'>
-                <div>
-                    <h2 className="text-xl font-bold pb-4">Dashboards</h2>
-                    <Dashboard_1/>
+                <div className='flex flex-col gap-5 md:gap-10'>
+                    {
+                        DashboardElementsData.map(({ code, component, name }, index) => (
+                            <ElementsWrapper code={code} component={component} name={name} key={index} showMode={false}/>
+                        ))
+                    }
                 </div>
             </TabsContent>
             <TabsContent value="hero-sections" className='border-0 dark:border-0'>
@@ -41,7 +44,7 @@ const ElementsTabs = () => {
                 <div className='flex flex-col gap-5 md:gap-10'>
                     {
                         FaqElementsData.map(({ code, component, name }, index) => (
-                            <ElementsWrapper code={code} component={component} name={name} key={index} />
+                            <ElementsWrapper code={code} component={component} name={name} key={index} showMode={false}/>
                         ))
                     }
                 </div>

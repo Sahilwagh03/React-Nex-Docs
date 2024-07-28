@@ -68,11 +68,5 @@
     "type":"separator",
     "title":"Animation Components"
   },
-  "TypewriterEffect":"Typewriter Effect",
-  "contact": {
-    "title": "Contact ↗",
-    "type": "page",
-    "href": "https://portfolio-in-react-dun.vercel.app/",
-    "newWindow": true
-  }
+  "TypewriterEffect":"Typewriter Effect"
 }

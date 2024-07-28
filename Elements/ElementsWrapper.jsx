@@ -5,7 +5,7 @@ import cn from '../utils/classmerger/cn'
 import { FaCheck } from 'react-icons/fa';
 import { Tooltip, TooltipContent, TooltipTrigger } from '../components/Tooltip/Tooltip'
 
-const ElementsWrapper = ({ code, component, name }) => {
+const ElementsWrapper = ({ code, component, name, showMode=true }) => {
   const [size, setSize] = useState('desktop'); // 'desktop', 'tablet', 'smartphone'
   const [copied, setCopied] = useState(false);
 
@@ -37,21 +37,26 @@ const ElementsWrapper = ({ code, component, name }) => {
           <h1 className='text-sm font-bold'>{name}</h1>
         </div>
         <div className='hidden md:flex flex-row gap-2 items-center'>
-          <div className='hidden md:flex flex-row p-1 rounded-md gap-5 border-2 border-gray-200 dark:border-[#2E2E2E] dark:border-2'>
-            <FiMonitor
-              className={`cursor-pointer w-5 h-5 ${size === 'desktop' ? 'text-blue-500' : ''}`}
-              onClick={() => handleSizeChange('desktop')}
-            />
-            <FiTablet
-              className={`cursor-pointer w-5 h-5 ${size === 'tablet' ? 'text-blue-500' : ''}`}
-              onClick={() => handleSizeChange('tablet')}
-            />
-            <FiSmartphone
-              className={`cursor-pointer w-5 h-5 ${size === 'smartphone' ? 'text-blue-500' : ''}`}
-              onClick={() => handleSizeChange('smartphone')}
-            />
-          </div>
-          <div className='h-6 bg-gray-300 dark:bg-[#27272a] w-[1.5px]' />
+          {
+            showMode &&
+            <>
+              <div className='hidden md:flex flex-row p-1 rounded-md gap-5 border-2 border-gray-200 dark:border-[#2E2E2E] dark:border-2'>
+                <FiMonitor
+                  className={`cursor-pointer w-5 h-5 ${size === 'desktop' ? 'text-blue-500' : ''}`}
+                  onClick={() => handleSizeChange('desktop')}
+                />
+                <FiTablet
+                  className={`cursor-pointer w-5 h-5 ${size === 'tablet' ? 'text-blue-500' : ''}`}
+                  onClick={() => handleSizeChange('tablet')}
+                />
+                <FiSmartphone
+                  className={`cursor-pointer w-5 h-5 ${size === 'smartphone' ? 'text-blue-500' : ''}`}
+                  onClick={() => handleSizeChange('smartphone')}
+                />
+              </div>
+              <div className='h-6 bg-gray-300 dark:bg-[#27272a] w-[1.5px]' />
+            </>
+          }
           <div className='p-1 rounded-md gap-5 border-2 border-gray-200 dark:border-[#2E2E2E] dark:border-2'>
             <Tooltip position="top">
               <TooltipTrigger>
