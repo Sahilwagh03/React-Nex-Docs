@@ -158,15 +158,15 @@ const Dashboard_1 = () => {
               <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4 h-full min-w-full h-fit">
                 {dashaboard_data.map((item, index) => (
                   <Card key={index} className="w-full h-fit bg-white dark:bg-black/50">
-                    <CardHeader className='mb-1'>
+                    <CardHeader className='!mb-1'>
                       <div className="flex flex-row items-center justify-between">
-                        <CardTitle className="mb-0 tracking-tight text-sm font-medium">{item.title}</CardTitle>
+                        <CardTitle className="!mb-0 tracking-tight text-sm font-medium">{item.title}</CardTitle>
                         {item.icon}
                       </div>
                     </CardHeader>
-                    <CardBody className='mb-0 gap-0'>
+                    <CardBody className='!mb-0 !gap-[0px]'>
                       <div className="text-2xl font-bold">{item.value}</div>
-                      <CardDescription className="mb-0 text-xs text-gray-600">{item.description}</CardDescription>
+                      <CardDescription className="!mb-0 text-xs text-gray-600">{item.description}</CardDescription>
                     </CardBody>
                   </Card>
                 ))}
