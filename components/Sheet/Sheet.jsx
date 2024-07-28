@@ -36,7 +36,7 @@ const SheetTrigger = ({ children }) => {
   );
 };
 
-const SheetContent = ({ children }) => {
+const SheetContent = ({ children ,positionClassName}) => {
   const { isSheetOpen, closeSheet, side } = useSheet();
 
   const sideClasses = {
@@ -75,9 +75,9 @@ const SheetContent = ({ children }) => {
   return (
     <>
       {isSheetOpen && (
-        <div className="fixed inset-0 z-40 bg-black opacity-70 dark:opacity-80" onClick={closeSheet}></div>
+        <div className={`fixed inset-0 z-40 bg-black opacity-70 dark:opacity-80 ${positionClassName}`} onClick={closeSheet}></div>
       )}
-      <div className={`fixed ${selectedSide.position} z-50 transform transition-transform ${isSheetOpen ? selectedSide.open : selectedSide.initial} duration-500 bg-white dark:bg-[#09090b] ${selectedSide.dimension} ${selectedSide.border} shadow-lg p-6`}>
+      <div className={`fixed ${selectedSide.position} z-50 transform transition-transform ${positionClassName} ${isSheetOpen ? selectedSide.open : selectedSide.initial} duration-500 bg-white dark:bg-[#09090b] ${selectedSide.dimension} ${selectedSide.border} shadow-lg p-6`}>
         <button onClick={closeSheet} className="absolute top-4 right-4 text-gray-600 hover:text-gray-800">
           <IoCloseOutline size={20} />
         </button>

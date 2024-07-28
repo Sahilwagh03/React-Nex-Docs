@@ -16,14 +16,6 @@ const SearchBar = ({ onChange, className, animated ,IconColor }) => {
         onChange(event.target.value); // Pass the current value directly
     };
 
-    const getSearchClasses = ()=>{
-        if ((theme === 'dark' || resolvedTheme === 'dark') && className !== "") {
-          return 'border-[#383838] border-2 bg-[#1C1C1B]';
-        } else {
-          return 'text-black border-2 border-gray-300';
-        }
-      }
-
     return (
         <>
             {/* {
@@ -61,7 +53,7 @@ const SearchBar = ({ onChange, className, animated ,IconColor }) => {
                         value={searchQuery}
                         onChange={handleChange}
                         placeholder="Search..."
-                        className={` py-2 px-4 w-64 focus:outline-none focus:ring-1 ${getSearchClasses(theme,resolvedTheme)} ${className}`}
+                        className={` py-2 px-4 w-64 focus:outline-none focus:ring-1 text-black border-2 border-gray-300 dark:text-white dark:border-[#383838] dark:border-2 dark:bg-[#1C1C1B] ${className}`}
                     />
                     <div
                         className="cursor-pointer absolute top-[25%] right-[4%]"
