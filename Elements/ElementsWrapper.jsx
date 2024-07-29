@@ -5,7 +5,7 @@ import cn from '../utils/classmerger/cn'
 import { FaCheck } from 'react-icons/fa';
 import { Tooltip, TooltipContent, TooltipTrigger } from '../components/Tooltip/Tooltip'
 
-const ElementsWrapper = ({ code, component, name, showMode=true }) => {
+const ElementsWrapper = ({ code, component, name, showMode=true,componentContainerStyle="" }) => {
   const [size, setSize] = useState('desktop'); // 'desktop', 'tablet', 'smartphone'
   const [copied, setCopied] = useState(false);
 
@@ -75,7 +75,7 @@ const ElementsWrapper = ({ code, component, name, showMode=true }) => {
       </div>
       <TabsContent value="preview"
         className={cn('p-0 rounded-md md:py-5 !border-0 md:!border-2 border-gray-300 dark:border-2 dark:border-[#27272a]'
-          , size === 'tablet' && 'dark:!bg-[#27272a] !py-0' || size === 'smartphone' && ' !py-0 dark:!bg-[#27272a]'
+          , size === 'tablet' && 'dark:!bg-[#27272a] !py-0' || size === 'smartphone' && ' !py-0 dark:!bg-[#27272a]' , componentContainerStyle
         )}
       >
         <div className={cn(size === 'desktop' ? 'max-w-full' : size === 'tablet' ? 'max-w-md py-5 dark:bg-[#111111] dark:border-0 border-r-2 border-gray-300' : 'dark:border-0 border-r-2 border-gray-300 px-2 py-5 dark:bg-[#111111] max-w-xs')}>

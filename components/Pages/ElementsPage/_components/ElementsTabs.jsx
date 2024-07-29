@@ -29,7 +29,7 @@ const ElementsTabs = () => {
                 <div className='flex flex-col gap-5 md:gap-10'>
                     {
                         DashboardElementsData.map(({ code, component, name }, index) => (
-                            <ElementsWrapper code={code} component={component} name={name} key={index} showMode={false}/>
+                            <ElementsWrapper componentContainerStyle='md:!p-0 md:!border-none' code={code} component={component} name={name} key={index} showMode={false}/>
                         ))
                     }
                 </div>
