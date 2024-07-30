@@ -35,14 +35,26 @@ jobs:
       run: |
         cd docs
         npm run update-registry  # This will run the updateRegistry.js script
+    
+    - name: Print GitHub Token
+      run: |
+        echo "${{ secrets.GITHUB_TOKEN }}"
+      
+    - name: Debugging - Print Current User
+      run: |
+          whoami
+      
+    - name: Debugging - Print Environment Variables
+      run: |
+          env
 
     - name: Commit and push changes
+      run: |
+          cd package-repo
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add component-registry.json
+          git commit -m "Update component registry with new components"
+          git push origin main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        cd package
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git add component-registry.json
-        git commit -m "Update component registry with new components"
-        git push https://github-actions:${{ secrets.GITHUB_TOKEN }}@github.com/Sahilwagh03/React-Nex.git main
