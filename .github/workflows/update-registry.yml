@@ -34,30 +34,15 @@ jobs:
     - name: Update component-registry.json
       run: |
         cd docs
-        npm run update-registry  # This will run the updateRegistry.js scrip
-    
-    - name: Debugging - Print Environment Variables
-      run: |
-        env
-  
-    - name: Debugging - Print Current User
-      run: |
-        whoami
-
-    - name: Debugging - Print GH_PAT
-      run: |
-        echo "GH_PAT is set"
-        echo ${{secrets.GH_PAT}}
-      env:
-        GH_PAT: ${{ secrets.GH_PAT }}
+        npm run update-registry  # This will run the updateRegistry.js script
 
     - name: Commit and push changes
       env:
-         GH_PAT: ${{ secrets.GH_PAT }}
+        GH_PAT: ${{ secrets.GH_PAT }}
       run: |
         cd package
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git add component-registry.json
         git commit -m "Update component registry with new components"
-        git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/Sahilwagh03/React-Nex.git HEAD:main
+        git push https://${{ secrets.GH_PAT }}@github.com/Sahilwagh03/React-Nex.git
