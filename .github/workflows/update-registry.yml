@@ -35,6 +35,18 @@ jobs:
       run: |
         cd docs
         npm run update-registry  # This will run the updateRegistry.js script
+    
+    - name: Print GitHub Token
+      run: |
+        echo "${{ secrets.GH_PAT }}"
+      
+    - name: Debugging - Print Current User
+      run: |
+          whoami
+      
+    - name: Debugging - Print Environment Variables
+      run: |
+          env
 
     - name: Commit and push changes
       env:
