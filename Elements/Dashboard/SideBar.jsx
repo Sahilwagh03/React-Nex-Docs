@@ -14,7 +14,7 @@ const SideBar = ({ children, title = 'Company Name', logo = 'https://seeklogo.co
         <div className={`border-b-2 border-gray-200 dark:border-[#2E2E2E] p-4 w-full flex gap-2 items-center ${isExpanded ? 'justify-start' : 'justify-center'}`}>
           <img src={logo} alt='logo' className='w-8' />
           {
-            <h1 className={`flex-shrink-0 text-xl font-medium transition-all duration-300 ${isExpanded ? 'block' : 'hidden'}`}>{title}</h1>
+            <h1 className={`flex-shrink-0 text-xl font-medium transition-all duration-300 text-black dark:text-white ${isExpanded ? 'block' : 'hidden'}`}>{title}</h1>
           }
         </div>
         <div className='flex flex-col justify-between h-screen w-full'>
@@ -35,14 +35,14 @@ const SideBarBody = ({ children }) => {
   return (
     <div className='px-2 py-6 flex flex-col items-center gap-6 w-full'>
       <button onClick={toggleSidebar} className='w-10 h-10 px-1 py-1 flex justify-center items-center'>
-        {isExpanded ? <LuArrowLeft className='w-6 h-6' /> : <LuArrowRight className='w-6 h-6' />}
+        {isExpanded ? <LuArrowLeft className='w-6 h-6 text-black dark:text-white' /> : <LuArrowRight className='w-6 h-6 text-black dark:text-white' />}
       </button>
       {children}
     </div>
   )
 }
 
-const SideBarItem = ({ icon, title,className }) => {
+const SideBarItem = ({ icon, title,className="" }) => {
   const { isExpanded } = useSidebar();
 
   return (

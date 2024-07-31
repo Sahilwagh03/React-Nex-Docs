@@ -4,6 +4,7 @@ import Authentication_3 from '../Elements/Authentication/_components/Authenticat
 import Authentication_4 from '../Elements/Authentication/_components/Authentication_4';
 import Authentication_5 from '../Elements/Authentication/_components/Authentication_5';
 import Dashboard_1 from '../Elements/Dashboard/Dashboard_1/Dashboard_1';
+import Dashboard_2 from '../Elements/Dashboard/Dashboard_2/Dashboard_2';
 import Faq_1 from '../Elements/FAQ/Faq_1';
 import Faq_2 from '../Elements/FAQ/Faq_2';
 import { Authentication_01, Authentication_02 } from '../utils/ElementsCodeStrings/AuthenticationCodeString';
@@ -40,6 +41,11 @@ export const DashboardElementsData = [
     {
         component: <Dashboard_1 />,
         name: "dashboard-1",
+        code: ''
+    },
+    {
+        component: <Dashboard_2 />,
+        name: "dashboard-2",
         code: ''
     },
 ]

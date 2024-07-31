@@ -133,4 +133,17 @@ input:focus-visible {
   height: 10px;
 }
 
+:root {
+  --color-grid-light: #ccc;
+  --color-grid-dark: #333;
+}
+
+.light {
+  --color-grid: var(--color-grid-light);
+}
+
+.dark {
+  --color-grid: var(--color-grid-dark);
+}
+
 
