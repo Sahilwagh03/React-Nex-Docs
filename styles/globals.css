@@ -145,5 +145,3 @@ input:focus-visible {
 .dark {
   --color-grid: var(--color-grid-dark);
 }
-
-

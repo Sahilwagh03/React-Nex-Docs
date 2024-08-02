@@ -3,9 +3,10 @@ import { SideBar, SideBarBody, SideBarFooter, SideBarItem } from '../SideBar'
 import { LuHome, LuBell, LuSettings, LuPieChart, LuMessageCircle, LuMenu, LuUsers, LuActivity, LuDollarSign, LuBarChart2, LuPanelRightOpen, LuTrendingUp } from 'react-icons/lu';
 import Avatar from '../../../components/Avatar/Avatar'
 import SearchBar from '../../../components/SearchBar/SearchBar';
-import { Card, CardBody, CardDescription, CardTitle, CardHeader, CardFooter } from '../../../components/Card/CardComponets'
-import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '../../../components/Sheet/Sheet'
-import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { Card, CardBody, CardDescription, CardTitle, CardHeader } from '../../../components/Card/CardComponets'
+import { Sheet, SheetContent, SheetTrigger } from '../../../components/Sheet/Sheet'
+import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip as ChartsToolTip, Legend, ResponsiveContainer } from 'recharts';
+import { ChartsTooltipContent } from '../../../components/Charts/Charts';
 
 const dashaboard_data = [
     {
@@ -115,15 +116,13 @@ const lineChartData = [
 ];
 
 const pieChartData = [
-    { product: 'Wireless Mouse', sales: 150 },
-    { product: 'Bluetooth Speaker', sales: 100 },
-    { product: 'Gaming Keyboard', sales: 75 },
-    { product: 'HD Webcam', sales: 50 },
-    { product: 'External Hard Drive', sales: 40 },
-    { product: 'USB Hub', sales: 30 },
+    { product: 'Wireless Mouse', sales: 150, fill: '#0088FE' },
+    { product: 'Bluetooth Speaker', sales: 100, fill: '#00C49F' },
+    { product: 'Gaming Keyboard', sales: 75, fill: '#FFBB28' },
+    { product: 'HD Webcam', sales: 50, fill: '#FF8042' },
+    { product: 'External Hard Drive', sales: 40, fill: '#A020F0' },
+    { product: 'USB Hub', sales: 30, fill: '#FFA07A' },
 ];
-
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#A020F0', '#FFA07A'];
 
 const SideBarItemsData = [
     {
@@ -167,7 +166,7 @@ const Dashboard_2 = () => {
             </div>
             <div className='flex-2 bg-white dark:dark:bg-[#27272a] h-screen w-full rounded-xl md:rounded-tl-none md:rounded-bl-none overflow-auto'>
                 <div className='p-0 md:p-4'>
-                    <div className='flex flex-row z-50 items-center justify-between p-2 px-3 bg-white dark:bg-black md:dark:bg-transparent top-0 sticky md:relative md:bg-transparent md:justify-end'>
+                    <div className='flex flex-row z-10 items-center justify-between p-2 px-3 bg-white dark:bg-black md:dark:bg-transparent top-0 sticky md:relative md:bg-transparent md:justify-end'>
                         <div className='rounded-lg md:hidden p-2 border-2 border-gray-200 dark:border-[#383838] dark:border-2'>
                             <Sheet side='left'>
                                 <SheetTrigger>
@@ -236,12 +235,12 @@ const Dashboard_2 = () => {
                                                 tickMargin={8}
                                                 tickFormatter={(value) => value.slice(0, 3)}
                                             />
-                                            <Tooltip cursor={false} content={<CustomTooltip />} />
+                                            <ChartsToolTip cursor={false} content={<ChartsTooltipContent hideLabel />} />
 
                                             <Bar
                                                 dataKey="sales"
                                                 fill="#8884d8"
-                                                radius={8}
+                                                radius={10}
                                                 isAnimationActive={true}
                                                 animationDuration={1000}
                                                 animationEasing="ease-out"
@@ -270,11 +269,11 @@ const Dashboard_2 = () => {
                                                 tickMargin={8}
                                                 tickFormatter={(value) => value.slice(0, 3)}
                                             />
-                                            <Tooltip content={<CustomTooltip />} />
+                                            <ChartsToolTip content={<ChartsTooltipContent indicator='line'/>} />
                                             <Line
                                                 type="natural"
                                                 dataKey="revenue"
-                                                strokeWidth={2}
+                                                strokeWidth={3}
                                                 activeDot={{
                                                     r: 6,
                                                 }}
@@ -290,7 +289,7 @@ const Dashboard_2 = () => {
                                 <CardTitle className="!mb-0 tracking-tight text-black dark:text-white text-sm font-medium">Distribution Pie Chart</CardTitle>
                             </CardHeader>
                             <CardBody className='!mb-0 !gap-[0px]'>
-                                <ResponsiveContainer width="100%" height={300} >
+                                <ResponsiveContainer width="100%" height={300}>
                                     <PieChart>
                                         <Pie
                                             data={pieChartData}
@@ -300,13 +299,14 @@ const Dashboard_2 = () => {
                                             cy="50%"
                                             outerRadius={100}
                                             fill="#8884d8"
-
+                                            labelLine={false}
+                                            label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
                                         >
                                             {pieChartData.map((entry, index) => (
-                                                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                                                <Cell key={`cell-${index}`} fill={entry.fill}/>
                                             ))}
                                         </Pie>
-                                        <Tooltip content={<CustomTooltip />} />
+                                        <ChartsToolTip content={<ChartsTooltipContent indicator="line" label="products"/>} />
                                     </PieChart>
                                 </ResponsiveContainer>
                             </CardBody>
@@ -317,22 +317,5 @@ const Dashboard_2 = () => {
         </div>
     )
 }
-
-const CustomTooltip = ({ payload, label, active }) => {
-    if (active && payload && payload.length) {
-        return (
-            <div className="bg-white dark:bg-black p-2 rounded-lg border border-gray-200 dark:border-gray-700">
-                {label && <p className="text-sm font-medium text-gray-800 dark:text-gray-200">{`${label}`}</p>}
-                {payload.map((entry, index) => (
-                    <p key={index} className="text-xs text-gray-600 dark:text-gray-400">
-                        {`${entry.name}: ${entry.value}`}
-                    </p>
-                ))}
-            </div>
-        );
-    }
-
-    return null;
-};
 
 export default Dashboard_2;
