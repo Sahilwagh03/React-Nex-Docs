@@ -128,7 +128,7 @@ const Dashboard_1 = () => {
             }
           </SideBarBody>
           <SideBarFooter>
-            <SideBarItem className='hover:bg-transparent dark:hover:bg-transparent gap-3' icon={<Avatar className='w-9 h-full' />} title='Profile' />
+            <SideBarItem className='hover:bg-transparent dark:hover:bg-transparent gap-3' icon={<Avatar className='w-9 h-full' src="https://randomuser.me/api/portraits/men/65.jpg"/>} title='Profile' />
           </SideBarFooter>
         </SideBar>
       </div>

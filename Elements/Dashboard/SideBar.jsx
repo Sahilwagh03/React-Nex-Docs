@@ -34,15 +34,24 @@ const SideBarBody = ({ children }) => {
 
   return (
     <div className='px-2 py-6 flex flex-col items-center gap-6 w-full'>
-      <button onClick={toggleSidebar} className='w-10 h-10 px-1 py-1 flex justify-center items-center'>
-        {isExpanded ? <LuArrowLeft className='w-6 h-6 text-black dark:text-white' /> : <LuArrowRight className='w-6 h-6 text-black dark:text-white' />}
-      </button>
+      {
+        !isExpanded ?
+          <Tooltip title="Open" position='right'>
+            <button onClick={toggleSidebar} className='w-10 h-10 px-1 py-1 flex justify-center items-center'>
+              {isExpanded ? <LuArrowLeft className='w-6 h-6 text-black dark:text-white' /> : <LuArrowRight className='w-6 h-6 text-black dark:text-white' />}
+            </button>
+          </Tooltip>
+          :
+          <button onClick={toggleSidebar} className='w-10 h-10 px-1 py-1 flex justify-center items-center'>
+            {isExpanded ? <LuArrowLeft className='w-6 h-6 text-black dark:text-white' /> : <LuArrowRight className='w-6 h-6 text-black dark:text-white' />}
+          </button>
+      }
       {children}
     </div>
   )
 }
 
-const SideBarItem = ({ icon, title,className="" }) => {
+const SideBarItem = ({ icon, title, className = "" }) => {
   const { isExpanded } = useSidebar();
 
   return (

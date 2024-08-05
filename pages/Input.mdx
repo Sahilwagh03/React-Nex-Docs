@@ -9,18 +9,27 @@
 import ComponentPreviewAndCode from '../components/ComponentPreviewAndCode/ComponentPreviewAndCode';
 import CommandBlock from '../components/CommandBlock/CommandBlock'
 import Input from "../components/Input/Input";
+import InputWrapper from '../components/global/InputWrapper'
 
 
 <ComponentPreviewAndCode 
 PreviewComponent={
     <div className="w-[300px]">
-        <Input type="email" placeholder="j@example.com" />
+        <InputWrapper />
     </div>
 }
 Code={`
-<div className="w-[300px]">
-    <Input type="email" placeholder="j@example.com" />
-</div>
+import React, { useState } from 'react'
+import Input from '../components-react-nex/Input/Input'
+
+const InputExample = () => {
+    const [value, setvalue] = useState('')
+    return (
+        <Input type="email" placeholder="j@example.com" value={value} onChange={setvalue}/>
+    )
+}
+
+export default InputExample
 `}
 />
 
