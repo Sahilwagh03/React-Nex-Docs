@@ -85,7 +85,7 @@ const Select = ({ children, value = "", onSelect, placeholder = "Select", enable
 
 const usePopOver = () => useContext(SelectContext);
 
-const Popover = ({ children }) => {
+const Popover = ({ children , className="" }) => {
     const { placeAbove, setPlaceAbove, popOverRef } = usePopOver();
 
     const handleScroll = () => {
@@ -106,7 +106,7 @@ const Popover = ({ children }) => {
 
     return (
         <div className={`absolute z-10 ${placeAbove ? 'bottom-full mb-2' : 'top-[45px]'}`}>
-            <div className='min-w-[200px] shadow-md w-full rounded-md border dark:border-[#27272a] dark:text-white hover:bg-accent hover:text-accent-foreground '>
+            <div className={`min-w-[200px] shadow-md w-full rounded-md border dark:border-[#27272a] dark:text-white hover:bg-accent hover:text-accent-foreground ${className}`}>
                 {children}
             </div>
         </div>

@@ -1,4 +1,5 @@
 import CommandBlock from '../components/CommandBlock/CommandBlock'
+import ComponentPreviewAndCode from '../components/ComponentPreviewAndCode/ComponentPreviewAndCode'
 import { Steps } from 'nextra/components'
 import { Callout } from 'nextra/components'
 
@@ -21,14 +22,179 @@ Unlike other bloated libraries, React-nex empowers you to pick and choose the ex
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components-react-nex/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './pages/**/*.{js,jsx,ts,tsx,md,mdx}',
+    './components/**/*.{js,jsx,ts,tsx,md,mdx}',
+    './Elements/**/*.{js,jsx,ts,tsx,md,mdx}',
+
+    // Or if using `src` directory:
+    './src/**/*.{js,jsx,ts,tsx,md,mdx}'
   ],
-  plugins: [],
-};
+  darkMode: 'class',
+  theme: {
+    extend: {
+      keyframes: {
+        upDown: {
+          '0%, 100%': { transform: 'translateY(-10px)' },
+          '50%': { transform: 'translateY(0)' },
+        },
+        slideMask: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+      },
+      animation: {
+        upDown: 'upDown 2s ease-in-out infinite',
+        slideMask: 'slideMask 3s ease infinite',
+      },
+    }
+  },
+  plugins: [
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.animation-delay-0': {
+          'animation-delay': '0s',
+        },
+        '.animation-delay-200': {
+          'animation-delay': '0.2s',
+        },
+        '.animation-delay-400': {
+          'animation-delay': '0.4s',
+        },
+        '.animation-delay-600': {
+          'animation-delay': '0.6s',
+        },
+        '.animation-delay-800': {
+          'animation-delay': '0.8s',
+        },
+        '.animation-delay-1000': {
+          'animation-delay': '1s',
+        },
+      }
+
+      addUtilities(newUtilities, ['responsive', 'hover'])
+    },
+  ]
+}
 ```
+
+### Global Css file
+
+<ComponentPreviewAndCode 
+defaultTab='Code'
+Code={`
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --color-grid-light: #ccc;
+  --color-grid-dark: #333;
+}
+
+input:focus-visible {
+  --tw-ring-offset-shadow: none;
+  --tw-ring-shadow: none;
+  box-shadow: none;
+  --tw-ring-opacity: 0;
+  --tw-ring-color: transparent;
+  --tw-ring-offset-width: 0;
+  --tw-ring-offset-color: transparent;
+}
+
+.shadow-medium,
+.shadow-none {
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.shadow-medium {
+  --tw-shadow: 0px 0px 15px 0px rgba(0, 0, 0, .03), 0px 2px 30px 0px rgba(0, 0, 0, .08), 0px 0px 1px 0px rgba(0, 0, 0, .3);
+  --tw-shadow-colored: 0px 0px 15px 0px rgba(0, 0, 0, .03), 0px 2px 30px 0px rgba(0, 0, 0, .08), 0px 0px 1px 0px rgba(0, 0, 0, .3)
+}
+
+/* Light theme scrollbar */
+.timer-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.timer-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.timer-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #d9d9d9;
+  border-radius: 24px;
+  height: 10px;
+}
+
+.timer-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+/* Dark theme scrollbar */
+.dark .timer-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.dark .timer-scrollbar::-webkit-scrollbar-track {
+  background: #2d2d2d;
+}
+
+.dark .timer-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 24px;
+  height: 10px;
+}
+
+.dark .timer-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #666;
+}
+
+
+
+/* Light theme scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #d9d9d9;
+  border-radius: 24px;
+  height: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+/* Dark theme scrollbar */
+.dark .custom-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-track {
+  background: #2d2d2d;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 24px;
+  height: 10px;
+}
+
+.light {
+  --color-grid: var(--color-grid-light);
+}
+
+.dark {
+  --color-grid: var(--color-grid-dark);
+}
+`} />
+
 
 </Steps>
 

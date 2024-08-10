@@ -112,6 +112,41 @@ Style the image container using Tailwind CSS classes
 </div>`}
 />
 
+### Overlap Order
+
+Control the z-index overlap order using the `overlap` prop.
+
+<br></br>
+
+<ComponentPreviewAndCode PreviewComponent={
+      <div className='flex flex-col gap-4 md:flex-row'>
+        <AvatarGroup overlap="forward">
+            <Avatar src='https://bit.ly/ryan-florence' size='md' />
+            <Avatar src='https://bit.ly/dan-abramov' size='md' />
+            <Avatar src='https://bit.ly/kent-c-dodds' size='md' />
+        </AvatarGroup>
+
+        <AvatarGroup overlap="reverse">
+            <Avatar src='https://bit.ly/ryan-florence' size='md' />
+            <Avatar src='https://bit.ly/dan-abramov' size='md' />
+            <Avatar src='https://bit.ly/kent-c-dodds' size='md' />
+        </AvatarGroup>
+      </div>
+} Code={`
+<div className='flex flex-col gap-4 md:flex-row'>
+    <AvatarGroup overlap="forward">
+        <Avatar src='https://bit.ly/ryan-florence' size='md' />
+        <Avatar src='https://bit.ly/dan-abramov' size='md' />
+        <Avatar src='https://bit.ly/kent-c-dodds' size='md' />
+    </AvatarGroup>
+
+    <AvatarGroup overlap="reverse">
+        <Avatar src='https://bit.ly/ryan-florence' size='md' />
+        <Avatar src='https://bit.ly/dan-abramov' size='md' />
+        <Avatar src='https://bit.ly/kent-c-dodds' size='md' />
+    </AvatarGroup>
+</div>`}
+/>
 
 ## Props
 
@@ -129,3 +164,8 @@ Style the image container using Tailwind CSS classes
 
 - Type: `string`
 - Description: Additional Tailwind CSS classes to apply to each avatar container.
+
+### `overlap`
+
+- Type: `'forward' | 'reverse'`
+- Description: Determines the z-index order of the avatars. Use `'forward'` for increasing z-index and `'reverse'` for decreasing z-index.

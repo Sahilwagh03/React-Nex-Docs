@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
 import cn from '../../utils/classmerger/cn'
-const ComponentPreviewAndCode = ({ PreviewComponent, Code ,previewStyles=""}) => {
-    const [displayComponent, setDisplayComponent] = useState('Preview');
+const ComponentPreviewAndCode = ({ PreviewComponent, Code, previewStyles = "", defaultTab = 'Preview' }) => {
+    const [displayComponent, setDisplayComponent] = useState(defaultTab);
 
     const handleButtonClick = (component) => {
         setDisplayComponent(component);
@@ -22,16 +22,19 @@ const ComponentPreviewAndCode = ({ PreviewComponent, Code ,previewStyles=""}) =>
                 // You can handle errors here, like showing an error message
             });
     };
-    
+
     return (
         <div>
             <div className="flex mb-4 border-b-2 border-gray-200 dark:nx-border-neutral-800">
-                <button
-                    className={`text-sm font-semibold py-2 px-4 ${displayComponent === 'Preview' ? 'border-b-2 border-gray-800' : ''} `}
-                    onClick={() => handleButtonClick('Preview')}
-                >
-                    Preview
-                </button>
+                {
+                    PreviewComponent &&
+                    <button
+                        className={`text-sm font-semibold py-2 px-4 ${displayComponent === 'Preview' ? 'border-b-2 border-gray-800' : ''} `}
+                        onClick={() => handleButtonClick('Preview')}
+                    >
+                        Preview
+                    </button>
+                }
                 {
                     Code &&
                     <button
@@ -43,11 +46,11 @@ const ComponentPreviewAndCode = ({ PreviewComponent, Code ,previewStyles=""}) =>
                 }
             </div>
             {displayComponent === 'Preview' ? (
-                    <div className={cn(" relative flex justify-center min-h-[300px] overflow-auto items-center border-2 border-gray-200 dark:nx-border-neutral-800 rounded-md" , previewStyles)}>
+                <div className={cn(" relative flex justify-center min-h-[300px] overflow-auto items-center border-2 border-gray-200 dark:nx-border-neutral-800 rounded-md", previewStyles)}>
                     {PreviewComponent}
                     <button
                         onClick={handleCopyClick}
-                        className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 z-10 h-6 w-6 text-white hover:bg-black hover:text-zinc-50 absolute right-4 top-4"
+                        className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 z-10 h-6 w-6  dark:text-white dark:hover:bg-black dark:hover:text-zinc-50 absolute right-4 top-4"
                         type="button"
                         id="copyButton"
                         aria-haspopup="menu"
