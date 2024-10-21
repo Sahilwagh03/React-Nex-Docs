@@ -3,7 +3,7 @@ import { IoCheckmarkOutline } from "react-icons/io5";
 
 const SelectContext = createContext();
 
-const Select = ({ children, value = "", onSelect, placeholder = "Select", enableSearch = false }) => {
+const Select = ({ children, value = [], onSelect, placeholder = "Select", multiselect, enableSearch = false }) => {
     const [popoverOpen, setPopoverOpen] = useState(false);
     const [placeAbove, setPlaceAbove] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
@@ -40,14 +40,14 @@ const Select = ({ children, value = "", onSelect, placeholder = "Select", enable
         };
     }, [popoverOpen]);
 
-    useEffect(()=>{
-        if(searchQuery==""){
+    useEffect(() => {
+        if (searchQuery == "") {
             onSelect("")
         }
-    },[searchQuery])
+    }, [searchQuery])
 
     return (
-        <SelectContext.Provider value={{ placeAbove, setPlaceAbove, popOverRef, value, onSelect, setPopoverOpen, placeholder, searchQuery, setSearchQuery }}>
+        <SelectContext.Provider value={{ placeAbove, setPlaceAbove, popOverRef, value, multiselect, onSelect, setPopoverOpen, placeholder, searchQuery, setSearchQuery }}>
             <div className='relative' ref={popOverRef}>
 
                 {
@@ -70,7 +70,7 @@ const Select = ({ children, value = "", onSelect, placeholder = "Select", enable
                             className="inline-flex items-center whitespace-nowrap rounded-md text-sm min-w-[200px] max-w-[300px]
                                 disabled:pointer-events-none disabled:opacity-50 border dark:border-[#27272a] 
                                 h-10 px-4 py-2 justify-start text-left font-normal dark:hover:bg-[#27272a] dark:hover:text-white dark:text-[#a1a1aa]"
-                            value={searchQuery=="" ? value : searchQuery}
+                            value={searchQuery == "" ? value : searchQuery}
                             onFocus={handleInputFocus}
                             onChange={handleInputChange}
                             placeholder={placeholder}
@@ -85,7 +85,7 @@ const Select = ({ children, value = "", onSelect, placeholder = "Select", enable
 
 const usePopOver = () => useContext(SelectContext);
 
-const Popover = ({ children , className="" }) => {
+const Popover = ({ children, className = "" }) => {
     const { placeAbove, setPlaceAbove, popOverRef } = usePopOver();
 
     const handleScroll = () => {
@@ -138,7 +138,7 @@ const SelectList = ({ children }) => {
 }
 
 const SelectItem = ({ value }) => {
-    const { onSelect, setPopoverOpen, value: selectedValue, placeholder, searchQuery ,setSearchQuery} = usePopOver();
+    const { onSelect, setPopoverOpen, value: selectedValue, placeholder, searchQuery, setSearchQuery } = usePopOver();
 
     const handleSelect = () => {
         if (searchQuery) {
@@ -146,9 +146,10 @@ const SelectItem = ({ value }) => {
                 onSelect("")
                 setSearchQuery("")
             } else {
-                onSelect(value)
+                onSelect((prev) => {
+                    return [...prev, value]
+                })
                 setSearchQuery(value)
-
             }
         }
         else {
@@ -174,7 +175,7 @@ const SelectItem = ({ value }) => {
             className='w-full flex flex-row gap-1 px-2 py-1.5 items-center text-left rounded-md dark:hover:bg-[#27272a] dark:hover:text-white dark:text-[#a1a1aa] cursor-pointer'
         >
             <span className="flex items-center justify-center w-4 h-4">
-                {selectedValue === value && <IoCheckmarkOutline />}
+                {selectedValue.includes(value) && <IoCheckmarkOutline />}
             </span>
             <span className="flex-grow relative flex cursor-default select-none items-center rounded-sm text-sm outline-none">
                 {value}

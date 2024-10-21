@@ -1,7 +1,7 @@
 {
-  "-":{
-    "type":"separator",
-    "title":"Getting started"
+  "-": {
+    "type": "separator",
+    "title": "Getting started"
   },
   "index": {
     "title": "Home",
@@ -10,63 +10,72 @@
       "layout": "full"
     }
   },
-  "Docs":{
-    "title":"Docs",
+  "Docs": {
+    "title": "Docs",
     "href": "/Introduction",
-    "type":"page"
+    "type": "page"
   },
-  "Elements":{
-    "title":"Elements",
-    "type":"page",
-    "theme":{
-      "layout":"full"
-    }
-  },
-  "Template":{
-    "title":"Template",
-    "type":"page",
+  "Elements": {
+    "title": "Elements",
+    "type": "page",
     "theme": {
       "layout": "full"
     }
   },
-  "Introduction":"Introduction",
-  "Installation": "Installation",
-  "-_":{
-    "type":"separator",
-    "title":"Components"
+  "Template": {
+    "title": "Template",
+    "display": "hidden",
+    "type": "page",
+    "theme": {
+      "layout": "full"
+    }
   },
-  "Accordion":"Accordion",
-  "Alert":"Alert",
-  "Avatar":"Avatar",
-  "AvatarGroup":"AvatarGroup",
-  "Badge":"Badge",
-  "Button":"Button",
-  "Calendar":"Calendar",
-  "Card":"Card",
-  "CheckBox":"CheckBox",
-  "Collaboration":"Collaboration",
-  "Date-Picker":"Date Picker",
-  "Input":"Input",
-  "Input-Otp":"Input Otp",
-  "Modal":"Modal",
-  "Pagination":"Pagination",
-  "ProgressBar":"ProgressBar",
-  "Search-Bar":"Search Bar",
-  "Select":"Select",
-  "Sheet":"Sheet",
-  "Skeleton":"Skeleton",
-  "Stepper":"Stepper",
-  "Switch":"Switch",
-  "Table":"Table",
-  "Tabs":"Tabs",
-  "Tooltip":"Tooltip",
+  "Introduction": "Introduction",
+  "Installation": "Installation",
+  "-_": {
+    "type": "separator",
+    "title": "Components"
+  },
+  "Accordion": "Accordion",
+  "Alert": "Alert",
+  "Avatar": "Avatar",
+  "AvatarGroup": "AvatarGroup",
+  "Badge": "Badge",
+  "Button": "Button",
+  "Calendar": "Calendar",
+  "Card": "Card",
+  "CheckBox": "CheckBox",
+  "Collaboration": "Collaboration",
+  "Date-Picker": "Date Picker",
+  "Input": "Input",
+  "Input-Otp": "Input Otp",
+  "Modal": "Modal",
+  "Pagination": "Pagination",
+  "ProgressBar": "ProgressBar",
+  "Search-Bar": "Search Bar",
+  "Select": "Select",
+  "Sheet": "Sheet",
+  "Skeleton": "Skeleton",
+  "Stepper": "Stepper",
+  "Switch": "Switch",
+  "Table": "Table",
+  "Tabs": "Tabs",
+  "Tooltip": "Tooltip",
   "about": {
     "title": "About",
     "type": "page"
   },
-  "-__":{
-    "type":"separator",
-    "title":"Animation Components"
+  "-__": {
+    "type": "separator",
+    "title": "Animation Components",
+    "display": "hidden"
   },
-  "TypewriterEffect":"Typewriter Effect"
+  "TypewriterEffect": {
+    "title":"Typewriter Effect",
+    "display": "hidden"
+  },
+  "AnimatedLines": {
+    "title":"Animated Lines",
+    "display": "hidden"
+  }
 }

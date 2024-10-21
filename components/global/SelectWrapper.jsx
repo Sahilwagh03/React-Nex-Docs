@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { Select, Popover, SelectHeader, SelectContent, SelectList, SelectItem } from '../Select/Select'
 
-const SelectWrapper = ({enableSearch}) => {
-    const [selectedValue, setSelectedValue] = useState('');
+const SelectWrapper = ({ enableSearch }) => {
+    const [selectedValue, setSelectedValue] = useState([]);
 
     const handleSelect = (value) => {
-        setSelectedValue(value);
+        setSelectedValue((prev) =>{
+            return [...prev, value]
+        }
+        );
     };
 
 
@@ -31,7 +34,7 @@ const SelectWrapper = ({enableSearch}) => {
     ];
 
     return (
-        <Select value={selectedValue} onSelect={handleSelect} placeholder='Select Tech' enableSearch={enableSearch}>
+        <Select value={selectedValue} onSelect={handleSelect} multiselect placeholder='Select Tech'>
             <Popover>
                 <SelectHeader>
                     <h1>Technology</h1>
