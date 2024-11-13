@@ -24,7 +24,6 @@
   },
   "Template": {
     "title": "Template",
-    "display": "hidden",
     "type": "page",
     "theme": {
       "layout": "full"
@@ -67,15 +66,12 @@
   },
   "-__": {
     "type": "separator",
-    "title": "Animation Components",
-    "display": "hidden"
+    "title": "Animation Components"
   },
   "TypewriterEffect": {
-    "title":"Typewriter Effect",
-    "display": "hidden"
+    "title":"Typewriter Effect"
   },
   "AnimatedLines": {
-    "title":"Animated Lines",
-    "display": "hidden"
+    "title":"Animated Lines"
   }
 }

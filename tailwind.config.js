@@ -25,6 +25,9 @@ module.exports = {
         upDown: 'upDown 2s ease-in-out infinite',
         slideMask: 'slideMask 3s ease infinite',
       },
+      boxShadow: {
+        'gradient': '0 4px 15px 0 rgba(155,248,243,0.6), 0 6px 20px 0 rgba(110, 122, 247, 0.7)',
+      },
     }
   },
   plugins: [
