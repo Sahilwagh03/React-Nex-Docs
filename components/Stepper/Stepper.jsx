@@ -3,7 +3,6 @@ import { BiCheck } from 'react-icons/bi';
 import cn from '../../utils/classmerger/cn';
 const StepContextProvider = createContext()
 
-// Step Component
 const Step = ({ children }) => {
   const stepContext = useContext(StepContextProvider);
   const { status, index  } = stepContext;

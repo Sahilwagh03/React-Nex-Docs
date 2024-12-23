@@ -30,6 +30,11 @@ const DatePicker = ({ onSelect, selected, mode = 'single', timer = false, time, 
         }
     };
 
+
+    const closeCalendar = () => {
+        setCalendarOpen(false);
+    };
+
     const rangeDefault =
     {
         startDate: selected == '' ? null : dayjs(selected?.startDate),
@@ -67,6 +72,7 @@ const DatePicker = ({ onSelect, selected, mode = 'single', timer = false, time, 
                                 :
                                 selected == '' ? selected : dayjs(selected)
                         }
+                        closeCalendar={closeCalendar}
                         mode={mode}
                         datePicker
                         timer={timer}

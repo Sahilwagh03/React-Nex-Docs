@@ -3,7 +3,7 @@ import cn, { generateDate, months } from './utils';
 import dayjs from 'dayjs';
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
 
-const Calendar = ({ onSelect, selected, datePicker, mode = 'single', timer = false, dateTime, handleSetTime, ...props }) => {
+const Calendar = ({ onSelect, selected, datePicker, mode = 'single', timer = false, dateTime, handleSetTime,closeCalendar, ...props }) => {
     const days = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
     const { activeClassName } = props;
     const currentDate = dayjs();
@@ -28,6 +28,7 @@ const Calendar = ({ onSelect, selected, datePicker, mode = 'single', timer = fal
             onSelect(selected === '' ? selected : selected.toDate().toDateString());
             if (timer) handleSetTime(dateTime);
             setSelectDate(selected === '' ? null : selected);
+
         }
     };
 
@@ -51,6 +52,7 @@ const Calendar = ({ onSelect, selected, datePicker, mode = 'single', timer = fal
             } else {
                 setEndDate(date);
                 onSelect({ startDate: startDate.toDate().toDateString(), endDate: date.toDate().toDateString() });
+                closeCalendar();
             }
         }
     };
@@ -62,6 +64,9 @@ const Calendar = ({ onSelect, selected, datePicker, mode = 'single', timer = fal
         } else {
             setSelectDate(date);
             onSelect(date.toDate().toDateString());
+            if (!timer || (timer && dateTime)) {
+                closeCalendar(); // Close calendar when a single date is selected and time is also selected
+            }
         }
     };
 

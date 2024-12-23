@@ -2,13 +2,10 @@ import React, { useState } from 'react';
 import { Select, Popover, SelectHeader, SelectContent, SelectList, SelectItem } from '../Select/Select'
 
 const SelectWrapper = ({ enableSearch }) => {
-    const [selectedValue, setSelectedValue] = useState([]);
+    const [selectedValue, setSelectedValue] = useState('');
 
     const handleSelect = (value) => {
-        setSelectedValue((prev) =>{
-            return [...prev, value]
-        }
-        );
+        setSelectedValue(value);
     };
 
 

@@ -18,14 +18,14 @@ const NexusAiButton = () => {
     <>
       {/* Button that triggers the modal */}
       <Button
-        className="fixed bottom-5 right-5 z-30 min-h-[6rem] gap-1 !px-2 flex flex-col justify-center items-center text-white bg-black shadow-lg overflow-hidden"
+        className="fixed bottom-5 right-5 z-30 lg:min-h-[6rem] gap-1 !px-2 flex flex-col justify-center items-center !rounded-full lg:!rounded-md text-white bg-black shadow-lg overflow-hidden"
         onClick={handleOpenModal}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-[#B38FFF] to-[#6780FE] blur-lg opacity-25 -z-10 dark:hidden" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#B38FFF] to-[#6780FE] blur-lg opacity-25 dark:opacity-15 -z-10" />
         <div>
           <Image src={AiIcons} alt="React-Nex" width={40} height={40} />
         </div>
-        <div>
+        <div className='hidden lg:block'>
           <h2 className="text-[1rem] leading-[1.55] font-[900]">NexusAI</h2>
         </div>
       </Button>

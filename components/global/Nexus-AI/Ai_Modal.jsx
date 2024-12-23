@@ -36,11 +36,11 @@ const Ai_Modal = ({ isModalOpen, handleCloseModal }) => {
             });
     };
 
-    const cleanedCode = data?.generated_code.replace(/^```javascript|```$/g, '');
+    const cleanedCode = data?.generated_code.replace(/^```(jsx|javascript|typescript|mdx|md)|```$/g, '');
 
     return (
         <Modal Open={isModalOpen} Close={handleCloseModal}>
-            <ModalContent className='!p-0 min-w-[40rem]'>
+            <ModalContent className='!p-0 min-w-full lg:min-w-[40rem]'>
                 <h1 className='p-5 text-[2rem] leading-[1.55rem] font-[900] border-b focus:border-b-2 focus:border-black dark:focus:border-b-white border-b-gray-300 dark:border-b-[#383838]'>
                     Nexus AI
                 </h1>

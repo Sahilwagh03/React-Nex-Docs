@@ -3,7 +3,7 @@ import { IoCheckmarkOutline } from "react-icons/io5";
 
 const SelectContext = createContext();
 
-const Select = ({ children, value = [], onSelect, placeholder = "Select", multiselect, enableSearch = false }) => {
+const Select = ({ children, value = "", onSelect, placeholder = "Select", multiselect, enableSearch = false }) => {
     const [popoverOpen, setPopoverOpen] = useState(false);
     const [placeAbove, setPlaceAbove] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
@@ -146,9 +146,7 @@ const SelectItem = ({ value }) => {
                 onSelect("")
                 setSearchQuery("")
             } else {
-                onSelect((prev) => {
-                    return [...prev, value]
-                })
+                onSelect(value)
                 setSearchQuery(value)
             }
         }
@@ -175,7 +173,7 @@ const SelectItem = ({ value }) => {
             className='w-full flex flex-row gap-1 px-2 py-1.5 items-center text-left rounded-md dark:hover:bg-[#27272a] dark:hover:text-white dark:text-[#a1a1aa] cursor-pointer'
         >
             <span className="flex items-center justify-center w-4 h-4">
-                {selectedValue.includes(value) && <IoCheckmarkOutline />}
+                {selectedValue==value && <IoCheckmarkOutline />}
             </span>
             <span className="flex-grow relative flex cursor-default select-none items-center rounded-sm text-sm outline-none">
                 {value}

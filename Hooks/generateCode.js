@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-const BASE_URL = 'https://react-nex-ai-agent.onrender.com';
+const BASE_URL = 'https://react-nex-ai-agent.onrender.com' /*|| 'http://127.0.0.1:8000';*/
 
 const useGenerateCode = () => {
   const [loading, setLoading] = useState(false);
