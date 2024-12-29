@@ -9,8 +9,8 @@
 }
 
 .loader {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   border: 5px solid #FFF;
   border-bottom-color: hsla(235, 89%, 70%, 1);
   border-radius: 50%;
@@ -20,8 +20,8 @@
   }
 
   .dark .loader{
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     border: 5px solid #afabab;
     border-bottom-color: hsla(235, 89%, 70%, 1);
     border-radius: 50%;

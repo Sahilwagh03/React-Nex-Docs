@@ -20,12 +20,12 @@ const TemplateCategory = () => {
                 <div className="w-full md:hidden overflow-hidden rounded-md">
                     <img alt="Product Image" className="object-cover object-center w-full h-full transform transition-transform duration-600 hover:scale-110" src="https://cdn.dribbble.com/userupload/10138231/file/original-e823d0baa477ae0e0ad92465bb7116f8.png" />
                 </div>
-                <div className="flex-row space-x-2 w-full mt-4 md:mt-0 hidden md:flex">
+                <div className="flex-row space-x-2 w-full mt-4 md:mt-0 hidden md:flex md:justify-center">
                     <div className="relative h-48 md:h-64 lg:h-72 overflow-hidden rounded-md">
                         <img alt="Product Image" className="object-cover object-center w-full h-full border border-neutral-200 dark:border-neutral-800 shadow-sm transform transition-transform duration-600 hover:scale-110 rounded-md" src="https://cdn.dribbble.com/userupload/10138231/file/original-e823d0baa477ae0e0ad92465bb7116f8.png" />
                     </div>
                     <div className="relative h-48 md:h-64 lg:h-72 overflow-hidden rounded-md">
-                        <img alt="Product Image" className="object-cover object-center w-full h-full border border-neutral-200 dark:border-neutral-800 shadow-sm transform transition-transform duration-600 hover:scale-110 rounded-md" src="https://cdn.dribbble.com/userupload/11559272/file/original-7d7b9a19a159e3dce5803c7476d52a49.png" />
+                        <img alt="Product Image" className="object-cover object-center w-full h-full border border-neutral-200 dark:border-neutral-800 shadow-sm transform transition-transform duration-600 hover:scale-110 rounded-md" src="https://cdn.dribbble.com/userupload/11115535/file/original-e1ad9c575b2099c53cf57d999e6b852b.png" />
                     </div>
                 </div>
             </div>
