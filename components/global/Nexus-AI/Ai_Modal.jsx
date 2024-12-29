@@ -54,7 +54,7 @@ const Ai_Modal = ({ isModalOpen, handleCloseModal }) => {
                             >
                                 {
                                     msg.content === 'loading' ? (
-                                        <Skeleton className="h-20 w-[75%] rounded-full" count={3} />
+                                        <Skeleton className="h-10 w-[75%] rounded-md" count={3} />
                                     ) : (
                                         <div className={`relative p-3 rounded-md text-sm max-w-[85%] ${msg.type === 'user' ? 'bg-gray-100 text-black' : 'bg-gray-100 dark:bg-[#2A2A2A]'}`}>
                                             <>
