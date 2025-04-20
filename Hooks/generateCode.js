@@ -17,7 +17,7 @@ const useChat = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/generate-code`, { prompt });
+      const response = await axios.post(`http://127.0.0.1:8000/generate-code`, { prompt });
       const data = response.data;
       const cleanedCode = data.generated_code.replace(/^```(jsx|javascript|typescript|mdx|md)|```$/g, '');
 
@@ -51,7 +51,7 @@ const useChat = () => {
       });
   };
 
-  return { messages, loading, errorMessage, copied, generateCode, handleCopyClick };
+  return { messages, loading, errorMessage,setErrorMessage, copied, generateCode, handleCopyClick };
 };
 
 export { useChat };

@@ -1,7 +1,7 @@
 // src/Sheet.js
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { IoCloseOutline } from "react-icons/io5";
-import cn from '../../utils/classmerger/cn'
+import {cn} from '../../lib/utils'
 const SheetContext = createContext();
 
 const Sheet = ({ children, side = 'right' }) => {
@@ -87,21 +87,21 @@ const SheetContent = ({ children ,positionClassName}) => {
   );
 };
 
-const SheetHeader = ({ children }) => {
-  return <div className="mb-4">{children}</div>;
+const SheetHeader = ({ children ,className }) => {
+  return <div className={cn("mb-4",className)}>{children}</div>;
 };
 
-const SheetTitle = ({ children }) => {
-  return <h2 className="text-lg font-bold mb-2 dark:text-white">{children}</h2>;
+const SheetTitle = ({ children , className}) => {
+  return <h2 className={cn("text-lg font-bold mb-2 dark:text-white",className)}>{children}</h2>;
 };
 
-const SheetDescription = ({ children }) => {
-  return <p className="text-sm text-gray-600 dark:">{children}</p>;
+const SheetDescription = ({ children ,className }) => {
+  return <p className={cn("text-sm text-gray-600",className)}>{children}</p>;
 };
 
 const SheetFooter = ({ children }) => {
   const { side } = useSheet();
-  return <div className={cn("mt-4 flex flex-col-reverse gap-2 sm:gap-0 sm:flex-row sm:justify-end sm:space-x-2", side === 'left' && '!justify-start')} >{children}</div>;
+  return <div className={cn("mt-4 flex flex-col-reverse gap-2 sm:gap-0 sm:flex-row sm:justify-end sm:space-x-2", side === 'left' && 'justify-start')} >{children}</div>;
 };
 
 export { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter };

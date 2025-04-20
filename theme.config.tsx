@@ -56,15 +56,7 @@ const config: DocsThemeConfig = {
         titleTemplate: 'Home | React Nex'
       }
     }
-  },
-  // banner: {
-  //   key: '2.0-release',
-  //   text: (
-  //     <a href="https://react-nex-docs.vercel.app/" target="_blank">
-  //       🎉 React Nex Beta is here. Read more →
-  //     </a>
-  //   )
-  // }
+  }
 }
 
 export default config

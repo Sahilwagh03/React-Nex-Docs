@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getSizeClasses } from './utils';
-import classNames from 'classnames';
+import { cn } from '../../lib/utils';
 
 const InputOtpBox = ({ length = 6, className = '', size = 'md', outline = '', placeholder = 'o', onOtpChange }) => {
   const [pins, setPins] = useState(Array(length).fill(''));
@@ -63,7 +63,7 @@ const InputOtpBox = ({ length = 6, className = '', size = 'md', outline = '', pl
           key={index}
           type="text"
           id={`pin-${index}`}
-          className={classNames('text-center border border-gray-300 rounded cursor-pointer focus:outline-none focus:ring-2 dark:border-[#2E2E2E] dark:bg-[#1C1C1B] dark:text-white', className, sizeClass)}
+          className={cn('text-center border border-gray-300 rounded cursor-pointer focus:outline-none focus:ring-2 dark:border-[#2E2E2E] dark:bg-[#1C1C1B] dark:text-white', className, sizeClass)}
           maxLength="1"
           value={pin}
           onChange={(event) => handleChange(event, index)}

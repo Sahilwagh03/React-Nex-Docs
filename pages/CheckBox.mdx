@@ -29,3 +29,25 @@ Code={`
 ## Installation
 
 <CommandBlock command="npx react-nex add CheckBox" />
+
+## Example
+
+### Set Color to check-box
+
+<ComponentPreviewAndCode PreviewComponent={
+    <div className=" mx-4">
+        <CheckBox
+            label='Accept terms and conditions'
+            description="You agree to our Terms of Service and Privacy Policy."
+            className='text-green-400 dark:text-green-600'
+        />
+    </div>
+}
+Code={`
+<CheckBox
+    label='Accept terms and conditions'
+    description="You agree to our Terms of Service and Privacy Policy."
+    className='text-green-300  dark:text-green-600' 
+/>
+`}
+/>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { getAlertTypeStyle, getPositionClasses, getIconComponent } from './utils';
-import classNames from 'classnames';
+import {cn} from '../../lib/utils';
 
 const Alert = ({
   type = '',
@@ -17,7 +17,7 @@ const Alert = ({
 
   return (
     <div
-      className={classNames(
+      className={cn(
         'rounded-md px-4 py-2 shadow-md min-w-[300px] h-auto flex items-center gap-2 flex-row',
         getAlertTypeStyle(type),
         alertContainerStyle,

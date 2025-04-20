@@ -1,15 +1,12 @@
 import { useTheme } from 'nextra-theme-docs';
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { RiSearchLine } from 'react-icons/ri';
-import classNames from 'classnames';
-import getPadding from './utils';
+import { cn } from '../../lib/utils';
 
 
 const SearchBar = ({ onChange, className, animated ,IconColor }) => {
     const [searchQuery, setSearchQuery] = useState('');
     const [isExpanded, setIsExpanded] = useState(false);
-    const {theme,resolvedTheme}=useTheme()
 
     const handleChange = (event) => {
         setSearchQuery(event.target.value);
@@ -53,7 +50,7 @@ const SearchBar = ({ onChange, className, animated ,IconColor }) => {
                         value={searchQuery}
                         onChange={handleChange}
                         placeholder="Search..."
-                        className={` py-2 px-4 w-64 focus:outline-none focus:ring-1 text-black border-2 border-gray-300 dark:text-white dark:border-[#383838] dark:border-2 dark:bg-[#1C1C1B] ${className}`}
+                        className={cn('py-2 px-4 w-64 focus:outline-none focus:ring-1 text-black border-2 border-gray-300 dark:text-white dark:border-[#383838] dark:border-2 dark:bg-[#1C1C1B]' , className)}
                     />
                     <div
                         className="cursor-pointer absolute top-[25%] right-[4%]"

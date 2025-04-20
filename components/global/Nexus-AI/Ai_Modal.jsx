@@ -9,7 +9,7 @@ import { useChat } from '../../../Hooks/generateCode';
 
 const Ai_Modal = ({ isModalOpen, handleCloseModal }) => {
     const [userInput, setUserInput] = useState('');
-    const { messages, loading, errorMessage, copied, generateCode, handleCopyClick } = useChat();
+    const { messages, loading, errorMessage, setErrorMessage, copied, generateCode, handleCopyClick } = useChat();
     const messagesEndRef = useRef(null);
 
     const handleInputChange = (e) => {
@@ -54,7 +54,13 @@ const Ai_Modal = ({ isModalOpen, handleCloseModal }) => {
                             >
                                 {
                                     msg.content === 'loading' ? (
-                                        <Skeleton className="h-10 w-[75%] rounded-md" count={3} />
+                                        <div className='flex flex-col gap-1 w-[70%] h-auo'>
+                                            <Skeleton className="h-3 w-full rounded-full" />
+                                            <Skeleton className="h-3 w-1/2  rounded-full" />
+                                            <Skeleton className="h-3 w-full rounded-full" />
+                                            <Skeleton className="h-3 w-[70%]  rounded-full" />
+                                            <Skeleton className="h-3 w-1/3  rounded-full" />
+                                        </div>
                                     ) : (
                                         <div className={`relative p-3 rounded-md text-sm max-w-[85%] ${msg.type === 'user' ? 'bg-gray-100 text-black' : 'bg-gray-100 dark:bg-[#2A2A2A]'}`}>
                                             <>

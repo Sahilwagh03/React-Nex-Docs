@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
-import cn from '../../utils/classmerger/cn'
+import {cn} from '../../lib/utils'
 const ComponentPreviewAndCode = ({ PreviewComponent, Code, previewStyles = "", defaultTab = 'Preview' }) => {
     const [displayComponent, setDisplayComponent] = useState(defaultTab);
 

@@ -11,7 +11,7 @@
 .loader {
   width: 24px;
   height: 24px;
-  border: 5px solid #FFF;
+  border: 4px solid #FFF;
   border-bottom-color: hsla(235, 89%, 70%, 1);
   border-radius: 50%;
   display: inline-block;
@@ -22,7 +22,7 @@
   .dark .loader{
     width: 24px;
     height: 24px;
-    border: 5px solid #afabab;
+    border: 4px solid #afabab;
     border-bottom-color: hsla(235, 89%, 70%, 1);
     border-radius: 50%;
     display: inline-block;

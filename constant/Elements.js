@@ -8,8 +8,9 @@ import Dashboard_1 from '../Elements/Dashboard/Dashboard_1/Dashboard_1';
 import Dashboard_2 from '../Elements/Dashboard/Dashboard_2/Dashboard_2';
 import Faq_1 from '../Elements/FAQ/Faq_1';
 import Faq_2 from '../Elements/FAQ/Faq_2';
-import { Authentication_01, Authentication_02 } from '../utils/ElementsCodeStrings/AuthenticationCodeString';
+import { Authentication_01, Authentication_02, Authentication_03, Authentication_04, Authentication_05 } from '../utils/ElementsCodeStrings/AuthenticationCodeString';
 import { Carousel_01 } from '../utils/ElementsCodeStrings/CarouselCodeStrings';
+import { Faq1, Faq2 } from '../utils/ElementsCodeStrings/FAQCodeString';
 export const AuthenticationElementsData = [
     {
         component: <Authentication_1 />,
@@ -24,17 +25,17 @@ export const AuthenticationElementsData = [
     {
         component: <Authentication_3 />,
         name: "authentication-3",
-        code: ''
+        code: Authentication_03
     },
     {
         component: <Authentication_4 />,
         name: "authentication-4",
-        code: ''
+        code: Authentication_04
     },
     {
         component: <Authentication_5 />,
         name: "authentication-5",
-        code: ''
+        code: Authentication_05
     },
 ]
 
@@ -63,11 +64,11 @@ export const FaqElementsData = [
     {
         component: <Faq_1 />,
         name: "FAQ-1",
-        code: ''
+        code: Faq1
     },
     {
         component: <Faq_2 />,
         name: "FAQ-2",
-        code: ''
+        code: Faq2
     },
 ]

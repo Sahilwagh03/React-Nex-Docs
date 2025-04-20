@@ -1,6 +1,6 @@
 import React, { useRef, createContext, useContext, useState, useEffect } from 'react';
 import { IoCheckmarkOutline } from "react-icons/io5";
-
+import {cn} from '../../lib/utils'
 const SelectContext = createContext();
 
 const Select = ({ children, value = "", onSelect, placeholder = "Select", multiselect, enableSearch = false }) => {
@@ -105,7 +105,7 @@ const Popover = ({ children, className = "" }) => {
     }, []);
 
     return (
-        <div className={`absolute z-10 ${placeAbove ? 'bottom-full mb-2' : 'top-[45px]'}`}>
+        <div className={cn('absolute z-10' , placeAbove ? 'bottom-full mb-2' : 'top-[45px]')}>
             <div className={`min-w-[200px] shadow-md w-full rounded-md border dark:border-[#27272a] dark:text-white hover:bg-accent hover:text-accent-foreground ${className}`}>
                 {children}
             </div>
@@ -113,25 +113,25 @@ const Popover = ({ children, className = "" }) => {
     )
 }
 
-const SelectContent = ({ children }) => {
+const SelectContent = ({ children ,className}) => {
     return (
-        <div className='p-1'>
+        <div className={cn('p-1',className)}>
             {children}
         </div>
     )
 }
 
-const SelectHeader = ({ children }) => {
+const SelectHeader = ({ children , className}) => {
     return (
-        <div className='w-full text-left py-2 px-3 border-b-[2px] dark:border-b-[#d3d3d314] dark:border-b-2'>
+        <div className={cn('w-full text-left py-2 px-3 border-b-[2px] dark:border-b-[#d3d3d314] dark:border-b-2',className)}>
             <h2 className="font-normal text-md dark:text-white pr-2">{children}</h2>
         </div>
     )
 }
 
-const SelectList = ({ children }) => {
+const SelectList = ({ children ,className }) => {
     return (
-        <div className='flex flex-col gap-1 max-h-60 overflow-y-auto custom-scrollbar'>
+        <div className={cn('flex flex-col gap-1 max-h-60 overflow-y-auto custom-scrollbar',className)}>
             {children}
         </div>
     )

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import PaginationItem from './PaginationItem';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-
-const Pagination = ({ totalItems = 5, className = "", max ,onPageChange}) => {
+import { cn } from '../../lib/utils'
+const Pagination = ({ totalItems = 5, className = "", max, onPageChange }) => {
     const [currentPage, setCurrentPage] = useState(1)
-    const pageCount =  (max && totalItems/max) || totalItems
+    const pageCount = (max && totalItems / max) || totalItems
 
     useEffect(() => {
         if (onPageChange) {
@@ -53,5 +52,19 @@ const Pagination = ({ totalItems = 5, className = "", max ,onPageChange}) => {
 };
 
 
+const PaginationItem = ({ pageCount, className, currentPage, setCurrentPage }) => {
+    const pageNumbers = Array.from({ length: pageCount }, (_, i) => i + 1);
 
-export default Pagination;
+    return pageNumbers.map((pageNumber) => (
+        <button
+            key={pageNumber}
+            onClick={() => setCurrentPage(pageNumber)}
+            className={cn('px-4 py-2 rounded-md focus:outline-none border-2', currentPage === pageNumber ? 'border-gray-300' : 'border-transparent', className)}
+        >
+            {pageNumber}
+        </button>
+    ));
+
+};
+
+export { Pagination, PaginationItem };

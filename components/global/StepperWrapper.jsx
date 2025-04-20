@@ -1,8 +1,5 @@
 import React from 'react'
 import { Step, StepDescription, Stepper, StepSeparator, StepTitle, useSteps } from '../Stepper/Stepper'
-import { Card, CardHeader, CardTitle, CardDescription, CardBody, CardFooter } from "../Card/CardComponets";
-import Input from "../Input/Input";
-import Button from "../Button/Button";
 const StepperWrapper = () => {
 
     const steps = [
@@ -12,7 +9,7 @@ const StepperWrapper = () => {
     ]
 
     const { activeStep, goToNext, goToPrevious } = useSteps({
-        index: 1,
+        index: 0,
         count: steps.length,
     });
     return (

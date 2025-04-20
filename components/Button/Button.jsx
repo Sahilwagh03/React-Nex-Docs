@@ -1,4 +1,5 @@
 import React from 'react'
+import { cn } from '../../lib/utils'
 
 const Button = ({
   title ,
@@ -10,7 +11,7 @@ const Button = ({
 
   return (
     <button
-      className={`h-auto rounded-md px-4 py-2 ${className}`}
+      className={cn(`h-auto rounded-md px-4 py-2 ${className}`)}
       onClick={onClick}
       {...props}
     >

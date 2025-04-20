@@ -15,8 +15,8 @@ const Home = () => {
         }
     }, [theme])
     return (
-        <main className='h-full'>
-            <div className={`${(theme == 'dark' || resolvedTheme == 'dark') ? darkStyle : 'bg-dots'} relative lg:h-[90vh]`}>
+        <main className='h-auto'>
+            <div className={`${(theme == 'dark' || resolvedTheme == 'dark') ? darkStyle : 'bg-dots'} relative h-auto`}>
                 <Hero />
             </div>
             <Features />

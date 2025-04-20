@@ -14,7 +14,7 @@ import ProgressBar from '../components/ProgressBar/ProgressBar';
 
 <ComponentPreviewAndCode PreviewComponent={
     <div className="w-[300px]">
-        <ProgressBar value={40} />
+        <ProgressBar value={40}/>
     </div>
 
 } Code={`
@@ -55,12 +55,12 @@ Code={`
 
 <ComponentPreviewAndCode PreviewComponent={
 <div className="w-[300px]">
-    <ProgressBar value={65} activeColor="#F5A623" animationDuration={10} />
+    <ProgressBar value={65} activeColor="#F5A623" className="dark:bg-white" animationDuration={10} />
 </div>
 } 
 Code={`
 <div className="w-[300px]">
-    <ProgressBar value={65} activeColor="#F5A623" animationDuration={10} />
+    <ProgressBar value={65} activeColor="#F5A623" className="dark:bg-white" animationDuration={10} />
 </div>
 `}
 />

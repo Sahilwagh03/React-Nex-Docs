@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaCheckSquare, FaRegSquare } from 'react-icons/fa'; // Import the icons from React Icons
-
-const CheckBox = ({ onCheckedChange, checkBoxColor, label, description, isChecked }) => {
+import {cn} from '../../lib/utils'
+const CheckBox = ({ onCheckedChange, className, label, description, isChecked }) => {
     // State to manage the checked state of the checkbox
     const [checked, setChecked] = useState(isChecked || false);
 
@@ -23,7 +23,7 @@ const CheckBox = ({ onCheckedChange, checkBoxColor, label, description, isChecke
     return (
         <div className='flex flex-row cursor-pointer gap-2'>
             {checked ? (
-                <FaCheckSquare color={checkBoxColor} className={checkBoxColor} onClick={toggleChecked} />
+                <FaCheckSquare className={cn(className)} onClick={toggleChecked} />
             ) : (
                 <FaRegSquare className='text-gray-400' onClick={toggleChecked} />
             )}

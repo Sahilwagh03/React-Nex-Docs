@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import cn, { generateDate, months } from './utils';
+import { generateDate, months } from './utils';
 import dayjs from 'dayjs';
 import { GrFormNext, GrFormPrevious } from "react-icons/gr";
+import { cn } from '../../lib/utils';
 
-const Calendar = ({ onSelect, selected, datePicker, mode = 'single', timer = false, dateTime, handleSetTime,closeCalendar, ...props }) => {
+const Calendar = ({ onSelect, selected, datePicker, mode = 'single', timer = false, dateTime, handleSetTime, ...props }) => {
     const days = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
     const { activeClassName } = props;
     const currentDate = dayjs();
@@ -52,7 +53,6 @@ const Calendar = ({ onSelect, selected, datePicker, mode = 'single', timer = fal
             } else {
                 setEndDate(date);
                 onSelect({ startDate: startDate.toDate().toDateString(), endDate: date.toDate().toDateString() });
-                closeCalendar();
             }
         }
     };
@@ -64,9 +64,6 @@ const Calendar = ({ onSelect, selected, datePicker, mode = 'single', timer = fal
         } else {
             setSelectDate(date);
             onSelect(date.toDate().toDateString());
-            if (!timer || (timer && dateTime)) {
-                closeCalendar(); // Close calendar when a single date is selected and time is also selected
-            }
         }
     };
 
@@ -171,9 +168,9 @@ const CalendarView = ({
     );
 };
 
-const CalendarHeader = ({ today, setToday, months }) => {
+const CalendarHeader = ({ today, setToday, months ,className }) => {
     return (
-        <div className="flex gap-6 items-center w-full justify-between">
+        <div className={cn("flex gap-6 items-center w-full justify-between", className)}>
             <GrFormPrevious
                 className="w-5 h-5 cursor-pointer hover:scale-105 transition-all dark:text-white"
                 onClick={() => setToday(today.month(today.month() - 1))}
@@ -222,7 +219,7 @@ export const Timer = ({ onTimeSelect, isEnable = false, defaultTime ,activeClass
     };
 
     return (
-        <div className={`flex max-h-[300px] flex-col items-center w-fit border-2 dark:border-[#d3d3d314] dark:border-2 rounded-md dark:bg-transparent ${isEnable ? 'border-l-0 rounded-l-[0px] rounded-bl-[0px] dark:border-l-0 dark:rounded-l-[0px] dark:rounded-bl-[0px]' : ''} ${isEnable && 'min-w-[70px]' }`}>
+        <div className={cn(`flex max-h-[300px] flex-col items-center w-fit border-2 dark:border-[#d3d3d314] dark:border-2 rounded-md dark:bg-transparent ${isEnable ? 'border-l-0 rounded-l-[0px] rounded-bl-[0px] dark:border-l-0 dark:rounded-l-[0px] dark:rounded-bl-[0px]' : ''} ${isEnable && 'min-w-[70px]' }`)}>
             <div className='w-full text-center py-2 border-b-[2px] dark:border-b-[#d3d3d314] dark:border-b-2'>
                 <h2 className="font-semibold dark:text-white pr-2">Time</h2>
             </div>

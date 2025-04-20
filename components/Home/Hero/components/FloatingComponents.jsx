@@ -19,7 +19,7 @@ const FloatingComponents = () => {
         console.log(input)
     },[input])
     return (
-        <div className='hidden md:absolute lg:flex w-full h-full md:mt-20'>
+        <div className='hidden md:absolute lg:flex w-full h-full'>
             <div className='absolute right-12 top-10 animate-upDown animation-delay-200'>
                 <Alert
                     type="success"

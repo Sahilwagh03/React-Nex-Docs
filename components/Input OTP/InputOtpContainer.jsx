@@ -1,9 +1,9 @@
 import React from 'react'
-
-const InputOtpContainer = ({children,className}) => {
+import {cn} from '../../lib/utils'
+const InputOtpContainer = ({ children, className }) => {
   return (
-    <div className={`flex flex-row gap-1 cursor-pointer ${className}`}>
-        {children}
+    <div className={cn('flex flex-row gap-1 cursor-pointer', className)}>
+      {children}
     </div>
   )
 }

@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Card, CardHeader, CardDescription, CardBody, CardFooter } from '../../../components/Card/CardComponets'
 import Input from "../../../components/Input/Input";
 import Button from "../../../components/Button/Button";
-import { FaGithub } from 'react-icons/fa';
 import Link from 'next/link';
 
 const Authentication_3 = () => {

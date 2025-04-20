@@ -1,13 +1,13 @@
 import React, { Children, createContext, useContext, useState } from 'react';
 import { BiCheck } from 'react-icons/bi';
-import cn from '../../utils/classmerger/cn';
+import {cn} from '../../lib/utils';
 const StepContextProvider = createContext()
 
-const Step = ({ children }) => {
+const Step = ({ children, className }) => {
   const stepContext = useContext(StepContextProvider);
   const { status, index  } = stepContext;
   return (
-    <div className={`flex items-center flex-shrink-0 ${status === 'active' ? 'text-blue-500' : 'text-gray-500'}`}>
+    <div className={cn('flex items-center flex-shrink-0' , status === 'active' ? 'text-blue-500' : 'text-gray-500' , className)}>
       <div className="flex items-center">
         <div className={cn("h-10 w-10 rounded-full flex items-center justify-center", status !='complete' && 'border-2' )}>
           {status === 'complete' ? <StepIcon /> : <span className='text-black dark:text-white'>{index}</span>}
@@ -22,9 +22,9 @@ const Step = ({ children }) => {
 
 
 // StepIcon Component
-const StepIcon = () => {
+const StepIcon = ({className}) => {
   return (
-    <div className="h-10 w-10 rounded-full flex items-center justify-center bg-green-500 text-white">
+    <div className={cn("h-10 w-10 rounded-full flex items-center justify-center bg-green-500 text-white",className)}>
       <BiCheck className='w-6 h-6'/>
     </div>
   );
@@ -32,20 +32,20 @@ const StepIcon = () => {
 
 
 // StepSeparator Component
-const StepSeparator = () => {
+const StepSeparator = ({className}) => {
   const stepContext = useContext(StepContextProvider);
   const { isLast, orientation ,status } = stepContext;
   if (isLast) return null;
   return (
-    <div className={cn("flex-auto  border-gray-300 flex-shrink-0 ", status=='complete' && 'border-green-400 bg-green-400' , orientation =='vertical' ?  'min-h-[200px] w-[0.125rem] ml-5' : 'h-0 min-w-[150px] border-t-2')}></div>
+    <div className={cn("flex-auto  border-gray-300 flex-shrink-0 ", status=='complete' && 'border-green-400 bg-green-400' , orientation =='vertical' ?  'min-h-[200px] w-[0.125rem] ml-5' : 'h-0 min-w-[150px] border-t-2' , className)}></div>
   );
 };
 
 // StepStatus Component
-const StepStatus = ({ status }) => {
+const StepStatus = ({ status ,className }) => {
   const statusClass = status === 'complete' ? 'text-green-500' : 'text-gray-500';
   return (
-    <div className={`text-sm ${statusClass}`}>
+    <div className={cn(text-sm , statusClass , className)}>
       {status}
     </div>
   );
@@ -53,20 +53,20 @@ const StepStatus = ({ status }) => {
 
 
 // StepTitle Component
-const StepTitle = ({ children }) => {
+const StepTitle = ({ children , className }) => {
   const stepContext = useContext(StepContextProvider);
   const { status } = stepContext;
   return (
-    <div className={`text-xl font-semibold text-black dark:text-white ${status === 'complete' && '!text-green-400'}`}>
+    <div className={cn('text-xl font-semibold text-black dark:text-white' , status === 'complete' && '!text-green-400' ,className)}>
       {children}
     </div>
   );
 };
 
 //StepDescription Component
-const StepDescription = ({children}) =>{
+const StepDescription = ({children,className}) =>{
   return(
-    <p className='text-sm text-gray-400'>{children}</p>
+    <p className={cn('text-sm text-gray-400',className)}>{children}</p>
   )
 }
 

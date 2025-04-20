@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { FiCalendar } from 'react-icons/fi';
 import Calendar from '../Calendar/Calendar';
 import dayjs from 'dayjs';
+import { cn } from '../../lib/utils';
 
-const DatePicker = ({ onSelect, selected, mode = 'single', timer = false, time, setTime ,...props}) => {
+const DatePicker = ({ onSelect, selected, mode = 'single', timer = false, time, setTime, ...props }) => {
     const [calendarOpen, setCalendarOpen] = useState(false);
 
     const toggleCalendar = () => {
@@ -13,7 +14,7 @@ const DatePicker = ({ onSelect, selected, mode = 'single', timer = false, time, 
 
     const getDisplayDate = () => {
         if (mode === 'single') {
-            if(timer){
+            if (timer) {
                 return selected ? `${selected} - ${time}` : "Pick a date"
             }
             return selected ? selected : "Pick a date";
@@ -30,11 +31,6 @@ const DatePicker = ({ onSelect, selected, mode = 'single', timer = false, time, 
         }
     };
 
-
-    const closeCalendar = () => {
-        setCalendarOpen(false);
-    };
-
     const rangeDefault =
     {
         startDate: selected == '' ? null : dayjs(selected?.startDate),
@@ -46,15 +42,14 @@ const DatePicker = ({ onSelect, selected, mode = 'single', timer = false, time, 
             <button
                 className=
                 {
-                    `inline-flex items-center whitespace-nowrap rounded-md text-sm 
+                    cn(`inline-flex items-center whitespace-nowrap rounded-md text-sm 
                     ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 
                     focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none 
-                    disabled:opacity-50 border dark:border-[#27272a] 
-                    ${calendarOpen ? "dark:bg-[#27272a]" : ""} 
-                    hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 
-                    ${mode == 'range' ? 'w-[300px]' : 'w-[260px]'} justify-start text-left font-normal 
-                  dark:hover:bg-[#27272a] dark:hover:text-white dark:text-[#a1a1aa] 
-                   ${selected ? '!text-black dark:!text-white' : ''}`
+                    disabled:opacity-50 border dark:border-[#27272a] justify-start text-left font-normal 
+                  dark:hover:bg-[#27272a] dark:hover:text-white dark:text-[#a1a1aa] hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2`,
+                        calendarOpen ? "dark:bg-[#27272a]" : "",
+                        mode == 'range' ? 'w-[300px]' : 'w-[260px]',
+                        selected ? '!text-black dark:!text-white' : '')
                 }
                 type="button"
                 onClick={toggleCalendar}
@@ -72,7 +67,6 @@ const DatePicker = ({ onSelect, selected, mode = 'single', timer = false, time, 
                                 :
                                 selected == '' ? selected : dayjs(selected)
                         }
-                        closeCalendar={closeCalendar}
                         mode={mode}
                         datePicker
                         timer={timer}
